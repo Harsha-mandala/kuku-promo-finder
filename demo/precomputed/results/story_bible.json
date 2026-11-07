@@ -1,0 +1,61 @@
+{
+  "title_guess": "The Midnight Patent",
+  "premise": "A clockmaker fights to reclaim her invention before the midnight bell destroys the evidence.",
+  "characters": [
+    {
+      "name": "Nera",
+      "aliases": [
+        "NERA"
+      ],
+      "role": "A participant in the stolen-patent conflict.",
+      "relationships": "Connected through the invention and the tower recording.",
+      "confidence": "high",
+      "evidence": "E001_L003"
+    },
+    {
+      "name": "Ivo",
+      "aliases": [
+        "IVO"
+      ],
+      "role": "A participant in the stolen-patent conflict.",
+      "relationships": "Connected through the invention and the tower recording.",
+      "confidence": "high",
+      "evidence": "E001_L005"
+    },
+    {
+      "name": "Sable",
+      "aliases": [
+        "SABLE"
+      ],
+      "role": "A participant in the stolen-patent conflict.",
+      "relationships": "Connected through the invention and the tower recording.",
+      "confidence": "high",
+      "evidence": "E001_L007"
+    },
+    {
+      "name": "Orin",
+      "aliases": [
+        "ORIN"
+      ],
+      "role": "A participant in the stolen-patent conflict.",
+      "relationships": "Connected through the invention and the tower recording.",
+      "confidence": "high",
+      "evidence": "E001_L021"
+    }
+  ],
+  "minor_characters": [],
+  "main_conflicts": [
+    "Ownership of the invention",
+    "The missing inventor and a hidden recording"
+  ],
+  "arcs": [
+    {
+      "episodes": "1-2",
+      "summary": "The patent theft leads to a forbidden tower recording."
+    },
+    {
+      "episodes": "3-4",
+      "summary": "The auction and the bell reveal a larger betrayal."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "provider": "mock",
+  "model": "mock",
+  "requests": 4,
+  "estimated_input_tokens": 5410,
+  "skipped": [],
+  "done": [
+    "E001_C01",
+    "E001_C02",
+    "E001_C03",
+    "E002_C01",
+    "E002_C02",
+    "E002_C03",
+    "E003_C01",
+    "E003_C02",
+    "E003_C03",
+    "E004_C01",
+    "E004_C02"
+  ],
+  "pending": [],
+  "oversized": [],
+  "api_calls": 4,
+  "tokens_in": null,
+  "tokens_out": null,
+  "stopped": null,
+  "not_judged_cap": [],
+  "recovered_from_raw": {},
+  "temperature": 0.0,
+  "reasoning_effort": null,
+  "batches": [
+    [
+      "E001_C01",
+      "E002_C01",
+      "E003_C01"
+    ],
+    [
+      "E004_C01",
+      "E001_C02",
+      "E002_C02"
+    ],
+    [
+      "E003_C02",
+      "E004_C02",
+      "E001_C03"
+    ],
+    [
+      "E002_C03",
+      "E003_C03"
+    ]
+  ],
+  "connection_errors": 0,
+  "usage_missing_attempts": 4
+}

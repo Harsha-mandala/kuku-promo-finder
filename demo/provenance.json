@@ -1,0 +1,11 @@
+{
+  "title": "The Midnight Patent",
+  "fictional": true,
+  "provider": "MockProvider",
+  "live_api_calls": 0,
+  "episodes": 4,
+  "promos": 11,
+  "trailers": 1,
+  "editor_pass": true,
+  "recipe": "python -m demo.build_demo"
+}

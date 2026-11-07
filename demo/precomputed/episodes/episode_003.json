@@ -1,0 +1,656 @@
+{
+  "number": 3,
+  "source_file": "episode_003.txt",
+  "logline": "Nera interrupts the midnight auction with proof of the real inventor, until a buyer names an impossible price.",
+  "continuity_notes": "An original fictional demo about a stolen clockwork invention.",
+  "duration": 96.0,
+  "scenes": [
+    {
+      "number": 1,
+      "heading": "INT. CLOCK TOWER – NIGHT",
+      "start": 0.0,
+      "end": 96.0
+    }
+  ],
+  "lines": [
+    {
+      "id": "E003_L001",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 0.0,
+      "end": 5.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L002",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 0.3,
+      "end": 3.8,
+      "text": "Stop the auction. You are selling stolen work."
+    },
+    {
+      "id": "E003_L003",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 5.0,
+      "end": 10.0,
+      "text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L004",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "SABLE",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 5.3,
+      "end": 8.8,
+      "text": "The buyers already know who built it."
+    },
+    {
+      "id": "E003_L005",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 10.0,
+      "end": 16.0,
+      "text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L006",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "ORIN",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 10.3,
+      "end": 13.8,
+      "text": "The original drawing has a second signature."
+    },
+    {
+      "id": "E003_L007",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 16.0,
+      "end": 22.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L008",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 16.3,
+      "end": 19.8,
+      "text": "Who signed it after my father disappeared?"
+    },
+    {
+      "id": "E003_L009",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 22.0,
+      "end": 30.0,
+      "text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L010",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "SABLE",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 22.3,
+      "end": 25.8,
+      "text": "I will trade the patent for one name."
+    },
+    {
+      "id": "E003_L011",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 30.0,
+      "end": 38.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L012",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 30.3,
+      "end": 33.8,
+      "text": "You cannot buy another person with my invention."
+    },
+    {
+      "id": "E003_L013",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 38.0,
+      "end": 47.0,
+      "text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L014",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "ORIN",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 38.3,
+      "end": 41.8,
+      "text": "The buyer is standing behind that curtain."
+    },
+    {
+      "id": "E003_L015",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 47.0,
+      "end": 56.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L016",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 47.3,
+      "end": 50.8,
+      "text": "Why is my father bidding against me?"
+    },
+    {
+      "id": "E003_L017",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 56.0,
+      "end": 66.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L018",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 56.3,
+      "end": 59.8,
+      "text": "The highest bidder ordered my father killed."
+    },
+    {
+      "id": "E003_L019",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 66.0,
+      "end": 76.0,
+      "text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L020",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "ORIN",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 66.3,
+      "end": 69.8,
+      "text": "The ledger lists tonight as the final payment."
+    },
+    {
+      "id": "E003_L021",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 76.0,
+      "end": 86.0,
+      "text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E003_L022",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "SABLE",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 76.3,
+      "end": 79.8,
+      "text": "The buyer has just raised a second paddle."
+    },
+    {
+      "id": "E003_L023",
+      "episode": 3,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 86.0,
+      "end": 96.0,
+      "text": "Hold on Nera as she turns toward the locked door, still waiting for an answer."
+    },
+    {
+      "id": "E003_L024",
+      "episode": 3,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 86.3,
+      "end": 89.8,
+      "text": "Whose life are you auctioning next?"
+    },
+    {
+      "id": "E003_L025",
+      "episode": 3,
+      "scene": 1,
+      "type": "sound",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 94.8,
+      "end": 96.0,
+      "text": "The tower bell begins a single unfinished note."
+    }
+  ],
+  "shots": [
+    {
+      "id": "E003_S001",
+      "index": 1,
+      "episode": 3,
+      "scene": 1,
+      "start": 0.0,
+      "end": 5.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L002",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 0.3,
+          "end": 3.8,
+          "text": "Stop the auction. You are selling stolen work."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 0.0,
+      "effective_end": 5.0
+    },
+    {
+      "id": "E003_S002",
+      "index": 2,
+      "episode": 3,
+      "scene": 1,
+      "start": 5.0,
+      "end": 10.0,
+      "camera_text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L004",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "SABLE",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 5.3,
+          "end": 8.8,
+          "text": "The buyers already know who built it."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 5.0,
+      "effective_end": 10.0
+    },
+    {
+      "id": "E003_S003",
+      "index": 3,
+      "episode": 3,
+      "scene": 1,
+      "start": 10.0,
+      "end": 16.0,
+      "camera_text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L006",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "ORIN",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 10.3,
+          "end": 13.8,
+          "text": "The original drawing has a second signature."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 10.0,
+      "effective_end": 16.0
+    },
+    {
+      "id": "E003_S004",
+      "index": 4,
+      "episode": 3,
+      "scene": 1,
+      "start": 16.0,
+      "end": 22.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L008",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 16.3,
+          "end": 19.8,
+          "text": "Who signed it after my father disappeared?"
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 16.0,
+      "effective_end": 22.0
+    },
+    {
+      "id": "E003_S005",
+      "index": 5,
+      "episode": 3,
+      "scene": 1,
+      "start": 22.0,
+      "end": 30.0,
+      "camera_text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L010",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "SABLE",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 22.3,
+          "end": 25.8,
+          "text": "I will trade the patent for one name."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 22.0,
+      "effective_end": 30.0
+    },
+    {
+      "id": "E003_S006",
+      "index": 6,
+      "episode": 3,
+      "scene": 1,
+      "start": 30.0,
+      "end": 38.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L012",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 30.3,
+          "end": 33.8,
+          "text": "You cannot buy another person with my invention."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 30.0,
+      "effective_end": 38.0
+    },
+    {
+      "id": "E003_S007",
+      "index": 7,
+      "episode": 3,
+      "scene": 1,
+      "start": 38.0,
+      "end": 47.0,
+      "camera_text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L014",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "ORIN",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 38.3,
+          "end": 41.8,
+          "text": "The buyer is standing behind that curtain."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 38.0,
+      "effective_end": 47.0
+    },
+    {
+      "id": "E003_S008",
+      "index": 8,
+      "episode": 3,
+      "scene": 1,
+      "start": 47.0,
+      "end": 56.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L016",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 47.3,
+          "end": 50.8,
+          "text": "Why is my father bidding against me?"
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 47.0,
+      "effective_end": 56.0
+    },
+    {
+      "id": "E003_S009",
+      "index": 9,
+      "episode": 3,
+      "scene": 1,
+      "start": 56.0,
+      "end": 66.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L018",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 56.3,
+          "end": 59.8,
+          "text": "The highest bidder ordered my father killed."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 56.0,
+      "effective_end": 66.0
+    },
+    {
+      "id": "E003_S010",
+      "index": 10,
+      "episode": 3,
+      "scene": 1,
+      "start": 66.0,
+      "end": 76.0,
+      "camera_text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L020",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "ORIN",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 66.3,
+          "end": 69.8,
+          "text": "The ledger lists tonight as the final payment."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 66.0,
+      "effective_end": 76.0
+    },
+    {
+      "id": "E003_S011",
+      "index": 11,
+      "episode": 3,
+      "scene": 1,
+      "start": 76.0,
+      "end": 86.0,
+      "camera_text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E003_L022",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "SABLE",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 76.3,
+          "end": 79.8,
+          "text": "The buyer has just raised a second paddle."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 76.0,
+      "effective_end": 86.0
+    },
+    {
+      "id": "E003_S012",
+      "index": 12,
+      "episode": 3,
+      "scene": 1,
+      "start": 86.0,
+      "end": 96.0,
+      "camera_text": "Hold on Nera as she turns toward the locked door, still waiting for an answer.",
+      "lines": [
+        {
+          "id": "E003_L024",
+          "episode": 3,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 86.3,
+          "end": 89.8,
+          "text": "Whose life are you auctioning next?"
+        },
+        {
+          "id": "E003_L025",
+          "episode": 3,
+          "scene": 1,
+          "type": "sound",
+          "speaker": null,
+          "emotion": null,
+          "off_screen": false,
+          "start": 94.8,
+          "end": 96.0,
+          "text": "The tower bell begins a single unfinished note."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 86.0,
+      "effective_end": 96.0
+    }
+  ],
+  "warnings": []
+}

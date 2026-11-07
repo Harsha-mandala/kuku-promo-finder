@@ -1,0 +1,481 @@
+{"time": "2026-11-06T09:10:07.001154+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T09:10:07.001154+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T09:10:07.001154+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T09:10:07.001154+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T09:10:07.001154+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T09:10:07.001154+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T09:10:07.033070+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T09:10:07.033070+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T09:10:07.033070+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T09:10:07.056709+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T09:10:07.056709+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T09:10:07.060794+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T09:10:07.060794+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T09:10:07.074558+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T09:10:07.176575+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T09:10:07.198433+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T09:10:07.198433+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T09:10:07.224066+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 8}
+{"time": "2026-11-06T09:10:07.224066+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 8}
+{"time": "2026-11-06T09:10:07.224066+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 8}
+{"time": "2026-11-06T09:10:07.224066+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 8}
+{"time": "2026-11-06T09:10:07.224066+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 8}
+{"time": "2026-11-06T09:10:07.224066+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 8}
+{"time": "2026-11-06T09:10:07.239718+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 8, "total": 8}
+{"time": "2026-11-06T09:10:07.239718+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 8, "total": 8}
+{"time": "2026-11-06T09:10:07.257122+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T09:10:07.257122+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T09:10:07.320615+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T09:10:42.646071+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T09:10:42.655824+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T09:10:42.659821+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T09:10:42.661834+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T09:10:42.661834+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T09:10:42.664586+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T09:10:42.667491+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T09:10:42.677697+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T09:10:42.678302+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T09:10:42.689889+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T09:10:42.691903+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T09:10:42.693917+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T09:10:42.695928+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T09:10:42.717883+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T09:10:42.929145+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T09:10:42.935752+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T09:10:42.935752+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T09:10:43.077466+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T09:10:43.077466+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T09:10:43.078529+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T09:10:43.086429+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T09:10:43.086429+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T09:10:43.086429+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T09:10:43.094843+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T09:10:43.096067+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T09:10:43.096067+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T09:10:43.102118+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T09:10:43.102118+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T09:10:43.119852+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T09:10:43.144624+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T09:10:43.193701+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T09:36:45.938223+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T09:36:45.944274+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T09:36:45.950502+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T09:36:45.950502+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T09:36:45.957241+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T09:36:45.959262+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T09:36:45.961799+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T09:36:45.969628+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T09:36:45.969628+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T09:36:45.979476+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T09:36:45.979476+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T09:36:45.981487+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T09:36:45.982764+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T09:36:45.997811+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T09:36:46.187472+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T09:36:46.201371+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T09:36:46.201371+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T09:36:46.292392+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T09:36:46.292392+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T09:36:46.292392+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T09:36:46.317748+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T09:36:46.317748+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T09:36:46.317748+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T09:36:46.327843+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T09:36:46.327843+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T09:36:46.329855+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T09:36:46.344196+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T09:36:46.344196+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T09:36:46.362384+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T09:36:46.380803+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T09:36:46.409004+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T10:07:24.708037+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T10:07:24.708037+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T10:07:24.717305+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T10:07:24.719326+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T10:07:24.719326+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T10:07:24.721343+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T10:07:24.723358+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T10:07:24.733033+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T10:07:24.733033+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T10:07:24.741301+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T10:07:24.741301+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T10:07:24.741301+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T10:07:24.741301+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T10:07:24.741301+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T10:07:24.921050+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T10:07:24.937848+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T10:07:24.937848+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T10:07:24.964231+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T10:07:24.964231+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T10:07:24.964231+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T10:07:24.972077+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T10:07:24.972077+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T10:07:24.973078+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T10:07:24.975425+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T10:07:24.975425+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T10:07:24.975425+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T10:07:24.991372+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T10:07:24.991372+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T10:07:25.006427+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T10:07:25.008111+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T10:07:25.008111+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T10:11:56.185044+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T10:11:56.189585+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T10:11:56.195433+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T10:11:56.196449+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T10:11:56.198432+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T10:11:56.199456+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T10:11:56.201435+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T10:11:56.209721+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T10:11:56.211042+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T10:11:56.224578+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T10:11:56.224578+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T10:11:56.226441+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T10:11:56.228997+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T10:11:56.332287+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T10:11:56.443449+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T10:11:56.472207+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T10:11:56.473204+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T10:11:56.509997+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T10:11:56.509997+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T10:11:56.509997+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T10:11:56.509997+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T10:11:56.509997+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T10:11:56.509997+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T10:11:56.532431+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T10:11:56.532431+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T10:11:56.532431+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T10:11:56.538410+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T10:11:56.539403+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T10:11:56.564654+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T10:11:56.570133+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T10:11:56.591842+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T10:42:53.317943+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T10:42:53.322788+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T10:42:53.322788+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T10:42:53.337280+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T10:42:53.345562+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T10:42:53.352931+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T10:42:53.372029+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T10:42:53.377983+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T10:42:53.378898+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T10:42:53.388749+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T10:42:53.388749+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T10:42:53.388749+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T10:42:53.393808+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T10:42:53.417771+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T10:42:53.583689+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T10:42:53.610034+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T10:42:53.611033+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T10:42:53.728022+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T10:42:53.728022+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T10:42:53.728022+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T10:42:53.736715+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T10:42:53.736715+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T10:42:53.737142+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T10:42:53.741607+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T10:42:53.742606+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T10:42:53.742606+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T10:42:53.746776+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T10:42:53.746776+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T10:42:53.776128+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T10:42:53.803935+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T10:42:53.870573+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T10:42:53.871973+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-06T10:42:53.973760+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-06T10:42:53.973760+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-06T10:42:54.086925+00:00", "stage": "editor", "state": "complete"}
+{"time": "2026-11-06T10:46:48.790514+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T10:46:48.796068+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T10:46:48.804815+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T10:46:48.806820+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T10:46:48.808869+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T10:46:48.810937+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T10:46:48.814120+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T10:46:48.824998+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T10:46:48.825993+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T10:46:48.838021+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T10:46:48.840040+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T10:46:48.841044+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T10:46:48.844178+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T10:46:48.863304+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T10:46:48.976787+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T10:46:48.980798+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T10:46:48.980798+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T10:46:49.054300+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T10:46:49.054300+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T10:46:49.054300+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T10:46:49.070827+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T10:46:49.070827+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T10:46:49.070827+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T10:46:49.075179+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T10:46:49.075179+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T10:46:49.075179+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T10:46:49.082966+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T10:46:49.082966+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T10:46:49.117461+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T10:46:49.123099+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T10:46:49.148165+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T10:46:49.148165+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-06T10:46:49.269376+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-06T10:46:49.270929+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-06T10:46:49.347412+00:00", "stage": "editor", "state": "complete"}
+{"time": "2026-11-06T10:51:07.005469+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T10:51:07.009475+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T10:51:07.010472+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T10:51:07.011480+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T10:51:07.011864+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T10:51:07.013171+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T10:51:07.015225+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T10:51:07.023255+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T10:51:07.023255+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T10:51:07.029313+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T10:51:07.031323+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T10:51:07.031323+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T10:51:07.031323+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T10:51:07.044093+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T10:51:07.153110+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T10:51:07.176774+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T10:51:07.176774+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T10:51:07.186545+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T10:51:07.186545+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T10:51:07.186545+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T10:51:07.205527+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T10:51:07.205527+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T10:51:07.206533+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T10:51:07.211935+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T10:51:07.211935+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T10:51:07.213017+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T10:51:07.218029+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T10:51:07.218029+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T10:51:07.241066+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T10:51:07.244200+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T10:51:07.262180+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T10:51:07.262180+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-06T10:51:07.372689+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-06T10:51:07.373664+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-06T10:51:07.449114+00:00", "stage": "editor", "state": "complete"}
+{"time": "2026-11-06T10:53:23.020782+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T10:53:23.020782+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T10:53:23.020782+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T10:53:23.020782+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T10:53:23.020782+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T10:53:23.020782+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T10:53:23.038827+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T10:53:23.045707+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T10:53:23.046241+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T10:53:23.054597+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T10:53:23.054597+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T10:53:23.054597+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T10:53:23.059121+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T10:53:23.079424+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T10:53:23.186924+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T10:53:23.188575+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T10:53:23.188575+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T10:53:23.245098+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T10:53:23.246596+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T10:53:23.246596+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T10:53:23.255118+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T10:53:23.255118+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T10:53:23.255118+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T10:53:23.255118+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T10:53:23.255118+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T10:53:23.255118+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T10:53:23.271888+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T10:53:23.271888+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T10:53:23.287067+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T10:53:23.287067+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T10:53:23.306682+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T10:53:23.306682+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-06T10:53:23.381456+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-06T10:53:23.381456+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-06T10:53:23.407175+00:00", "stage": "editor", "state": "complete"}
+{"time": "2026-11-06T10:55:03.681460+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T10:55:03.685460+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T10:55:03.686398+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T10:55:03.686398+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T10:55:03.686398+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T10:55:03.686398+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T10:55:03.686398+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T10:55:03.698496+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T10:55:03.700505+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T10:55:03.709356+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T10:55:03.709356+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T10:55:03.711358+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T10:55:03.713715+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T10:55:03.740144+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T10:55:03.928940+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T10:55:03.939906+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T10:55:03.939906+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T10:55:03.983039+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T10:55:03.984040+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T10:55:03.985039+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T10:55:04.004545+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T10:55:04.005539+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T10:55:04.006541+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T10:55:04.019674+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T10:55:04.019674+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T10:55:04.019674+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T10:55:04.019674+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T10:55:04.035147+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T10:55:04.057628+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T10:55:04.059645+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T10:55:04.094688+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T10:55:04.094688+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-06T10:55:04.213707+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-06T10:55:04.214471+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-06T10:55:04.263213+00:00", "stage": "editor", "state": "complete"}
+{"time": "2026-11-06T11:03:11.918573+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T11:03:11.921390+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T11:03:11.921390+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T11:03:11.929183+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T11:03:11.929183+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T11:03:11.929183+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T11:03:11.943628+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T11:03:11.955059+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T11:03:11.955059+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T11:03:11.955059+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T11:03:11.955059+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T11:03:11.955059+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T11:03:11.955059+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T11:03:11.980073+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T11:03:12.087033+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T11:03:12.088379+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T11:03:12.088379+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T11:03:12.143564+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T11:03:12.143564+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T11:03:12.144562+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T11:03:12.156165+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T11:03:12.156165+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T11:03:12.156165+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T11:03:12.168772+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T11:03:12.170793+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T11:03:12.170793+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T11:03:12.176817+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T11:03:12.176817+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T11:03:12.188641+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T11:03:12.193201+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T11:03:12.207148+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T11:03:12.208151+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-06T11:03:12.340196+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-06T11:03:12.341249+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-06T11:03:12.421290+00:00", "stage": "editor", "state": "complete"}
+{"time": "2026-11-06T11:10:50.360949+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T11:10:50.361596+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T11:10:50.370511+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T11:10:50.371601+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T11:10:50.372601+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T11:10:50.373593+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T11:10:50.374588+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T11:10:50.382239+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T11:10:50.382239+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T11:10:50.389873+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T11:10:50.391893+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T11:10:50.391893+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T11:10:50.394947+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T11:10:50.419592+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T11:12:24.387635+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T11:12:24.387635+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T11:12:24.421167+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T11:12:24.454375+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T11:12:24.487829+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T11:12:24.515462+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T11:12:24.517404+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T11:12:24.521085+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T11:12:24.521085+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T11:12:24.547702+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T11:12:24.548687+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T11:12:24.550676+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T11:12:24.552688+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T11:12:24.575419+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T11:12:24.677406+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T11:12:24.688459+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T11:12:24.688459+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T11:12:24.720853+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T11:12:24.720853+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T11:12:24.720853+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T11:12:24.740358+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T11:12:24.740358+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T11:12:24.741370+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T11:12:24.744372+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T11:12:24.744372+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T11:12:24.745369+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T11:12:24.749779+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T11:12:24.749779+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T11:12:24.757683+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T11:12:24.760443+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T11:12:24.771350+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T11:12:24.771350+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-06T11:12:24.879706+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-06T11:12:24.880921+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-06T11:12:24.969232+00:00", "stage": "editor", "state": "complete"}
+{"time": "2026-11-06T11:19:44.187379+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-06T11:19:44.193057+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-06T11:19:44.193057+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-06T11:19:44.193057+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-06T11:19:44.193057+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-06T11:19:44.197449+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-06T11:19:44.197449+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-06T11:19:44.197449+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-06T11:19:44.197449+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-06T11:19:44.217209+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-06T11:19:44.220066+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-06T11:19:44.221065+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-06T11:19:44.223407+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-06T11:19:44.251863+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-06T11:19:44.348496+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-06T11:19:44.358138+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-06T11:19:44.359138+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-06T11:19:44.385137+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-06T11:19:44.385137+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-06T11:19:44.386203+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-06T11:19:44.393118+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-06T11:19:44.393118+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-06T11:19:44.395128+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-06T11:19:44.400514+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-06T11:19:44.400514+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-06T11:19:44.400514+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-06T11:19:44.400514+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-06T11:19:44.400514+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-06T11:19:44.418662+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-06T11:19:44.422866+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-06T11:19:44.426513+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-06T11:19:44.426513+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-06T11:19:44.526287+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-06T11:19:44.526287+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-06T11:19:44.590560+00:00", "stage": "editor", "state": "complete"}
+{"time": "2026-11-07T09:47:16.932705+00:00", "stage": "parse", "state": "running"}
+{"time": "2026-11-07T09:47:16.936359+00:00", "stage": "parse", "state": "progress", "episode": 1, "total": 4}
+{"time": "2026-11-07T09:47:16.936359+00:00", "stage": "parse", "state": "progress", "episode": 2, "total": 4}
+{"time": "2026-11-07T09:47:16.945276+00:00", "stage": "parse", "state": "progress", "episode": 3, "total": 4}
+{"time": "2026-11-07T09:47:16.946347+00:00", "stage": "parse", "state": "progress", "episode": 4, "total": 4}
+{"time": "2026-11-07T09:47:16.948171+00:00", "stage": "parse", "state": "complete", "episodes": 4}
+{"time": "2026-11-07T09:47:16.956079+00:00", "stage": "bible", "state": "running"}
+{"time": "2026-11-07T09:47:16.976422+00:00", "stage": "bible", "state": "complete"}
+{"time": "2026-11-07T09:47:16.976422+00:00", "stage": "candidates", "state": "running"}
+{"time": "2026-11-07T09:47:16.986166+00:00", "stage": "candidates", "state": "progress", "episode": 1, "done": 1, "total": 4}
+{"time": "2026-11-07T09:47:16.986166+00:00", "stage": "candidates", "state": "progress", "episode": 2, "done": 2, "total": 4}
+{"time": "2026-11-07T09:47:16.986166+00:00", "stage": "candidates", "state": "progress", "episode": 3, "done": 3, "total": 4}
+{"time": "2026-11-07T09:47:16.992488+00:00", "stage": "candidates", "state": "progress", "episode": 4, "done": 4, "total": 4}
+{"time": "2026-11-07T09:47:17.000997+00:00", "stage": "candidates", "state": "complete", "done": 4, "total": 4}
+{"time": "2026-11-07T09:47:17.146150+00:00", "stage": "validate", "state": "running"}
+{"time": "2026-11-07T09:47:17.163544+00:00", "stage": "validate", "state": "complete"}
+{"time": "2026-11-07T09:47:17.166447+00:00", "stage": "judge", "state": "running"}
+{"time": "2026-11-07T09:47:17.266387+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 3, "total": 11}
+{"time": "2026-11-07T09:47:17.266387+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 3, "total": 11}
+{"time": "2026-11-07T09:47:17.268460+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 3, "total": 11}
+{"time": "2026-11-07T09:47:17.284295+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 6, "total": 11}
+{"time": "2026-11-07T09:47:17.286322+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 6, "total": 11}
+{"time": "2026-11-07T09:47:17.286322+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 6, "total": 11}
+{"time": "2026-11-07T09:47:17.304159+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 9, "total": 11}
+{"time": "2026-11-07T09:47:17.304159+00:00", "stage": "judge", "state": "progress", "episode": 4, "done": 9, "total": 11}
+{"time": "2026-11-07T09:47:17.305679+00:00", "stage": "judge", "state": "progress", "episode": 1, "done": 9, "total": 11}
+{"time": "2026-11-07T09:47:17.318598+00:00", "stage": "judge", "state": "progress", "episode": 2, "done": 11, "total": 11}
+{"time": "2026-11-07T09:47:17.318598+00:00", "stage": "judge", "state": "progress", "episode": 3, "done": 11, "total": 11}
+{"time": "2026-11-07T09:47:17.390157+00:00", "stage": "judge", "state": "complete", "pending": 0, "reason": null}
+{"time": "2026-11-07T09:47:17.420550+00:00", "stage": "rank", "state": "running"}
+{"time": "2026-11-07T09:47:17.481104+00:00", "stage": "rank", "state": "complete"}
+{"time": "2026-11-07T09:47:17.481104+00:00", "stage": "trailers", "state": "running"}
+{"time": "2026-11-07T09:47:17.586196+00:00", "stage": "trailers", "state": "complete"}
+{"time": "2026-11-07T09:47:17.586196+00:00", "stage": "editor", "state": "running"}
+{"time": "2026-11-07T09:47:17.672853+00:00", "stage": "editor", "state": "complete"}

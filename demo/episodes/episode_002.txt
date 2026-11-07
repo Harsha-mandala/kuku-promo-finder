@@ -1,0 +1,114 @@
+EPISODE NUMBER: Episode 2
+EPISODE LOGLINE: A stolen tower key leads Nera to a recording, where her closest ally admits sending the warning.
+CONTINUITY NOTES: An original fictional demo about a stolen clockwork invention.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. CLOCK TOWER – NIGHT
+Scene start: 00:00.00
+Scene end: 01:50.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:12.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (00:00.30) | End: (00:03.80)
+"That key opens the tower—or your grave."
+
+**CAMERA:**
+Start: (00:12.00) | End: (00:24.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:12.30) | End: (00:15.80)
+"Someone recorded the night my father vanished."
+
+**CAMERA:**
+Start: (00:24.00) | End: (00:36.00)
+Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.
+
+**IVO (Urgent):**
+Start: (00:24.30) | End: (00:27.80)
+"A voice can be copied. A debt cannot."
+
+**CAMERA:**
+Start: (00:36.00) | End: (00:48.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:36.30) | End: (00:39.80)
+"Then why does the recording say your name?"
+
+**CAMERA:**
+Start: (00:48.00) | End: (00:55.00)
+Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.
+
+**IVO (Urgent):**
+Start: (00:48.30) | End: (00:51.80)
+"Give me the key, or the tower burns."
+
+**CAMERA:**
+Start: (00:55.00) | End: (01:02.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (00:55.30) | End: (00:58.80)
+"I sent the warning. I could not let you go alone."
+
+**CAMERA:**
+Start: (01:02.00) | End: (01:09.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (01:02.30) | End: (01:05.80)
+"You knew where he was all this time."
+
+**CAMERA:**
+Start: (01:09.00) | End: (01:16.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (01:09.30) | End: (01:12.80)
+"What if he never wanted you to find him?"
+
+**CAMERA:**
+Start: (01:16.00) | End: (01:24.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (01:16.30) | End: (01:19.80)
+"You imprisoned him inside his own invention."
+
+**CAMERA:**
+Start: (01:24.00) | End: (01:32.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (01:24.30) | End: (01:27.80)
+"The mechanism responds only to his voice."
+
+**CAMERA:**
+Start: (01:32.00) | End: (01:41.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (01:32.30) | End: (01:35.80)
+"That knock came from beneath the floor."
+
+**CAMERA:**
+Start: (01:41.00) | End: (01:50.00)
+Hold on Nera as she turns toward the locked door, still waiting for an answer.
+
+**NERA (Urgent):**
+Start: (01:41.30) | End: (01:44.80)
+"Father, can you hear me through the machine?"
+
+**SOUND FX:**
+Start: (01:48.80) | End: (01:50.00)
+The tower bell begins a single unfinished note.
+
+--- SCRIPT END ---

@@ -1,0 +1,3 @@
+failure_id,kind,episode,promo_id,gold_span,tool_span,detail,my_reason
+safety_E001_C01,caution,1,E001_C01,,"(0.0, 30.0)",Scripted slap at E001_L002.,
+safety_E002_C02,caution,2,E002_C02,,"(48.0, 76.0)",A spoken threat of fire.,

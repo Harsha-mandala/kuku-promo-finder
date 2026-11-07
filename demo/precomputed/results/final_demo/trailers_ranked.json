@@ -1,0 +1,65 @@
+[
+  {
+    "rank": 1,
+    "promo_id": "T001",
+    "episode": 1,
+    "segments": [
+      {
+        "episode": 1,
+        "start_shot_id": "E001_S001",
+        "end_shot_id": "E001_S003",
+        "start": 0.0,
+        "end": 23.0,
+        "clean_start": true,
+        "clean_end": true
+      },
+      {
+        "episode": 3,
+        "start_shot_id": "E003_S003",
+        "end_shot_id": "E003_S004",
+        "start": 10.0,
+        "end": 22.0,
+        "clean_start": true,
+        "clean_end": true
+      }
+    ],
+    "segment_text": "E01 00:00.00–00:23.00 → E03 00:10.00–00:22.00",
+    "duration_s": 35.0,
+    "hook_text": "Nera slaps Ivo across the cheek, stopping the public unveiling.",
+    "cliffhanger_text": "Who signed it after my father disappeared?",
+    "generator_note": "An explosive public theft accusation leads to an unanswered question about the true inventor.",
+    "hook_score": 5,
+    "cliffhanger_score": 5,
+    "standalone_score": 4,
+    "emotion_score": 4,
+    "post_priority": 9,
+    "ad_safety": "caution",
+    "ad_safety_reason": "Scripted slap at E001_L002.",
+    "weakest_point": "The auction jump needs a clear visual cut.",
+    "one_line_pitch": "A stolen invention has a second author.",
+    "why_it_works": "The slap stops the unveiling; the second signature opens a new mystery.",
+    "ad_safety_verified": true,
+    "coherence": 4,
+    "normalized_scores": {
+      "hook": 1.0,
+      "cliffhanger": 1.0,
+      "standalone": 0.75,
+      "emotion": 0.75,
+      "post_priority": 0.8888888888888888
+    },
+    "ad_safety_display": "caution",
+    "formula_note": "post_priority formula",
+    "judge_part": 0.902778,
+    "rule_part": 1.0,
+    "early_episode_bonus": 1.0,
+    "penalty": 0.03,
+    "final_score": 0.967222,
+    "status": "ok",
+    "fix_log": [],
+    "why_post_first": "Strongest dimensions: hook 5/5, cliffhanger 5/5. A stolen invention has a second author.",
+    "score_adj": 0.967222,
+    "type": "trailer",
+    "story": "A stolen invention leads Nera to a second signature tied to her missing father.",
+    "spoiler_risk": "low"
+  }
+]

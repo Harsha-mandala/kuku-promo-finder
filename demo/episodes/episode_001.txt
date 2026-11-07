@@ -1,0 +1,118 @@
+EPISODE NUMBER: Episode 1
+EPISODE LOGLINE: Clockmaker Nera exposes the theft of her invention during a public unveiling, but the patent names someone else.
+CONTINUITY NOTES: An original fictional demo about a stolen clockwork invention.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. CLOCK TOWER – NIGHT
+Scene start: 00:00.00
+Scene end: 01:40.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:07.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**ACTION:**
+Start: (00:00.10) | End: (00:02.00)
+Nera slaps Ivo across the cheek, stopping the public unveiling.
+
+**NERA (Urgent):**
+Start: (00:00.30) | End: (00:03.80)
+"That machine is mine. You stole every drawing."
+
+**CAMERA:**
+Start: (00:07.00) | End: (00:15.00)
+Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.
+
+**IVO (Urgent):**
+Start: (00:07.30) | End: (00:10.80)
+"Your signature was never on the patent."
+
+**CAMERA:**
+Start: (00:15.00) | End: (00:23.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (00:15.30) | End: (00:18.80)
+"The board bought your silence, not your loyalty."
+
+**CAMERA:**
+Start: (00:23.00) | End: (00:30.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:23.30) | End: (00:26.80)
+"Then whose name did you put on it?"
+
+**CAMERA:**
+Start: (00:30.00) | End: (00:36.00)
+Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.
+
+**IVO (Urgent):**
+Start: (00:30.30) | End: (00:33.80)
+"Your father signed the transfer himself."
+
+**CAMERA:**
+Start: (00:36.00) | End: (00:44.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:36.30) | End: (00:39.80)
+"He was missing before the machine was finished."
+
+**CAMERA:**
+Start: (00:44.00) | End: (00:53.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (00:44.30) | End: (00:47.80)
+"Open the sealed envelope if you want the truth."
+
+**CAMERA:**
+Start: (00:53.00) | End: (01:02.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:53.30) | End: (00:56.80)
+"Why is there a photograph of me inside?"
+
+**CAMERA:**
+Start: (01:02.00) | End: (01:12.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (01:02.30) | End: (01:05.80)
+"You sold my identity along with the machine."
+
+**CAMERA:**
+Start: (01:12.00) | End: (01:20.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (01:12.30) | End: (01:15.80)
+"The workshop seal was broken from inside."
+
+**CAMERA:**
+Start: (01:20.00) | End: (01:30.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (01:20.30) | End: (01:23.80)
+"Your portrait appears on every forged patent."
+
+**CAMERA:**
+Start: (01:30.00) | End: (01:40.00)
+Hold on Nera as she turns toward the locked door, still waiting for an answer.
+
+**NERA (Urgent):**
+Start: (01:30.30) | End: (01:33.80)
+"Who has been signing my name?"
+
+**SOUND FX:**
+Start: (01:38.80) | End: (01:40.00)
+The tower bell begins a single unfinished note.
+
+--- SCRIPT END ---

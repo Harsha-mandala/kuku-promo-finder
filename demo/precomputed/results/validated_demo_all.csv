@@ -1,0 +1,12 @@
+episode,id,status,start_shot_id,end_shot_id,final_span,duration_s,hook_text,cliffhanger_text,fix_log,why_it_works,self_score
+1,E001_C01,ok,E001_S001,E001_S004,"(0.0, 30.0)",30.0,"Nera slaps Ivo across the cheek, stopping the public unveiling.",Then whose name did you put on it?,,Generator draft: conflict opens and a question remains.,5
+1,E001_C02,ok,E001_S005,E001_S008,"(30.0, 62.0)",32.0,Your father signed the transfer himself.,Why is there a photograph of me inside?,,Generator draft: conflict opens and a question remains.,4
+1,E001_C03,ok,E001_S009,E001_S012,"(62.0, 100.0)",38.0,You sold my identity along with the machine.,Who has been signing my name?,,Generator draft: conflict opens and a question remains.,4
+2,E002_C01,ok,E002_S001,E002_S004,"(0.0, 48.0)",48.0,That key opens the tower—or your grave.,Then why does the recording say your name?,,Generator draft: conflict opens and a question remains.,5
+2,E002_C02,ok,E002_S005,E002_S008,"(48.0, 76.0)",28.0,"Give me the key, or the tower burns.",What if he never wanted you to find him?,,Generator draft: conflict opens and a question remains.,4
+2,E002_C03,ok,E002_S009,E002_S012,"(76.0, 110.0)",34.0,You imprisoned him inside his own invention.,"Father, can you hear me through the machine?",,Generator draft: conflict opens and a question remains.,4
+3,E003_C01,ok,E003_S001,E003_S004,"(0.0, 22.0)",22.0,Stop the auction. You are selling stolen work.,Who signed it after my father disappeared?,,Generator draft: conflict opens and a question remains.,5
+3,E003_C02,ok,E003_S005,E003_S008,"(22.0, 56.0)",34.0,I will trade the patent for one name.,Why is my father bidding against me?,,Generator draft: conflict opens and a question remains.,4
+3,E003_C03,ok,E003_S009,E003_S012,"(56.0, 96.0)",40.0,The highest bidder ordered my father killed.,Whose life are you auctioning next?,,Generator draft: conflict opens and a question remains.,4
+4,E004_C01,ok,E004_S001,E004_S004,"(0.0, 40.0)",40.0,That voice on the recording is yours.,Then which of you ordered it to ring?,,Generator draft: conflict opens and a question remains.,5
+4,E004_C02,fixed,E004_S009,E004_S012,"(80.0, 120.0)",40.0,You erased my mother from the recording.,"Mother, why are you holding the key?",start moved to hook shot,Generator draft: conflict opens and a question remains.,4

@@ -1,0 +1,1423 @@
+{
+  "tag": "demo",
+  "api_calls_made": 0,
+  "seed": 20261106,
+  "bootstrap_samples": 2000,
+  "gold": {
+    "rows_found": 4,
+    "rows_valid": 4,
+    "valid_episodes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "evaluated_episodes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "evaluated_rows": 4,
+    "pending_episodes": [],
+    "health_only": false
+  },
+  "systems": {
+    "random": {
+      "0.5": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 0.9125,
+        "mean_start_error_s": 8.455,
+        "start_within_3s_share": 0.3258333333333333,
+        "n_matched_pairs": 3.65,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 0.45,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0.69,
+            "matched_gold": 0.96,
+            "n_gold": 1,
+            "recall_at_3": 0.96,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0.43,
+            "matched_gold": 0.77,
+            "n_gold": 1,
+            "recall_at_3": 0.77,
+            "n_candidates": 2
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0.43,
+            "matched_gold": 0.92,
+            "n_gold": 1,
+            "recall_at_3": 0.92,
+            "n_candidates": 3
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.43,
+            0.625
+          ],
+          "recall_at_3": [
+            0.8175,
+            0.98
+          ]
+        },
+        "seed_sd": {
+          "hit_at_1": 0.23717082451262844,
+          "recall_at_3": 0.1386317063301177,
+          "mean_start_error_s": 4.433872460953292,
+          "start_within_3s_share": 0.2638115383711974
+        },
+        "n_seeds": 100
+      },
+      "0.3": {
+        "threshold": 0.3,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.505,
+        "recall_at_3": 0.925,
+        "mean_start_error_s": 8.6825,
+        "start_within_3s_share": 0.31666666666666665,
+        "n_matched_pairs": 3.7,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 0.45,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0.69,
+            "matched_gold": 0.97,
+            "n_gold": 1,
+            "recall_at_3": 0.97,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0.43,
+            "matched_gold": 0.77,
+            "n_gold": 1,
+            "recall_at_3": 0.77,
+            "n_candidates": 2
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0.45,
+            "matched_gold": 0.96,
+            "n_gold": 1,
+            "recall_at_3": 0.96,
+            "n_candidates": 3
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.435,
+            0.63
+          ],
+          "recall_at_3": [
+            0.82,
+            0.99
+          ]
+        },
+        "seed_sd": {
+          "hit_at_1": 0.23711811402758753,
+          "recall_at_3": 0.125,
+          "mean_start_error_s": 4.297539590018663,
+          "start_within_3s_share": 0.25331140255951107
+        },
+        "n_seeds": 100
+      }
+    },
+    "rules_only": {
+      "0.5": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 0.75,
+        "mean_start_error_s": 4.0,
+        "start_within_3s_share": 0.6666666666666666,
+        "n_matched_pairs": 3,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0,
+            "matched_gold": 0,
+            "n_gold": 1,
+            "recall_at_3": 0.0,
+            "n_candidates": 2
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            0.25,
+            1.0
+          ]
+        }
+      },
+      "0.3": {
+        "threshold": 0.3,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 0.75,
+        "mean_start_error_s": 4.0,
+        "start_within_3s_share": 0.6666666666666666,
+        "n_matched_pairs": 3,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0,
+            "matched_gold": 0,
+            "n_gold": 1,
+            "recall_at_3": 0.0,
+            "n_candidates": 2
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            0.25,
+            1.0
+          ]
+        }
+      }
+    },
+    "generator_self_score": {
+      "0.5": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 1.0,
+        "mean_start_error_s": 2.5,
+        "start_within_3s_share": 0.75,
+        "n_matched_pairs": 4,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 2
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "0.3": {
+        "threshold": 0.3,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 1.0,
+        "mean_start_error_s": 2.5,
+        "start_within_3s_share": 0.75,
+        "n_matched_pairs": 4,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 2
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "full_pipeline": {
+      "0.5": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 1.0,
+        "mean_start_error_s": 0.0,
+        "start_within_3s_share": 1,
+        "n_matched_pairs": 4,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 2
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "0.3": {
+        "threshold": 0.3,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 1.0,
+        "mean_start_error_s": 0.0,
+        "start_within_3s_share": 1,
+        "n_matched_pairs": 4,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 2
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "primary": {
+    "generator_self_score": {
+      "hook": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 0.75,
+        "mean_start_error_s": 0.0,
+        "start_within_3s_share": 1,
+        "n_matched_pairs": 3,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0,
+            "matched_gold": 0,
+            "n_gold": 1,
+            "recall_at_3": 0.0,
+            "n_candidates": 2
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            0.25,
+            1.0
+          ]
+        }
+      },
+      "iou": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 1.0,
+        "mean_start_error_s": 2.5,
+        "start_within_3s_share": 0.75,
+        "n_matched_pairs": 4,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 2
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "coverage": 0.9375
+    },
+    "full_pipeline": {
+      "hook": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 1.0,
+        "mean_start_error_s": 0.0,
+        "start_within_3s_share": 1,
+        "n_matched_pairs": 4,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 2
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "iou": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 1.0,
+        "mean_start_error_s": 0.0,
+        "start_within_3s_share": 1,
+        "n_matched_pairs": 4,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 2
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "coverage": 0.9166666666666666
+    },
+    "random": {
+      "hook": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.13,
+        "recall_at_3": 0.295,
+        "mean_start_error_s": 0.0,
+        "start_within_3s_share": 1,
+        "n_matched_pairs": 1.18,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 0.14,
+            "matched_gold": 0.45,
+            "n_gold": 1,
+            "recall_at_3": 0.45,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0.14,
+            "matched_gold": 0.2,
+            "n_gold": 1,
+            "recall_at_3": 0.2,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0.18,
+            "matched_gold": 0.33,
+            "n_gold": 1,
+            "recall_at_3": 0.33,
+            "n_candidates": 2
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0.06,
+            "matched_gold": 0.2,
+            "n_gold": 1,
+            "recall_at_3": 0.2,
+            "n_candidates": 3
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.08,
+            0.16999999999999998
+          ],
+          "recall_at_3": [
+            0.2,
+            0.39
+          ]
+        },
+        "seed_sd": {
+          "hit_at_1": 0.18533752992850638,
+          "recall_at_3": 0.24591665254715875,
+          "mean_start_error_s": 0.0,
+          "start_within_3s_share": 0.0
+        },
+        "n_seeds": 100
+      },
+      "iou": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.2325,
+        "recall_at_3": 0.5725,
+        "mean_start_error_s": 6.780927835051546,
+        "start_within_3s_share": 0.47594501718213056,
+        "n_matched_pairs": 2.29,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 0.2,
+            "matched_gold": 0.69,
+            "n_gold": 1,
+            "recall_at_3": 0.69,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0.32,
+            "matched_gold": 0.48,
+            "n_gold": 1,
+            "recall_at_3": 0.48,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0.18,
+            "matched_gold": 0.35,
+            "n_gold": 1,
+            "recall_at_3": 0.35,
+            "n_candidates": 2
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0.23,
+            "matched_gold": 0.77,
+            "n_gold": 1,
+            "recall_at_3": 0.77,
+            "n_candidates": 3
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.19,
+            0.29000000000000004
+          ],
+          "recall_at_3": [
+            0.415,
+            0.73
+          ]
+        },
+        "seed_sd": {
+          "hit_at_1": 0.2069269194667528,
+          "recall_at_3": 0.2532168043396804,
+          "mean_start_error_s": 5.661804559395346,
+          "start_within_3s_share": 0.34700460227301566
+        },
+        "n_seeds": 100
+      },
+      "coverage": 0.8200045454545455,
+      "coverage_sd": 0.05667758338890975
+    },
+    "rules_only": {
+      "hook": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.25,
+        "recall_at_3": 0.5,
+        "mean_start_error_s": 0.0,
+        "start_within_3s_share": 1,
+        "n_matched_pairs": 2,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 0,
+            "matched_gold": 0,
+            "n_gold": 1,
+            "recall_at_3": 0.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0,
+            "matched_gold": 0,
+            "n_gold": 1,
+            "recall_at_3": 0.0,
+            "n_candidates": 2
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            0.75
+          ],
+          "recall_at_3": [
+            0.0,
+            1.0
+          ]
+        }
+      },
+      "iou": {
+        "threshold": 0.5,
+        "n_episodes": 4,
+        "n_gold": 4,
+        "hit_at_1": 0.5,
+        "recall_at_3": 0.75,
+        "mean_start_error_s": 4.0,
+        "start_within_3s_share": 0.6666666666666666,
+        "n_matched_pairs": 3,
+        "per_episode": [
+          {
+            "episode": 1,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 2,
+            "hit_at_1": 1,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          },
+          {
+            "episode": 3,
+            "hit_at_1": 0,
+            "matched_gold": 0,
+            "n_gold": 1,
+            "recall_at_3": 0.0,
+            "n_candidates": 2
+          },
+          {
+            "episode": 4,
+            "hit_at_1": 0,
+            "matched_gold": 1,
+            "n_gold": 1,
+            "recall_at_3": 1.0,
+            "n_candidates": 3
+          }
+        ],
+        "ci95": {
+          "hit_at_1": [
+            0.0,
+            1.0
+          ],
+          "recall_at_3": [
+            0.25,
+            1.0
+          ]
+        }
+      },
+      "coverage": 0.9583333333333334
+    }
+  },
+  "chance": {
+    "hook": {
+      "hit_chance": 0.11041666666666666,
+      "recall_chance": 0.11041666666666666,
+      "per_episode": [
+        {
+          "episode": 1,
+          "n_windows": 40,
+          "hit_chance": 0.125,
+          "recall_chance": 0.125
+        },
+        {
+          "episode": 2,
+          "n_windows": 40,
+          "hit_chance": 0.125,
+          "recall_chance": 0.125
+        },
+        {
+          "episode": 3,
+          "n_windows": 40,
+          "hit_chance": 0.125,
+          "recall_chance": 0.125
+        },
+        {
+          "episode": 4,
+          "n_windows": 45,
+          "hit_chance": 0.06666666666666667,
+          "recall_chance": 0.06666666666666667
+        }
+      ]
+    },
+    "iou": {
+      "hit_chance": 0.20555555555555555,
+      "recall_chance": 0.20555555555555555,
+      "per_episode": [
+        {
+          "episode": 1,
+          "n_windows": 40,
+          "hit_chance": 0.2,
+          "recall_chance": 0.2
+        },
+        {
+          "episode": 2,
+          "n_windows": 40,
+          "hit_chance": 0.3,
+          "recall_chance": 0.3
+        },
+        {
+          "episode": 3,
+          "n_windows": 40,
+          "hit_chance": 0.1,
+          "recall_chance": 0.1
+        },
+        {
+          "episode": 4,
+          "n_windows": 45,
+          "hit_chance": 0.2222222222222222,
+          "recall_chance": 0.2222222222222222
+        }
+      ]
+    },
+    "lenient": {
+      "hit_chance": 0.4263888888888889,
+      "recall_chance": 0.4263888888888889,
+      "per_episode": [
+        {
+          "episode": 1,
+          "n_windows": 40,
+          "hit_chance": 0.375,
+          "recall_chance": 0.375
+        },
+        {
+          "episode": 2,
+          "n_windows": 40,
+          "hit_chance": 0.625,
+          "recall_chance": 0.625
+        },
+        {
+          "episode": 3,
+          "n_windows": 40,
+          "hit_chance": 0.35,
+          "recall_chance": 0.35
+        },
+        {
+          "episode": 4,
+          "n_windows": 45,
+          "hit_chance": 0.35555555555555557,
+          "recall_chance": 0.35555555555555557
+        }
+      ]
+    }
+  },
+  "random_seeds": [
+    2786169488,
+    379423095,
+    1009661775,
+    1396165372,
+    4286649833,
+    486104843,
+    589641034,
+    572851880,
+    10931824,
+    23071538,
+    2216176569,
+    2976671325,
+    4050366454,
+    3774034409,
+    3082272262,
+    2341730673,
+    3142518375,
+    3347324810,
+    1869511781,
+    1941083451,
+    247887343,
+    137308256,
+    2669368523,
+    2845519332,
+    833298376,
+    2695661018,
+    468509793,
+    1240361789,
+    2295526809,
+    1721198702,
+    354836279,
+    104305419,
+    2037034473,
+    1335657677,
+    2469493205,
+    3975794429,
+    1910519587,
+    4144986898,
+    2621993742,
+    2043558187,
+    2903162138,
+    4103829523,
+    2265720424,
+    1596893012,
+    1582263993,
+    1543886273,
+    1562258630,
+    1958747471,
+    4293828478,
+    1737919633,
+    3108102803,
+    2427338740,
+    2367815284,
+    3320513894,
+    3297674921,
+    3479032352,
+    3152777816,
+    2177522200,
+    3314947204,
+    535956136,
+    71516160,
+    3946425902,
+    3969598897,
+    1261131928,
+    2929856928,
+    3341412329,
+    3925775368,
+    1126288568,
+    1785278407,
+    591840345,
+    1205596164,
+    1373890668,
+    914308473,
+    1775925974,
+    2288485328,
+    1198698692,
+    1443468730,
+    1581074798,
+    1344170385,
+    3803721265,
+    3459598747,
+    3459090233,
+    2242222901,
+    642589748,
+    352662188,
+    3195240160,
+    658160131,
+    3630435018,
+    298406224,
+    1233005169,
+    4009245619,
+    4214163063,
+    1562266018,
+    1440286881,
+    2630628489,
+    2994068182,
+    504963623,
+    2023009723,
+    1067063551,
+    4017680588
+  ],
+  "health": {
+    "n_episodes": 4,
+    "episodes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "n_candidates": 11,
+    "before_validator": {
+      "duration_20_60": {
+        "count": 11,
+        "n": 11,
+        "share": 1.0
+      },
+      "hook_within_3s": {
+        "count": 10,
+        "n": 11,
+        "share": 0.9090909090909091
+      },
+      "clean_start": {
+        "count": 11,
+        "n": 11,
+        "share": 1.0
+      },
+      "clean_end": {
+        "count": 11,
+        "n": 11,
+        "share": 1.0
+      },
+      "both_clean": {
+        "count": 11,
+        "n": 11,
+        "share": 1.0
+      },
+      "all": {
+        "count": 10,
+        "n": 11,
+        "share": 0.9090909090909091
+      }
+    },
+    "validator": {
+      "n": 11,
+      "outcomes": {
+        "ok": 10,
+        "fixed": 1,
+        "flagged": 0,
+        "rejected": 0
+      },
+      "fix_types": {
+        "start moved to hook shot": 1
+      },
+      "flag_counts": {},
+      "hook_reassigned_share": 0.0
+    },
+    "judge": {
+      "n": 11,
+      "distributions": {
+        "hook_score": {
+          "3": 2,
+          "4": 5,
+          "5": 4
+        },
+        "cliffhanger_score": {
+          "4": 7,
+          "5": 4
+        },
+        "standalone_score": {
+          "3": 2,
+          "4": 5,
+          "5": 4
+        },
+        "emotion_score": {
+          "3": 2,
+          "4": 5,
+          "5": 4
+        },
+        "post_priority": {
+          "7": 6,
+          "8": 4,
+          "9": 1
+        }
+      },
+      "missing_post_priority": 0,
+      "identical_score_vector_tie_share": 0.0,
+      "ad_safety": {
+        "caution": 2,
+        "safe": 9
+      },
+      "unverified": 1
+    },
+    "cost": {
+      "scope": "No usage log available",
+      "stages": [],
+      "per_episode": [],
+      "stage_wall_s": {}
+    }
+  },
+  "human": {
+    "n_rated": 0,
+    "warnings": [],
+    "ratings": {},
+    "biggest_disagreements": [],
+    "final_score": {
+      "n": 0,
+      "spearman": null,
+      "pairwise_agreement": {
+        "share": null,
+        "comparable_pairs": 0,
+        "model_ties": 0
+      }
+    },
+    "post_priority": {
+      "n": 0,
+      "spearman": null,
+      "pairwise_agreement": {
+        "share": null,
+        "comparable_pairs": 0,
+        "model_ties": 0
+      }
+    },
+    "judge_order": {
+      "n": 0,
+      "spearman": null
+    },
+    "editor_order": {
+      "n": 0,
+      "spearman": null
+    },
+    "final_order": {
+      "n": 0,
+      "spearman": null
+    }
+  },
+  "model_comparison": [],
+  "failures": [
+    {
+      "failure_id": "safety_E001_C01",
+      "kind": "caution",
+      "episode": 1,
+      "promo_id": "E001_C01",
+      "tool_span": [
+        0.0,
+        30.0
+      ],
+      "detail": "Scripted slap at E001_L002.",
+      "my_reason": ""
+    },
+    {
+      "failure_id": "safety_E002_C02",
+      "kind": "caution",
+      "episode": 2,
+      "promo_id": "E002_C02",
+      "tool_span": [
+        48.0,
+        76.0
+      ],
+      "detail": "A spoken threat of fire.",
+      "my_reason": ""
+    }
+  ],
+  "rules_only_examples": {
+    "1": [
+      {
+        "span": [
+          0.0,
+          30.0
+        ],
+        "first_line": "Nera slaps Ivo across the cheek, stopping the public unveiling.",
+        "last_line": "Then whose name did you put on it?"
+      },
+      {
+        "span": [
+          30.0,
+          62.0
+        ],
+        "first_line": "Your father signed the transfer himself.",
+        "last_line": "Why is there a photograph of me inside?"
+      },
+      {
+        "span": [
+          62.0,
+          100.0
+        ],
+        "first_line": "You sold my identity along with the machine.",
+        "last_line": "The tower bell begins a single unfinished note."
+      }
+    ],
+    "2": [
+      {
+        "span": [
+          36.0,
+          76.0
+        ],
+        "first_line": "Then why does the recording say your name?",
+        "last_line": "What if he never wanted you to find him?"
+      },
+      {
+        "span": [
+          76.0,
+          110.0
+        ],
+        "first_line": "You imprisoned him inside his own invention.",
+        "last_line": "The tower bell begins a single unfinished note."
+      },
+      {
+        "span": [
+          0.0,
+          36.0
+        ],
+        "first_line": "That key opens the tower—or your grave.",
+        "last_line": "A voice can be copied. A debt cannot."
+      }
+    ],
+    "3": [
+      {
+        "span": [
+          16.0,
+          56.0
+        ],
+        "first_line": "Who signed it after my father disappeared?",
+        "last_line": "Why is my father bidding against me?"
+      },
+      {
+        "span": [
+          56.0,
+          96.0
+        ],
+        "first_line": "The highest bidder ordered my father killed.",
+        "last_line": "The tower bell begins a single unfinished note."
+      }
+    ],
+    "4": [
+      {
+        "span": [
+          0.0,
+          40.0
+        ],
+        "first_line": "That voice on the recording is yours.",
+        "last_line": "Then which of you ordered it to ring?"
+      },
+      {
+        "span": [
+          40.0,
+          80.0
+        ],
+        "first_line": "I hid the original beneath the bell.",
+        "last_line": "Who just locked the tower door?"
+      },
+      {
+        "span": [
+          80.0,
+          120.0
+        ],
+        "first_line": "You erased my mother from the recording.",
+        "last_line": "The tower bell begins a single unfinished note."
+      }
+    ]
+  },
+  "baseline_rules": {
+    "emotions": [
+      "shocked",
+      "outraged",
+      "furious",
+      "cruel",
+      "gloating",
+      "screaming",
+      "mocking",
+      "venomous",
+      "desperate"
+    ],
+    "actions": [
+      "slap",
+      "strike",
+      "punch",
+      "gasp",
+      "scream",
+      "grab",
+      "drag",
+      "kneel"
+    ],
+    "hook_weight": 3.0,
+    "cliffhanger_weight": 2.0,
+    "speaker_weight": 0.25,
+    "exclamation_weight": 0.5
+  },
+  "warnings": []
+}

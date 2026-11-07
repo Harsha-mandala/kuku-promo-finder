@@ -1,0 +1,113 @@
+[
+  {
+    "episode": 4,
+    "id": "E004_RANDOM01",
+    "status": "ok",
+    "orig_start_shot_id": "E004_S001",
+    "orig_end_shot_id": "E004_S004",
+    "orig_span": [
+      0.0,
+      40.0
+    ],
+    "orig_duration": 40.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E004_S001",
+    "end_shot_id": "E004_S004",
+    "final_span": [
+      0.0,
+      40.0
+    ],
+    "duration_s": 40.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.3,
+    "hook_line_id": "E004_L002",
+    "cliffhanger_line_id": "E004_L008",
+    "hook_text": "That voice on the recording is yours.",
+    "cliffhanger_text": "Then which of you ordered it to ring?",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "random",
+      "seed": 20261106
+    }
+  },
+  {
+    "episode": 4,
+    "id": "E004_RANDOM02",
+    "status": "ok",
+    "orig_start_shot_id": "E004_S007",
+    "orig_end_shot_id": "E004_S011",
+    "orig_span": [
+      60.0,
+      110.0
+    ],
+    "orig_duration": 50.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E004_S007",
+    "end_shot_id": "E004_S011",
+    "final_span": [
+      60.0,
+      110.0
+    ],
+    "duration_s": 50.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.29999999999999716,
+    "hook_line_id": "E004_L014",
+    "cliffhanger_line_id": "E004_L022",
+    "hook_text": "You were never supposed to hear the second one.",
+    "cliffhanger_text": "The door can only be locked from outside.",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "random",
+      "seed": 20261106
+    }
+  },
+  {
+    "episode": 4,
+    "id": "E004_RANDOM03",
+    "status": "ok",
+    "orig_start_shot_id": "E004_S005",
+    "orig_end_shot_id": "E004_S006",
+    "orig_span": [
+      40.0,
+      60.0
+    ],
+    "orig_duration": 20.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E004_S005",
+    "end_shot_id": "E004_S006",
+    "final_span": [
+      40.0,
+      60.0
+    ],
+    "duration_s": 20.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.29999999999999716,
+    "hook_line_id": "E004_L010",
+    "cliffhanger_line_id": "E004_L012",
+    "hook_text": "I hid the original beneath the bell.",
+    "cliffhanger_text": "There are two voices on this recording.",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "random",
+      "seed": 20261106
+    }
+  }
+]

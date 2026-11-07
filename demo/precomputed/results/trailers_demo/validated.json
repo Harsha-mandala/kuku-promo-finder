@@ -1,0 +1,55 @@
+[
+  {
+    "id": "T001",
+    "segments": [
+      {
+        "episode": 1,
+        "start_shot_id": "E001_S001",
+        "end_shot_id": "E001_S003",
+        "start": 0.0,
+        "end": 23.0,
+        "clean_start": true,
+        "clean_end": true
+      },
+      {
+        "episode": 3,
+        "start_shot_id": "E003_S003",
+        "end_shot_id": "E003_S004",
+        "start": 10.0,
+        "end": 22.0,
+        "clean_start": true,
+        "clean_end": true
+      }
+    ],
+    "duration_s": 35.0,
+    "hook_line_id": "E001_L002",
+    "cliffhanger_line_id": "E003_L008",
+    "hook_text": "Nera slaps Ivo across the cheek, stopping the public unveiling.",
+    "cliffhanger_text": "Who signed it after my father disappeared?",
+    "story": "A stolen invention leads Nera to a second signature tied to her missing father.",
+    "why_it_works": "An explosive public theft accusation leads to an unanswered question about the true inventor.",
+    "spoiler_risk": "low",
+    "self_score": 5,
+    "status": "ok",
+    "flags": [],
+    "fix_log": [],
+    "original": {
+      "segments": [
+        {
+          "start_shot_id": "E001_S001",
+          "end_shot_id": "E001_S003"
+        },
+        {
+          "start_shot_id": "E003_S003",
+          "end_shot_id": "E003_S004"
+        }
+      ],
+      "hook_line_id": "E001_L002",
+      "cliffhanger_line_id": "E003_L008",
+      "story": "A stolen invention leads Nera to a second signature tied to her missing father.",
+      "why_it_works": "An explosive public theft accusation leads to an unanswered question about the true inventor.",
+      "spoiler_risk": "low",
+      "self_score": 5
+    }
+  }
+]

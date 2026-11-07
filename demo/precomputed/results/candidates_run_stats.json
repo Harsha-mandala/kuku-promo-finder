@@ -1,0 +1,58 @@
+{
+  "selected_episodes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "episodes_ok": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "episodes_failed": [],
+  "episodes_skipped": [],
+  "episodes_not_attempted": [],
+  "stopped_daily_quota": false,
+  "stopped_api_budget": false,
+  "stopped_network": false,
+  "connection_errors": 0,
+  "api_budget_used": 2,
+  "api_budget_limit": 14,
+  "total_candidates": 11,
+  "candidates_per_episode_distribution": {
+    "3": 3,
+    "2": 1
+  },
+  "pct_episodes_ending_on_final_shot": 100.0,
+  "avg_per_episode": 2.75,
+  "duration_min": 22.0,
+  "duration_median": 34.0,
+  "duration_max": 50.0,
+  "pct_duration_20_60": 100.0,
+  "pct_hook_within_3": 90.9090909090909,
+  "pct_both_clean": 100.0,
+  "hook_type_counts": {
+    "slap_or_physical": 1,
+    "shocking_reveal": 10
+  },
+  "cliffhanger_type_counts": {
+    "unanswered_question": 11
+  },
+  "repair_attempts": 0,
+  "repairs_by_error_type": {},
+  "postprocess_events": [
+    {
+      "episode": 4,
+      "reason": "count_shortfall",
+      "retained": 2,
+      "requested_min": 3
+    }
+  ],
+  "tokens_in": 0,
+  "tokens_out": 0,
+  "api_attempts": 2,
+  "cache_hits": 0,
+  "total_time_s": 0.043
+}

@@ -1,0 +1,680 @@
+{
+  "number": 1,
+  "source_file": "episode_001.txt",
+  "logline": "Clockmaker Nera exposes the theft of her invention during a public unveiling, but the patent names someone else.",
+  "continuity_notes": "An original fictional demo about a stolen clockwork invention.",
+  "duration": 100.0,
+  "scenes": [
+    {
+      "number": 1,
+      "heading": "INT. CLOCK TOWER – NIGHT",
+      "start": 0.0,
+      "end": 100.0
+    }
+  ],
+  "lines": [
+    {
+      "id": "E001_L001",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 0.0,
+      "end": 7.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L002",
+      "episode": 1,
+      "scene": 1,
+      "type": "action",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 0.1,
+      "end": 2.0,
+      "text": "Nera slaps Ivo across the cheek, stopping the public unveiling."
+    },
+    {
+      "id": "E001_L003",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 0.3,
+      "end": 3.8,
+      "text": "That machine is mine. You stole every drawing."
+    },
+    {
+      "id": "E001_L004",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 7.0,
+      "end": 15.0,
+      "text": "Close view of Ivo beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L005",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "IVO",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 7.3,
+      "end": 10.8,
+      "text": "Your signature was never on the patent."
+    },
+    {
+      "id": "E001_L006",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 15.0,
+      "end": 23.0,
+      "text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L007",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "SABLE",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 15.3,
+      "end": 18.8,
+      "text": "The board bought your silence, not your loyalty."
+    },
+    {
+      "id": "E001_L008",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 23.0,
+      "end": 30.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L009",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 23.3,
+      "end": 26.8,
+      "text": "Then whose name did you put on it?"
+    },
+    {
+      "id": "E001_L010",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 30.0,
+      "end": 36.0,
+      "text": "Close view of Ivo beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L011",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "IVO",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 30.3,
+      "end": 33.8,
+      "text": "Your father signed the transfer himself."
+    },
+    {
+      "id": "E001_L012",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 36.0,
+      "end": 44.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L013",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 36.3,
+      "end": 39.8,
+      "text": "He was missing before the machine was finished."
+    },
+    {
+      "id": "E001_L014",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 44.0,
+      "end": 53.0,
+      "text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L015",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "SABLE",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 44.3,
+      "end": 47.8,
+      "text": "Open the sealed envelope if you want the truth."
+    },
+    {
+      "id": "E001_L016",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 53.0,
+      "end": 62.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L017",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 53.3,
+      "end": 56.8,
+      "text": "Why is there a photograph of me inside?"
+    },
+    {
+      "id": "E001_L018",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 62.0,
+      "end": 72.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L019",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 62.3,
+      "end": 65.8,
+      "text": "You sold my identity along with the machine."
+    },
+    {
+      "id": "E001_L020",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 72.0,
+      "end": 80.0,
+      "text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L021",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "ORIN",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 72.3,
+      "end": 75.8,
+      "text": "The workshop seal was broken from inside."
+    },
+    {
+      "id": "E001_L022",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 80.0,
+      "end": 90.0,
+      "text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E001_L023",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "SABLE",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 80.3,
+      "end": 83.8,
+      "text": "Your portrait appears on every forged patent."
+    },
+    {
+      "id": "E001_L024",
+      "episode": 1,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 90.0,
+      "end": 100.0,
+      "text": "Hold on Nera as she turns toward the locked door, still waiting for an answer."
+    },
+    {
+      "id": "E001_L025",
+      "episode": 1,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 90.3,
+      "end": 93.8,
+      "text": "Who has been signing my name?"
+    },
+    {
+      "id": "E001_L026",
+      "episode": 1,
+      "scene": 1,
+      "type": "sound",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 98.8,
+      "end": 100.0,
+      "text": "The tower bell begins a single unfinished note."
+    }
+  ],
+  "shots": [
+    {
+      "id": "E001_S001",
+      "index": 1,
+      "episode": 1,
+      "scene": 1,
+      "start": 0.0,
+      "end": 7.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L002",
+          "episode": 1,
+          "scene": 1,
+          "type": "action",
+          "speaker": null,
+          "emotion": null,
+          "off_screen": false,
+          "start": 0.1,
+          "end": 2.0,
+          "text": "Nera slaps Ivo across the cheek, stopping the public unveiling."
+        },
+        {
+          "id": "E001_L003",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 0.3,
+          "end": 3.8,
+          "text": "That machine is mine. You stole every drawing."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 0.0,
+      "effective_end": 7.0
+    },
+    {
+      "id": "E001_S002",
+      "index": 2,
+      "episode": 1,
+      "scene": 1,
+      "start": 7.0,
+      "end": 15.0,
+      "camera_text": "Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L005",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "IVO",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 7.3,
+          "end": 10.8,
+          "text": "Your signature was never on the patent."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 7.0,
+      "effective_end": 15.0
+    },
+    {
+      "id": "E001_S003",
+      "index": 3,
+      "episode": 1,
+      "scene": 1,
+      "start": 15.0,
+      "end": 23.0,
+      "camera_text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L007",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "SABLE",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 15.3,
+          "end": 18.8,
+          "text": "The board bought your silence, not your loyalty."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 15.0,
+      "effective_end": 23.0
+    },
+    {
+      "id": "E001_S004",
+      "index": 4,
+      "episode": 1,
+      "scene": 1,
+      "start": 23.0,
+      "end": 30.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L009",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 23.3,
+          "end": 26.8,
+          "text": "Then whose name did you put on it?"
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 23.0,
+      "effective_end": 30.0
+    },
+    {
+      "id": "E001_S005",
+      "index": 5,
+      "episode": 1,
+      "scene": 1,
+      "start": 30.0,
+      "end": 36.0,
+      "camera_text": "Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L011",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "IVO",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 30.3,
+          "end": 33.8,
+          "text": "Your father signed the transfer himself."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 30.0,
+      "effective_end": 36.0
+    },
+    {
+      "id": "E001_S006",
+      "index": 6,
+      "episode": 1,
+      "scene": 1,
+      "start": 36.0,
+      "end": 44.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L013",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 36.3,
+          "end": 39.8,
+          "text": "He was missing before the machine was finished."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 36.0,
+      "effective_end": 44.0
+    },
+    {
+      "id": "E001_S007",
+      "index": 7,
+      "episode": 1,
+      "scene": 1,
+      "start": 44.0,
+      "end": 53.0,
+      "camera_text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L015",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "SABLE",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 44.3,
+          "end": 47.8,
+          "text": "Open the sealed envelope if you want the truth."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 44.0,
+      "effective_end": 53.0
+    },
+    {
+      "id": "E001_S008",
+      "index": 8,
+      "episode": 1,
+      "scene": 1,
+      "start": 53.0,
+      "end": 62.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L017",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 53.3,
+          "end": 56.8,
+          "text": "Why is there a photograph of me inside?"
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 53.0,
+      "effective_end": 62.0
+    },
+    {
+      "id": "E001_S009",
+      "index": 9,
+      "episode": 1,
+      "scene": 1,
+      "start": 62.0,
+      "end": 72.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L019",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 62.3,
+          "end": 65.8,
+          "text": "You sold my identity along with the machine."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 62.0,
+      "effective_end": 72.0
+    },
+    {
+      "id": "E001_S010",
+      "index": 10,
+      "episode": 1,
+      "scene": 1,
+      "start": 72.0,
+      "end": 80.0,
+      "camera_text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L021",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "ORIN",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 72.3,
+          "end": 75.8,
+          "text": "The workshop seal was broken from inside."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 72.0,
+      "effective_end": 80.0
+    },
+    {
+      "id": "E001_S011",
+      "index": 11,
+      "episode": 1,
+      "scene": 1,
+      "start": 80.0,
+      "end": 90.0,
+      "camera_text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E001_L023",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "SABLE",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 80.3,
+          "end": 83.8,
+          "text": "Your portrait appears on every forged patent."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 80.0,
+      "effective_end": 90.0
+    },
+    {
+      "id": "E001_S012",
+      "index": 12,
+      "episode": 1,
+      "scene": 1,
+      "start": 90.0,
+      "end": 100.0,
+      "camera_text": "Hold on Nera as she turns toward the locked door, still waiting for an answer.",
+      "lines": [
+        {
+          "id": "E001_L025",
+          "episode": 1,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 90.3,
+          "end": 93.8,
+          "text": "Who has been signing my name?"
+        },
+        {
+          "id": "E001_L026",
+          "episode": 1,
+          "scene": 1,
+          "type": "sound",
+          "speaker": null,
+          "emotion": null,
+          "off_screen": false,
+          "start": 98.8,
+          "end": 100.0,
+          "text": "The tower bell begins a single unfinished note."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 90.0,
+      "effective_end": 100.0
+    }
+  ],
+  "warnings": []
+}

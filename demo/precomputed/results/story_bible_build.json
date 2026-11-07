@@ -1,0 +1,11 @@
+{
+  "source_fingerprint": "84d5d297284b50843e64fa6657259ca34ecf5badc4ec27eac0160b3f5d9cb281",
+  "hints_used": false,
+  "identity_hints": {},
+  "samples_per_label": {
+    "IVO": 2,
+    "NERA": 2,
+    "ORIN": 2,
+    "SABLE": 2
+  }
+}

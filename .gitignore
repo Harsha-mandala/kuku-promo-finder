@@ -1,0 +1,17 @@
+data/
+outputs/
+parsed/
+.cache/
+.env
+__pycache__/
+.venv/
+.pytest_cache/
+.agents/
+.claude/
+*.py[cod]
+.streamlit/secrets.toml
+
+eval/gold.csv
+eval/to_rate_*
+eval/failures_*
+submission/raw_outputs*

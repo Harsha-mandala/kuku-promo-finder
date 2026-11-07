@@ -1,0 +1,20 @@
+[
+  {
+    "segments": [
+      {
+        "start_shot_id": "E001_S001",
+        "end_shot_id": "E001_S003"
+      },
+      {
+        "start_shot_id": "E003_S003",
+        "end_shot_id": "E003_S004"
+      }
+    ],
+    "hook_line_id": "E001_L002",
+    "cliffhanger_line_id": "E003_L008",
+    "story": "A stolen invention leads Nera to a second signature tied to her missing father.",
+    "why_it_works": "An explosive public theft accusation leads to an unanswered question about the true inventor.",
+    "spoiler_risk": "low",
+    "self_score": 5
+  }
+]

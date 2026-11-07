@@ -1,0 +1,114 @@
+EPISODE NUMBER: Episode 4
+EPISODE LOGLINE: At the bell tower, Nera plays the evidence and discovers a second voice behind the betrayal.
+CONTINUITY NOTES: An original fictional demo about a stolen clockwork invention.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. CLOCK TOWER – NIGHT
+Scene start: 00:00.00
+Scene end: 02:00.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:10.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:00.30) | End: (00:03.80)
+"That voice on the recording is yours."
+
+**CAMERA:**
+Start: (00:10.00) | End: (00:20.00)
+Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.
+
+**IVO (Urgent):**
+Start: (00:10.30) | End: (00:13.80)
+"Play the rest before you decide who betrayed you."
+
+**CAMERA:**
+Start: (00:20.00) | End: (00:30.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (00:20.30) | End: (00:23.80)
+"The bell will erase the last minute of evidence."
+
+**CAMERA:**
+Start: (00:30.00) | End: (00:40.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:30.30) | End: (00:33.80)
+"Then which of you ordered it to ring?"
+
+**CAMERA:**
+Start: (00:40.00) | End: (00:50.00)
+Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.
+
+**IVO (Urgent):**
+Start: (00:40.30) | End: (00:43.80)
+"I hid the original beneath the bell."
+
+**CAMERA:**
+Start: (00:50.00) | End: (01:00.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:50.30) | End: (00:53.80)
+"There are two voices on this recording."
+
+**CAMERA:**
+Start: (01:00.00) | End: (01:10.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (01:00.30) | End: (01:03.80)
+"You were never supposed to hear the second one."
+
+**CAMERA:**
+Start: (01:10.00) | End: (01:20.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (01:10.30) | End: (01:13.80)
+"Who just locked the tower door?"
+
+**CAMERA:**
+Start: (01:20.00) | End: (01:30.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (01:20.30) | End: (01:23.80)
+"You erased my mother from the recording."
+
+**CAMERA:**
+Start: (01:30.00) | End: (01:40.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (01:30.30) | End: (01:33.80)
+"There is another voice beneath the tower bell."
+
+**CAMERA:**
+Start: (01:40.00) | End: (01:50.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (01:40.30) | End: (01:43.80)
+"The door can only be locked from outside."
+
+**CAMERA:**
+Start: (01:50.00) | End: (02:00.00)
+Hold on Nera as she turns toward the locked door, still waiting for an answer.
+
+**NERA (Urgent):**
+Start: (01:50.30) | End: (01:53.80)
+"Mother, why are you holding the key?"
+
+**SOUND FX:**
+Start: (01:58.80) | End: (02:00.00)
+The tower bell begins a single unfinished note.
+
+--- SCRIPT END ---

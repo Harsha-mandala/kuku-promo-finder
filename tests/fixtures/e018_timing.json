@@ -1,0 +1,564 @@
+{
+  "number": 18,
+  "source_file": "timing-only",
+  "duration": 192.0,
+  "shots": [
+    {
+      "id": "E018_S001",
+      "index": 1,
+      "episode": 18,
+      "scene": 1,
+      "start": 0.0,
+      "end": 2.1,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L002",
+          "episode": 18,
+          "scene": 1,
+          "type": "sound",
+          "start": 0.0,
+          "end": 2.1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S002",
+      "index": 2,
+      "episode": 18,
+      "scene": 1,
+      "start": 2.1,
+      "end": 5.8,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L004",
+          "episode": 18,
+          "scene": 1,
+          "type": "action",
+          "start": 3.5,
+          "end": 6.0,
+          "text": ""
+        },
+        {
+          "id": "E018_L006",
+          "episode": 18,
+          "scene": 1,
+          "type": "dialogue",
+          "start": 6.5,
+          "end": 8.5,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S003",
+      "index": 3,
+      "episode": 18,
+      "scene": 1,
+      "start": 9.5,
+      "end": 12.8,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L005",
+          "episode": 18,
+          "scene": 1,
+          "type": "action",
+          "start": 6.0,
+          "end": 9.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L008",
+          "episode": 18,
+          "scene": 1,
+          "type": "dialogue",
+          "start": 10.5,
+          "end": 12.3,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S004",
+      "index": 4,
+      "episode": 18,
+      "scene": 1,
+      "start": 12.8,
+      "end": 16.2,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L010",
+          "episode": 18,
+          "scene": 1,
+          "type": "action",
+          "start": 16.2,
+          "end": 20.1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S005",
+      "index": 5,
+      "episode": 18,
+      "scene": 1,
+      "start": 20.1,
+      "end": 22.8,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L011",
+          "episode": 18,
+          "scene": 1,
+          "type": "dialogue",
+          "start": 17.8,
+          "end": 19.8,
+          "text": ""
+        },
+        {
+          "id": "E018_L012",
+          "episode": 18,
+          "scene": 1,
+          "type": "sound",
+          "start": 19.5,
+          "end": 21.0,
+          "text": ""
+        },
+        {
+          "id": "E018_L014",
+          "episode": 18,
+          "scene": 1,
+          "type": "dialogue",
+          "start": 20.8,
+          "end": 22.5,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S006",
+      "index": 6,
+      "episode": 18,
+      "scene": 1,
+      "start": 22.8,
+      "end": 26.0,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L016",
+          "episode": 18,
+          "scene": 1,
+          "type": "action",
+          "start": 24.5,
+          "end": 28.9,
+          "text": ""
+        },
+        {
+          "id": "E018_L017",
+          "episode": 18,
+          "scene": 1,
+          "type": "dialogue",
+          "start": 26.5,
+          "end": 28.0,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S007",
+      "index": 7,
+      "episode": 18,
+      "scene": 2,
+      "start": 28.9,
+      "end": 30.8,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L018",
+          "episode": 18,
+          "scene": 1,
+          "type": "dialogue",
+          "start": 28.1,
+          "end": 28.9,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S008",
+      "index": 8,
+      "episode": 18,
+      "scene": 2,
+      "start": 30.8,
+      "end": 33.0,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L021",
+          "episode": 18,
+          "scene": 2,
+          "type": "action",
+          "start": 32.5,
+          "end": 36.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L022",
+          "episode": 18,
+          "scene": 2,
+          "type": "dialogue",
+          "start": 33.2,
+          "end": 35.2,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S009",
+      "index": 9,
+      "episode": 18,
+      "scene": 2,
+      "start": 36.5,
+      "end": 39.0,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L024",
+          "episode": 18,
+          "scene": 2,
+          "type": "action",
+          "start": 38.0,
+          "end": 41.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L025",
+          "episode": 18,
+          "scene": 2,
+          "type": "dialogue",
+          "start": 39.5,
+          "end": 41.8,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S010",
+      "index": 10,
+      "episode": 18,
+      "scene": 2,
+      "start": 43.5,
+      "end": 48.8,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L026",
+          "episode": 18,
+          "scene": 2,
+          "type": "dialogue",
+          "start": 42.0,
+          "end": 43.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L028",
+          "episode": 18,
+          "scene": 2,
+          "type": "sound",
+          "start": 45.0,
+          "end": 48.5,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S011",
+      "index": 11,
+      "episode": 18,
+      "scene": 2,
+      "start": 48.8,
+      "end": 52.5,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": []
+    },
+    {
+      "id": "E018_S012",
+      "index": 12,
+      "episode": 18,
+      "scene": 3,
+      "start": 52.5,
+      "end": 56.2,
+      "clean_start": true,
+      "clean_end": false,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L031",
+          "episode": 18,
+          "scene": 3,
+          "type": "action",
+          "start": 56.2,
+          "end": 58.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L032",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 56.5,
+          "end": 57.8,
+          "text": ""
+        },
+        {
+          "id": "E018_L033",
+          "episode": 18,
+          "scene": 3,
+          "type": "action",
+          "start": 57.8,
+          "end": 60.0,
+          "text": ""
+        },
+        {
+          "id": "E018_L034",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 58.0,
+          "end": 59.2,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S013",
+      "index": 13,
+      "episode": 18,
+      "scene": 3,
+      "start": 63.0,
+      "end": 65.5,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L035",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 59.3,
+          "end": 62.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L037",
+          "episode": 18,
+          "scene": 3,
+          "type": "action",
+          "start": 65.5,
+          "end": 68.0,
+          "text": ""
+        },
+        {
+          "id": "E018_L038",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 65.8,
+          "end": 68.0,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S014",
+      "index": 14,
+      "episode": 18,
+      "scene": 3,
+      "start": 70.5,
+      "end": 73.5,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L039",
+          "episode": 18,
+          "scene": 3,
+          "type": "action",
+          "start": 68.0,
+          "end": 70.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L041",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 73.5,
+          "end": 75.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L042",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 75.0,
+          "end": 76.8,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S015",
+      "index": 15,
+      "episode": 18,
+      "scene": 3,
+      "start": 81.5,
+      "end": 83.5,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L043",
+          "episode": 18,
+          "scene": 3,
+          "type": "action",
+          "start": 76.8,
+          "end": 81.5,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S016",
+      "index": 16,
+      "episode": 18,
+      "scene": 3,
+      "start": 83.5,
+      "end": 86.5,
+      "clean_start": true,
+      "clean_end": true,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L046",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 84.0,
+          "end": 86.2,
+          "text": ""
+        },
+        {
+          "id": "E018_L047",
+          "episode": 18,
+          "scene": 3,
+          "type": "action",
+          "start": 86.5,
+          "end": 89.5,
+          "text": ""
+        },
+        {
+          "id": "E018_L048",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 86.5,
+          "end": 87.5,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S017",
+      "index": 17,
+      "episode": 18,
+      "scene": 3,
+      "start": 89.5,
+      "end": 94.0,
+      "clean_start": true,
+      "clean_end": false,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L049",
+          "episode": 18,
+          "scene": 3,
+          "type": "sound",
+          "start": 87.8,
+          "end": 90.0,
+          "text": ""
+        },
+        {
+          "id": "E018_L051",
+          "episode": 18,
+          "scene": 3,
+          "type": "action",
+          "start": 91.5,
+          "end": 98.0,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "E018_S018",
+      "index": 18,
+      "episode": 18,
+      "scene": 4,
+      "start": 98.5,
+      "end": 101.5,
+      "clean_start": true,
+      "clean_end": false,
+      "camera_text": "",
+      "lines": [
+        {
+          "id": "E018_L052",
+          "episode": 18,
+          "scene": 3,
+          "type": "dialogue",
+          "start": 96.5,
+          "end": 98.2,
+          "text": ""
+        },
+        {
+          "id": "E018_L054",
+          "episode": 18,
+          "scene": 4,
+          "type": "action",
+          "start": 101.5,
+          "end": 104.5,
+          "text": ""
+        }
+      ]
+    }
+  ]
+}

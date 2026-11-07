@@ -1,0 +1,114 @@
+EPISODE NUMBER: Episode 3
+EPISODE LOGLINE: Nera interrupts the midnight auction with proof of the real inventor, until a buyer names an impossible price.
+CONTINUITY NOTES: An original fictional demo about a stolen clockwork invention.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. CLOCK TOWER – NIGHT
+Scene start: 00:00.00
+Scene end: 01:36.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:05.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:00.30) | End: (00:03.80)
+"Stop the auction. You are selling stolen work."
+
+**CAMERA:**
+Start: (00:05.00) | End: (00:10.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (00:05.30) | End: (00:08.80)
+"The buyers already know who built it."
+
+**CAMERA:**
+Start: (00:10.00) | End: (00:16.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (00:10.30) | End: (00:13.80)
+"The original drawing has a second signature."
+
+**CAMERA:**
+Start: (00:16.00) | End: (00:22.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:16.30) | End: (00:19.80)
+"Who signed it after my father disappeared?"
+
+**CAMERA:**
+Start: (00:22.00) | End: (00:30.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (00:22.30) | End: (00:25.80)
+"I will trade the patent for one name."
+
+**CAMERA:**
+Start: (00:30.00) | End: (00:38.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:30.30) | End: (00:33.80)
+"You cannot buy another person with my invention."
+
+**CAMERA:**
+Start: (00:38.00) | End: (00:47.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (00:38.30) | End: (00:41.80)
+"The buyer is standing behind that curtain."
+
+**CAMERA:**
+Start: (00:47.00) | End: (00:56.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:47.30) | End: (00:50.80)
+"Why is my father bidding against me?"
+
+**CAMERA:**
+Start: (00:56.00) | End: (01:06.00)
+Close view of Nera beside the clockwork display; the brass pendulum swings behind them.
+
+**NERA (Urgent):**
+Start: (00:56.30) | End: (00:59.80)
+"The highest bidder ordered my father killed."
+
+**CAMERA:**
+Start: (01:06.00) | End: (01:16.00)
+Close view of Orin beside the clockwork display; the brass pendulum swings behind them.
+
+**ORIN (Urgent):**
+Start: (01:06.30) | End: (01:09.80)
+"The ledger lists tonight as the final payment."
+
+**CAMERA:**
+Start: (01:16.00) | End: (01:26.00)
+Close view of Sable beside the clockwork display; the brass pendulum swings behind them.
+
+**SABLE (Urgent):**
+Start: (01:16.30) | End: (01:19.80)
+"The buyer has just raised a second paddle."
+
+**CAMERA:**
+Start: (01:26.00) | End: (01:36.00)
+Hold on Nera as she turns toward the locked door, still waiting for an answer.
+
+**NERA (Urgent):**
+Start: (01:26.30) | End: (01:29.80)
+"Whose life are you auctioning next?"
+
+**SOUND FX:**
+Start: (01:34.80) | End: (01:36.00)
+The tower bell begins a single unfinished note.
+
+--- SCRIPT END ---

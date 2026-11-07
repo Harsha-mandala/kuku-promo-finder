@@ -1,0 +1,74 @@
+data_dir: data
+parsed_dir: parsed
+output_dir: outputs
+models:
+  candidates: {provider: gemini, model: gemini-2.5-flash, thinking_budget: 1024}
+  trailers: {provider: gemini, model: gemini-2.5-flash, thinking_budget: 1024}
+  editor: {provider: gemini, model: gemini-2.5-flash, thinking_budget: 1024}
+  bible: {provider: groq, model: openai/gpt-oss-120b}
+  judge: {provider: groq, model: openai/gpt-oss-120b, reasoning_effort: low, requests_per_minute: 2}
+llm:
+  provider: groq
+  model: openai/gpt-oss-120b
+  temperature: 0.4
+  max_retries: 3
+  requests_per_minute: 8
+  tokens_per_minute: 8000
+  max_request_tokens: 30000
+  max_api_calls_per_run: 14
+  use_cache: true
+  cache_dir: .cache/llm
+  raw_log_dir: outputs/llm_raw
+  providers:
+    gemini: {tokens_per_minute: null, timeout_seconds: 180}
+    openai: {base_url: null, api_key_env: OPENAI_API_KEY}
+    groq: {base_url: "https://api.groq.com/openai/v1", api_key_env: GROQ_API_KEY, reasoning_effort: low, max_completion_tokens: 2048, max_request_tokens: 6000}
+    ollama: {base_url: "http://localhost:11434/v1", api_key_env: null}
+promo:
+  min_seconds: 20
+  max_seconds: 60
+  hook_window_seconds: 3
+  candidates_per_episode: 5
+rank:
+  same_episode_penalty: 0.05
+  weights:
+    hook: 0.25
+    cliffhanger: 0.25
+    standalone: 0.20
+    emotion: 0.10
+    post_priority: 0.20
+    judge: 0.80
+    rule: 0.15
+    early_episode: 0.05
+  penalties:
+    flagged: 0.05
+    hook_reassigned: 0.03
+    cliffhanger_reassigned: 0.03
+    caution: 0.03
+
+evaluation:
+  gold_csv: eval/gold.csv
+  gold_episodes: [7, 11, 14, 19, 27, 30, 34, 37, 41, 45]
+  seed: 20261106
+  bootstrap_samples: 2000
+  baseline_rules:
+    emotions: [shocked, outraged, furious, cruel, gloating, screaming, mocking, venomous, desperate]
+    actions: [slap, strike, punch, gasp, scream, grab, drag, kneel]
+    hook_weight: 3.0
+    cliffhanger_weight: 2.0
+    speaker_weight: 0.25
+    exclamation_weight: 0.5
+
+trailers:
+  enabled: true
+  min_gap_s: 10
+  max_episode: 15
+  count: 5
+safety:
+  review_terms: [sex, sexual, sexually, intimacy, intimate, naked, nude, nudity, seduction, seduce, seduces, seduced, minor, child in danger, child-in-danger, undressed, unclothed]
+  child_danger_terms: [danger, burning, distress, injury, injured, threatened, attacked, abuse, abused]
+editor:
+  enabled: true
+  seed: 20261106
+  judge_weight: 0.6
+  editor_weight: 0.4

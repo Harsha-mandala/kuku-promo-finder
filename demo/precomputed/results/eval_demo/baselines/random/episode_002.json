@@ -1,0 +1,113 @@
+[
+  {
+    "episode": 2,
+    "id": "E002_RANDOM01",
+    "status": "ok",
+    "orig_start_shot_id": "E002_S006",
+    "orig_end_shot_id": "E002_S008",
+    "orig_span": [
+      55.0,
+      76.0
+    ],
+    "orig_duration": 21.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E002_S006",
+    "end_shot_id": "E002_S008",
+    "final_span": [
+      55.0,
+      76.0
+    ],
+    "duration_s": 21.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.29999999999999716,
+    "hook_line_id": "E002_L012",
+    "cliffhanger_line_id": "E002_L016",
+    "hook_text": "I sent the warning. I could not let you go alone.",
+    "cliffhanger_text": "What if he never wanted you to find him?",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "random",
+      "seed": 20261106
+    }
+  },
+  {
+    "episode": 2,
+    "id": "E002_RANDOM02",
+    "status": "ok",
+    "orig_start_shot_id": "E002_S001",
+    "orig_end_shot_id": "E002_S003",
+    "orig_span": [
+      0.0,
+      36.0
+    ],
+    "orig_duration": 36.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E002_S001",
+    "end_shot_id": "E002_S003",
+    "final_span": [
+      0.0,
+      36.0
+    ],
+    "duration_s": 36.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.3,
+    "hook_line_id": "E002_L002",
+    "cliffhanger_line_id": "E002_L006",
+    "hook_text": "That key opens the tower—or your grave.",
+    "cliffhanger_text": "A voice can be copied. A debt cannot.",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "random",
+      "seed": 20261106
+    }
+  },
+  {
+    "episode": 2,
+    "id": "E002_RANDOM03",
+    "status": "ok",
+    "orig_start_shot_id": "E002_S010",
+    "orig_end_shot_id": "E002_S012",
+    "orig_span": [
+      84.0,
+      110.0
+    ],
+    "orig_duration": 26.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E002_S010",
+    "end_shot_id": "E002_S012",
+    "final_span": [
+      84.0,
+      110.0
+    ],
+    "duration_s": 26.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.29999999999999716,
+    "hook_line_id": "E002_L020",
+    "cliffhanger_line_id": "E002_L025",
+    "hook_text": "The mechanism responds only to his voice.",
+    "cliffhanger_text": "The tower bell begins a single unfinished note.",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "random",
+      "seed": 20261106
+    }
+  }
+]

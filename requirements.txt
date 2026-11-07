@@ -1,0 +1,9 @@
+pydantic>=2,<3
+pyyaml
+pandas
+pytest
+google-genai
+streamlit>=1.66,<2
+tenacity
+openai
+python-dotenv

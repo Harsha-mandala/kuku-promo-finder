@@ -1,0 +1,76 @@
+[
+  {
+    "episode": 3,
+    "id": "E003_RANDOM01",
+    "status": "ok",
+    "orig_start_shot_id": "E003_S010",
+    "orig_end_shot_id": "E003_S011",
+    "orig_span": [
+      66.0,
+      86.0
+    ],
+    "orig_duration": 20.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E003_S010",
+    "end_shot_id": "E003_S011",
+    "final_span": [
+      66.0,
+      86.0
+    ],
+    "duration_s": 20.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.29999999999999716,
+    "hook_line_id": "E003_L020",
+    "cliffhanger_line_id": "E003_L022",
+    "hook_text": "The ledger lists tonight as the final payment.",
+    "cliffhanger_text": "The buyer has just raised a second paddle.",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "random",
+      "seed": 20261106
+    }
+  },
+  {
+    "episode": 3,
+    "id": "E003_RANDOM02",
+    "status": "ok",
+    "orig_start_shot_id": "E003_S004",
+    "orig_end_shot_id": "E003_S009",
+    "orig_span": [
+      16.0,
+      66.0
+    ],
+    "orig_duration": 50.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E003_S004",
+    "end_shot_id": "E003_S009",
+    "final_span": [
+      16.0,
+      66.0
+    ],
+    "duration_s": 50.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.3000000000000007,
+    "hook_line_id": "E003_L008",
+    "cliffhanger_line_id": "E003_L018",
+    "hook_text": "Who signed it after my father disappeared?",
+    "cliffhanger_text": "The highest bidder ordered my father killed.",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "random",
+      "seed": 20261106
+    }
+  }
+]

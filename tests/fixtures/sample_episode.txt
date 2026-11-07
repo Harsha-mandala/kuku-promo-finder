@@ -1,0 +1,62 @@
+EPISODE NUMBER: Episode 99
+EPISODE LOGLINE: A test heiress confronts a test villain.
+CONTINUITY NOTES: Synthetic fixture for unit tests.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. TEST HALL – NIGHT
+Scene start: 00:00.00
+Scene end: 00:20.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:04.00)
+Wide shot of the hall.
+
+**ACTION:**
+Start: (00:01.00) | End: (00:03.50)
+Anna walks in slowly.
+
+**CAMERA:**
+Start: (00:04.00) | End: (00:08.00)
+Close-up on Anna.
+
+**ANNA (Shocked, Breathless):**
+Start: (00:05.00) | End: (00:09.50)
+"You were here
+all along?"
+
+**CAMERA:**
+Start: (00:08.00) | End: (00:10.00)
+Close-up on Victor.
+
+**CAMERA:**
+Start: (00:11.00) | End: (00:15.00)
+Medium shot of both.
+
+**VICTOR (O.S.) (Cold):**
+Start: (00:10.20) | End: (00:12.00)
+"Always."
+
+**VICTOR:**
+Start: (00:16.00) | End: (00:16.50)
+"Go."
+
+SCENE 02
+Scene heading: EXT. TEST GARDEN – NIGHT
+Scene start: 00:20.00
+Scene end: 00:30.00
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:20.00) | End: (00:30.00)
+Anna runs into the dark.
+
+**SOUND FX:**
+Start: (00:28.00) | End: (00:30.00)
+Thunder crashes.
+
+--- SCRIPT END ---

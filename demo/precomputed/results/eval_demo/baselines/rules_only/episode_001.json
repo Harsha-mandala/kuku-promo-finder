@@ -1,0 +1,113 @@
+[
+  {
+    "episode": 1,
+    "id": "E001_RULES_ONLY01",
+    "status": "ok",
+    "orig_start_shot_id": "E001_S001",
+    "orig_end_shot_id": "E001_S004",
+    "orig_span": [
+      0.0,
+      30.0
+    ],
+    "orig_duration": 30.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E001_S001",
+    "end_shot_id": "E001_S004",
+    "final_span": [
+      0.0,
+      30.0
+    ],
+    "duration_s": 30.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.1,
+    "hook_line_id": "E001_L002",
+    "cliffhanger_line_id": "E001_L009",
+    "hook_text": "Nera slaps Ivo across the cheek, stopping the public unveiling.",
+    "cliffhanger_text": "Then whose name did you put on it?",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "rules_only",
+      "seed": 20261106
+    }
+  },
+  {
+    "episode": 1,
+    "id": "E001_RULES_ONLY02",
+    "status": "ok",
+    "orig_start_shot_id": "E001_S005",
+    "orig_end_shot_id": "E001_S008",
+    "orig_span": [
+      30.0,
+      62.0
+    ],
+    "orig_duration": 32.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E001_S005",
+    "end_shot_id": "E001_S008",
+    "final_span": [
+      30.0,
+      62.0
+    ],
+    "duration_s": 32.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.3000000000000007,
+    "hook_line_id": "E001_L011",
+    "cliffhanger_line_id": "E001_L017",
+    "hook_text": "Your father signed the transfer himself.",
+    "cliffhanger_text": "Why is there a photograph of me inside?",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "rules_only",
+      "seed": 20261106
+    }
+  },
+  {
+    "episode": 1,
+    "id": "E001_RULES_ONLY03",
+    "status": "ok",
+    "orig_start_shot_id": "E001_S009",
+    "orig_end_shot_id": "E001_S012",
+    "orig_span": [
+      62.0,
+      100.0
+    ],
+    "orig_duration": 38.0,
+    "orig_hook_offset_s": null,
+    "start_shot_id": "E001_S009",
+    "end_shot_id": "E001_S012",
+    "final_span": [
+      62.0,
+      100.0
+    ],
+    "duration_s": 38.0,
+    "cliffhanger_end_gap_s": null,
+    "hook_offset_s": 0.29999999999999716,
+    "hook_line_id": "E001_L019",
+    "cliffhanger_line_id": "E001_L026",
+    "hook_text": "You sold my identity along with the machine.",
+    "cliffhanger_text": "The tower bell begins a single unfinished note.",
+    "start_clean": true,
+    "end_clean": true,
+    "ends_on_episode_final_beat": false,
+    "why_it_works": "",
+    "self_score": 0,
+    "fix_log": [],
+    "flags": [],
+    "original_candidate": {
+      "baseline": "rules_only",
+      "seed": 20261106
+    }
+  }
+]

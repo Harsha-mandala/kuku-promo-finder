@@ -1,0 +1,656 @@
+{
+  "number": 2,
+  "source_file": "episode_002.txt",
+  "logline": "A stolen tower key leads Nera to a recording, where her closest ally admits sending the warning.",
+  "continuity_notes": "An original fictional demo about a stolen clockwork invention.",
+  "duration": 110.0,
+  "scenes": [
+    {
+      "number": 1,
+      "heading": "INT. CLOCK TOWER – NIGHT",
+      "start": 0.0,
+      "end": 110.0
+    }
+  ],
+  "lines": [
+    {
+      "id": "E002_L001",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 0.0,
+      "end": 12.0,
+      "text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L002",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "ORIN",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 0.3,
+      "end": 3.8,
+      "text": "That key opens the tower—or your grave."
+    },
+    {
+      "id": "E002_L003",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 12.0,
+      "end": 24.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L004",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 12.3,
+      "end": 15.8,
+      "text": "Someone recorded the night my father vanished."
+    },
+    {
+      "id": "E002_L005",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 24.0,
+      "end": 36.0,
+      "text": "Close view of Ivo beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L006",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "IVO",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 24.3,
+      "end": 27.8,
+      "text": "A voice can be copied. A debt cannot."
+    },
+    {
+      "id": "E002_L007",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 36.0,
+      "end": 48.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L008",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 36.3,
+      "end": 39.8,
+      "text": "Then why does the recording say your name?"
+    },
+    {
+      "id": "E002_L009",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 48.0,
+      "end": 55.0,
+      "text": "Close view of Ivo beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L010",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "IVO",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 48.3,
+      "end": 51.8,
+      "text": "Give me the key, or the tower burns."
+    },
+    {
+      "id": "E002_L011",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 55.0,
+      "end": 62.0,
+      "text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L012",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "ORIN",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 55.3,
+      "end": 58.8,
+      "text": "I sent the warning. I could not let you go alone."
+    },
+    {
+      "id": "E002_L013",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 62.0,
+      "end": 69.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L014",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 62.3,
+      "end": 65.8,
+      "text": "You knew where he was all this time."
+    },
+    {
+      "id": "E002_L015",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 69.0,
+      "end": 76.0,
+      "text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L016",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "ORIN",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 69.3,
+      "end": 72.8,
+      "text": "What if he never wanted you to find him?"
+    },
+    {
+      "id": "E002_L017",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 76.0,
+      "end": 84.0,
+      "text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L018",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 76.3,
+      "end": 79.8,
+      "text": "You imprisoned him inside his own invention."
+    },
+    {
+      "id": "E002_L019",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 84.0,
+      "end": 92.0,
+      "text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L020",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "ORIN",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 84.3,
+      "end": 87.8,
+      "text": "The mechanism responds only to his voice."
+    },
+    {
+      "id": "E002_L021",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 92.0,
+      "end": 101.0,
+      "text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them."
+    },
+    {
+      "id": "E002_L022",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "SABLE",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 92.3,
+      "end": 95.8,
+      "text": "That knock came from beneath the floor."
+    },
+    {
+      "id": "E002_L023",
+      "episode": 2,
+      "scene": 1,
+      "type": "camera",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 101.0,
+      "end": 110.0,
+      "text": "Hold on Nera as she turns toward the locked door, still waiting for an answer."
+    },
+    {
+      "id": "E002_L024",
+      "episode": 2,
+      "scene": 1,
+      "type": "dialogue",
+      "speaker": "NERA",
+      "emotion": "Urgent",
+      "off_screen": false,
+      "start": 101.3,
+      "end": 104.8,
+      "text": "Father, can you hear me through the machine?"
+    },
+    {
+      "id": "E002_L025",
+      "episode": 2,
+      "scene": 1,
+      "type": "sound",
+      "speaker": null,
+      "emotion": null,
+      "off_screen": false,
+      "start": 108.8,
+      "end": 110.0,
+      "text": "The tower bell begins a single unfinished note."
+    }
+  ],
+  "shots": [
+    {
+      "id": "E002_S001",
+      "index": 1,
+      "episode": 2,
+      "scene": 1,
+      "start": 0.0,
+      "end": 12.0,
+      "camera_text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L002",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "ORIN",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 0.3,
+          "end": 3.8,
+          "text": "That key opens the tower—or your grave."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 0.0,
+      "effective_end": 12.0
+    },
+    {
+      "id": "E002_S002",
+      "index": 2,
+      "episode": 2,
+      "scene": 1,
+      "start": 12.0,
+      "end": 24.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L004",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 12.3,
+          "end": 15.8,
+          "text": "Someone recorded the night my father vanished."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 12.0,
+      "effective_end": 24.0
+    },
+    {
+      "id": "E002_S003",
+      "index": 3,
+      "episode": 2,
+      "scene": 1,
+      "start": 24.0,
+      "end": 36.0,
+      "camera_text": "Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L006",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "IVO",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 24.3,
+          "end": 27.8,
+          "text": "A voice can be copied. A debt cannot."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 24.0,
+      "effective_end": 36.0
+    },
+    {
+      "id": "E002_S004",
+      "index": 4,
+      "episode": 2,
+      "scene": 1,
+      "start": 36.0,
+      "end": 48.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L008",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 36.3,
+          "end": 39.8,
+          "text": "Then why does the recording say your name?"
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 36.0,
+      "effective_end": 48.0
+    },
+    {
+      "id": "E002_S005",
+      "index": 5,
+      "episode": 2,
+      "scene": 1,
+      "start": 48.0,
+      "end": 55.0,
+      "camera_text": "Close view of Ivo beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L010",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "IVO",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 48.3,
+          "end": 51.8,
+          "text": "Give me the key, or the tower burns."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 48.0,
+      "effective_end": 55.0
+    },
+    {
+      "id": "E002_S006",
+      "index": 6,
+      "episode": 2,
+      "scene": 1,
+      "start": 55.0,
+      "end": 62.0,
+      "camera_text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L012",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "ORIN",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 55.3,
+          "end": 58.8,
+          "text": "I sent the warning. I could not let you go alone."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 55.0,
+      "effective_end": 62.0
+    },
+    {
+      "id": "E002_S007",
+      "index": 7,
+      "episode": 2,
+      "scene": 1,
+      "start": 62.0,
+      "end": 69.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L014",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 62.3,
+          "end": 65.8,
+          "text": "You knew where he was all this time."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 62.0,
+      "effective_end": 69.0
+    },
+    {
+      "id": "E002_S008",
+      "index": 8,
+      "episode": 2,
+      "scene": 1,
+      "start": 69.0,
+      "end": 76.0,
+      "camera_text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L016",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "ORIN",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 69.3,
+          "end": 72.8,
+          "text": "What if he never wanted you to find him?"
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 69.0,
+      "effective_end": 76.0
+    },
+    {
+      "id": "E002_S009",
+      "index": 9,
+      "episode": 2,
+      "scene": 1,
+      "start": 76.0,
+      "end": 84.0,
+      "camera_text": "Close view of Nera beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L018",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 76.3,
+          "end": 79.8,
+          "text": "You imprisoned him inside his own invention."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 76.0,
+      "effective_end": 84.0
+    },
+    {
+      "id": "E002_S010",
+      "index": 10,
+      "episode": 2,
+      "scene": 1,
+      "start": 84.0,
+      "end": 92.0,
+      "camera_text": "Close view of Orin beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L020",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "ORIN",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 84.3,
+          "end": 87.8,
+          "text": "The mechanism responds only to his voice."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 84.0,
+      "effective_end": 92.0
+    },
+    {
+      "id": "E002_S011",
+      "index": 11,
+      "episode": 2,
+      "scene": 1,
+      "start": 92.0,
+      "end": 101.0,
+      "camera_text": "Close view of Sable beside the clockwork display; the brass pendulum swings behind them.",
+      "lines": [
+        {
+          "id": "E002_L022",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "SABLE",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 92.3,
+          "end": 95.8,
+          "text": "That knock came from beneath the floor."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 92.0,
+      "effective_end": 101.0
+    },
+    {
+      "id": "E002_S012",
+      "index": 12,
+      "episode": 2,
+      "scene": 1,
+      "start": 101.0,
+      "end": 110.0,
+      "camera_text": "Hold on Nera as she turns toward the locked door, still waiting for an answer.",
+      "lines": [
+        {
+          "id": "E002_L024",
+          "episode": 2,
+          "scene": 1,
+          "type": "dialogue",
+          "speaker": "NERA",
+          "emotion": "Urgent",
+          "off_screen": false,
+          "start": 101.3,
+          "end": 104.8,
+          "text": "Father, can you hear me through the machine?"
+        },
+        {
+          "id": "E002_L025",
+          "episode": 2,
+          "scene": 1,
+          "type": "sound",
+          "speaker": null,
+          "emotion": null,
+          "off_screen": false,
+          "start": 108.8,
+          "end": 110.0,
+          "text": "The tower bell begins a single unfinished note."
+        }
+      ],
+      "clean_start": true,
+      "clean_end": true,
+      "effective_start": 101.0,
+      "effective_end": 110.0
+    }
+  ],
+  "warnings": []
+}
