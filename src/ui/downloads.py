@@ -40,6 +40,8 @@ def posting_rows(bundle):
 def editor_ready_csv(rows):
     segments = []
     for row in rows:
+        if row.get('ad_safety') == 'unsafe':
+            continue
         for number, segment in enumerate(row['segments'], 1):
             start, end = segment['start'], segment['end']
             segments.append(dict(final_rank=row['final_rank'], promo_id=row['promo_id'], type=row['type'],

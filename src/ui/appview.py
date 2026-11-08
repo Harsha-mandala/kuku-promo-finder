@@ -12,9 +12,10 @@ import yaml
 
 from ..cliprender import render_clip
 from ..pipeline import parse_inputs, run_pipeline
+from ..safety_review import shortlist
 from ..timeutils import format_timestamp
 from .data import DEMO_ROOT, PROJECT_ROOT, existing_run_tags, load_bundle, load_demo, local_runs_allowed, upload_config
-from .helpers import filter_promos, redact, segment_text
+from .helpers import filter_promos, redact, render_html, segment_text
 from .session import clear_workspace, new_workspace, resolve_credentials, unpack_uploads, upload_fingerprint, write_uploads
 from .theme import CSS, card_html
 from .quality import show_quality
@@ -65,7 +66,7 @@ def show_script(episode,promo):
         kind='both' if hook and cliff else 'hook' if hook else 'cliff' if cliff else ''
         label='HOOK + CLIFFHANGER' if hook and cliff else 'HOOK' if hook else 'CLIFFHANGER' if cliff else ''
         rows.append(f'<div class="script-line {kind}">'+(f'<div class="script-label">{label}</div>' if label else '')+escape(line)+'</div>')
-    st.markdown(''.join(rows),unsafe_allow_html=True)
+    st.html(render_html(''.join(rows)))
 
 
 def show_promos(bundle):
@@ -91,29 +92,33 @@ def show_promos(bundle):
     review_only = st.checkbox('Needs safety review only', disabled=not queue)
     safe_only = st.toggle('Safe-only top 10', disabled=review_only)
     filtered = filter_promos(rows, rng, minimum, hide and not review_only, statuses)
-    visible_trailers = filter_promos(bundle.get('trailers', []), rng, minimum, hide and not review_only, statuses)
+    visible_trailers = filter_promos([row for row in bundle.get('trailers', []) if row['ad_safety'] != 'unsafe'],
+                                    rng, minimum, hide and not review_only, statuses)
+    automatic = st.toggle('Automatic top 10', disabled=review_only or safe_only)
     if review_only:
         filtered = [row for row in filtered if row.get('safety_review')]
         visible_trailers = [row for row in visible_trailers if row.get('safety_review')]
     else:
         filtered = [row for row in filtered if not row.get('safety_review')]
         visible_trailers = [row for row in visible_trailers if not row.get('safety_review')]
-        if safe_only:
-            safe = [row for row in filtered + visible_trailers if row['ad_safety'] == 'safe']
-            safe.sort(key=lambda row: row.get('final_rank', float('inf')))
-            top_ids = {row['promo_id'] for row in safe[:10]}
-            filtered = [row for row in filtered if row['promo_id'] in top_ids]
-            visible_trailers = [row for row in visible_trailers if row['promo_id'] in top_ids]
+        if safe_only or automatic:
+            eligible = [row for row in filtered + visible_trailers if not safe_only or row['ad_safety'] == 'safe']
+            eligible.sort(key=lambda row: row.get('final_rank', float('inf')))
+            top = shortlist(eligible)
+            filtered = [row for row in top if row.get('type') != 'trailer']
+            visible_trailers = [row for row in top if row.get('type') == 'trailer']
     st.caption(f'{len(filtered)} singles · {len(visible_trailers)} trailers · Magenta marks the hook; coral marks the cliffhanger. Scores support an editor’s judgment.')
     episodes={e.number:e for e in bundle['episodes']}
     promos={p.id:p for p in bundle['validated']}
     decisions=st.session_state.setdefault('decisions',{})
-    st.html("""<script>
+    st.html(render_html("""<script>
     if(!window.kukuCopyHandler){document.addEventListener('click',async e=>{const b=e.target.closest('button.copy-segment');if(b){try{await navigator.clipboard.writeText(b.dataset.segment);b.textContent='Copied';}catch(error){const t=document.createElement('textarea');t.value=b.dataset.segment;document.body.appendChild(t);t.select();const ok=document.execCommand('copy');t.remove();b.textContent=ok?'Copied':'Copy unavailable';}}});window.kukuCopyHandler=true;}
-    </script>""",unsafe_allow_javascript=True)
+    </script>"""),unsafe_allow_javascript=True)
     show_trailers(dict(bundle,trailers=visible_trailers),episodes)
     for i,row in enumerate(filtered):
-        st.markdown(card_html(row),unsafe_allow_html=True)
+        st.html(card_html(row))
+        for alternate in row.get('alternate_cuts', []):
+            st.caption(f"{alternate['promo_id']} · alternate cut of {row['promo_id']}")
         if row.get('ad_safety_reason'):
             st.caption('Safety: '+row['ad_safety_reason']+(' · unverified source citation' if not row.get('ad_safety_verified',True) else ''))
         if row.get('formula_note','').startswith('old'):
@@ -183,8 +188,8 @@ def show_bible(bundle):
 
 
 def show_timeline(bundle):
-    st.markdown('<div class="section-intro">Every selection spans complete shots. Hover over a block for timestamps.</div>',unsafe_allow_html=True)
-    st.markdown('<div class="legend"><span>● Coral: ranks 1–3</span><span>● Pink: other promos</span><span>Dashed: trailer segments</span></div>',unsafe_allow_html=True)
+    st.html(render_html('<div class="section-intro">Every selection spans complete shots. Hover over a block for timestamps.</div>'))
+    st.html(render_html('<div class="legend"><span>● Coral: ranks 1–3</span><span>● Pink: other promos</span><span>Dashed: trailer segments</span></div>'))
     for ep in bundle['episodes']:
         if ep.duration <= 0:
             continue
@@ -207,12 +212,12 @@ def show_timeline(bundle):
                 times = f"{format_timestamp(segment['start'])}–{format_timestamp(segment['end'])}"
                 tooltip = escape(f'{label} · {times}', quote=True)
                 bars.append(f'<div class="timeline-span trailer-span" style="left:{left:.2f}%;width:{width:.2f}%" title="{tooltip}">{escape(label)}</div>')
-        st.markdown(f'<div class="timeline-row"><strong>Episode {ep.number:02d}</strong> <span class="meta"> / {format_timestamp(ep.duration)}</span><div class="meta">{escape(ep.logline)}</div><div class="timeline-track">'+''.join(bars)+'</div></div>',unsafe_allow_html=True)
+        st.html(render_html(f'<div class="timeline-row"><strong>Episode {ep.number:02d}</strong> <span class="meta"> / {format_timestamp(ep.duration)}</span><div class="meta">{escape(ep.logline)}</div><div class="timeline-track">'+''.join(bars)+'</div></div>'))
 
 
 def main():
     st.set_page_config(page_title='Kuku Promo Finder',page_icon='🎬',layout='wide')
-    st.markdown(CSS,unsafe_allow_html=True)
+    st.html(render_html(CSS))
     allow_existing=local_runs_allowed(os.environ, st.context.headers)
     config_override = os.environ.get('KUKU_CONFIG') if allow_existing else None
     config_path = PROJECT_ROOT / (config_override or 'config.yaml')
@@ -223,7 +228,7 @@ def main():
     if allow_existing:
         modes.append('Open existing run')
     with st.sidebar:
-        st.markdown('<div class="eyebrow">KUKU / PROMO STUDIO</div>',unsafe_allow_html=True)
+        st.html(render_html('<div class="eyebrow">KUKU / PROMO STUDIO</div>'))
         mode=st.radio('Mode',modes,key=f'mode_{epoch}')
         existing=allow_existing and mode=='Open existing run'
         run_tag=None
@@ -251,7 +256,7 @@ def main():
         selector=st.text_input('Episodes','all',help='Examples: all, 1-10, 1,3,5',key=f'selector_{epoch}')
         estimate_clicked=st.button('Estimate cost',width='stretch',disabled=existing)
         st.button('Clear session',width='stretch',on_click=reset_session)
-    st.markdown('<h1 class="royal-title">Kuku Promo Finder</h1><div class="royal-subtitle">Find the moment that makes them watch the next episode.</div>',unsafe_allow_html=True)
+    st.html(render_html('<h1 class="royal-title">Kuku Promo Finder</h1><div class="royal-subtitle">Find the moment that makes them watch the next episode.</div>'))
     keys={}
     hosted=False
     bundle=load_demo()
@@ -329,7 +334,7 @@ def main():
     default=st.query_params.get('view','Run')
     tabs=st.tabs(TABS,default=default if default in TABS else 'Run')
     with tabs[0]:
-        st.markdown('<div class="eyebrow">FROM SCRIPT TO SHORTLIST</div>',unsafe_allow_html=True)
+        st.html(render_html('<div class="eyebrow">FROM SCRIPT TO SHORTLIST</div>'))
         st.subheader('A stronger first frame. A harder last question.')
         if mode=='Demo':
             st.caption('THE MIDNIGHT PATENT · Original fictional demo · Deterministic MockProvider scores · No live AI calls')

@@ -2,7 +2,7 @@
 
 from html import escape
 
-from .helpers import safety_chip,score_bars,segment_text
+from .helpers import render_html,safety_chip,score_bars,segment_text
 
 CSS='''<style>
 .block-container{max-width:1240px;padding-top:2.2rem;padding-bottom:3rem}
@@ -49,11 +49,11 @@ def card_html(row):
             ranks+="<span class='chip status'>Rank disagreement ≥5</span>"
     elif row.get('final_rank') is not None:
         ranks=f"<div class='meta'>Judge #{row['judge_rank']} · Editor: not reviewed · Final #{row['final_rank']}</div>"
-    return f'''<div class="promo-card" style="--accent:{accent}">
+    return render_html(f'''<div class="promo-card" style="--accent:{accent}">
     <div class="card-top"><span class="rank-badge">{rank}</span><div><div class="card-title">{title} · {escape(row['promo_id'])}</div><div class="meta">{escape(segment_text(row))} · {row['duration_s']:.1f} s · score {row.get('score_adj',row['final_score']):.2f} <button class="copy-segment" data-segment="{escape(segment_text(row),quote=True)}" aria-label="Copy segment timestamp">Copy</button></div>{ranks}</div></div>
     {safety_chip(row)}<span class="chip status">{escape(row['status'])}</span>
     {"<span class='chip caution'>Needs safety review</span>" if row.get('safety_review') else ""}
     <div class="quote"><span class="quote-label">THE HOOK</span>{escape(row['hook_text'])}</div>
     <div class="quote cliff"><span class="quote-label">THE CLIFFHANGER</span>{escape(row['cliffhanger_text'])}</div>
     <p>{escape(row.get('why_it_works') or '')}</p><div class="meta">{escape(row.get('why_post_first') or row.get('one_line_pitch',''))}</div>
-    {score_bars(row)}</div>'''
+    {score_bars(row)}</div>''')

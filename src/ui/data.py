@@ -8,6 +8,7 @@ from urllib.parse import urlsplit
 from ..context import load_episodes
 from ..judge import load_promos
 from ..editorial_io import fresh_editor_rows, single_source_key
+from ..safety_review import inherit_trailer_safety
 
 PROJECT_ROOT=Path(__file__).resolve().parents[2]
 DEMO_ROOT=PROJECT_ROOT/'demo'
@@ -61,6 +62,8 @@ def load_bundle(parsed, output, tag):
             row.update(judge_rank=row['rank'],editor_rank=None,final_rank=len(edits)+remaining)
             row['rank']=row['final_rank']
     bundle['ranked'].sort(key=lambda r:(r.get('final_rank',len(edits)+r['rank']),r['promo_id']))
+    bundle['trailers'] = [inherit_trailer_safety(row, bundle['ranked'] + bundle['exclusions'].get('unsafe', []))
+                          for row in bundle['trailers']]
     bundle['safety_queue'] = read_json(output/f'final_{tag}/safety_review.json', [])
     queue = {row['promo_id']: row['safety_review'] for row in bundle['safety_queue']}
     for row in bundle['ranked'] + bundle['trailers']:

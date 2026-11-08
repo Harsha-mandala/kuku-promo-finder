@@ -132,6 +132,25 @@ def test_cards_escape_input_and_show_unverified():
     assert '<script>' not in html and '&lt;script&gt;' in html and 'unverified' in html
 
 
+def test_ui_html_helpers_remove_blank_lines_and_indentation():
+    from src.ui.helpers import render_html, safety_chip, score_bars
+    demo = load_demo()
+    assert render_html("\n    <div>\n\n        text\n    </div>\n") == "<div> text </div>"
+    fragments = [fragment for row in demo['ranked'] + demo['trailers']
+                 for fragment in (card_html(row), safety_chip(row), score_bars(row))]
+    assert all(line.strip() and not line.startswith('    ') for body in fragments for line in body.splitlines())
+
+
+def test_demo_html_fragments_use_html_elements_without_indented_lines():
+    app = AppTest.from_file(str(PROJECT_ROOT / 'app.py'), default_timeout=30).run()
+    assert not app.exception
+    fragments = [item.proto.body for item in app.get('html')]
+    assert any('Trailer ·' in body and 'score-track' in body for body in fragments)
+    assert any('timeline-track' in body for body in fragments)
+    assert all(line.strip() and not line.startswith('    ') for body in fragments for line in body.splitlines())
+    assert all('<div class=' not in item.value for item in [*app.markdown, *app.get('code')])
+
+
 def test_own_keys_override_secrets_without_environment_mutation():
     env={'GROQ_API_KEY':'environment'}
     keys,hosted=resolve_credentials({'GROQ_API_KEY':'own'},{'GROQ_API_KEY':'hosted'},env,{'groq'})
@@ -270,7 +289,7 @@ def test_streamlit_demo_smoke_and_editor_decision(monkeypatch):
     app=AppTest.from_file(str(PROJECT_ROOT/'app.py'),default_timeout=30).run()
     assert not app.exception
     assert [tab.label for tab in app.tabs]==['Run','Top promos','All candidates','Story bible','Timeline','Quality','How it works']
-    assert any('promo-card' in element.value for element in app.markdown)
+    assert any('promo-card' in element.proto.body for element in app.get('html'))
     button=next(button for button in app.button if button.key and button.key.startswith('approve_'))
     promo_id=button.key.removeprefix('approve_')
     button.click().run()

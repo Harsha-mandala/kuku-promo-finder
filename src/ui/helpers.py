@@ -7,6 +7,11 @@ from html import escape
 from ..timeutils import format_timestamp
 
 
+def render_html(html: str) -> str:
+    """Remove template indentation and blank lines from HTML fragments."""
+    return " ".join(line.strip() for line in html.splitlines() if line.strip())
+
+
 def segment_text(row):
     if row.get('segment_text'):
         return row['segment_text'].replace('-', '–')
@@ -47,7 +52,7 @@ def score_bars(row):
         text=f'{value}/{maximum}' if value is not None else 'not scored'
         width=100*value/maximum if value is not None else 0
         bars.append(f'<div class="score-label">{label}<span>{text}</span></div><div class="score-track"><i style="width:{width:.1f}%"></i></div>')
-    return ''.join(bars)
+    return render_html(''.join(bars))
 
 
 def safety_chip(row):
@@ -56,4 +61,7 @@ def safety_chip(row):
     result=f'<span class="chip {escape(rating)}">{escape(rating)}</span>'
     if not verified:
         result+='<span class="chip unverified">unverified</span>'
-    return result
+    if row.get('safety_inherited_from'):
+        sources = ', '.join(row['safety_inherited_from'])
+        result += f'<span class="chip status">inherited from {escape(sources)}</span>'
+    return render_html(result)
