@@ -5,7 +5,8 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 FILES=['app.py','run.py','config.yaml','requirements.txt','pytest.ini','.gitignore','.env.example',
-       'README.md','INTERVIEW_CHEATSHEET.md','PROGRESS.md','.streamlit/config.toml','config/hints.yaml','eval/README.md']
+       'README.md','INTERVIEW_CHEATSHEET.md','PROGRESS.md','.streamlit/config.toml','config/hints.yaml','eval/README.md',
+       '.github/workflows/keepalive.yml']
 FOLDERS=['src','tests','demo','tools']
 DEMO_SCREENSHOTS={'demo/screenshots/downloads.png','demo/screenshots/timeline.png'}
 

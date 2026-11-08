@@ -22,6 +22,7 @@ from .quality import show_quality
 from .trailers_view import show_trailers
 from .downloads import show_downloads
 from .guide import show_guide
+from .results_upload import MODE as RESULTS_MODE, load_results_zip
 
 TABS=['Run','Top promos','All candidates','Story bible','Timeline','Quality','How it works']
 STAGES=['parse','bible','candidates','validate','judge','rank','trailers','editor']
@@ -31,6 +32,8 @@ def reset_session():
     epoch=st.session_state.get('ui_epoch',0)+1
     if st.session_state.get('workspace'):
         clear_workspace(st.session_state['workspace'])
+    if st.session_state.get('results_workspace'):
+        clear_workspace(st.session_state['results_workspace'])
     st.session_state.clear()
     st.session_state['ui_epoch']=epoch
 
@@ -224,13 +227,18 @@ def main():
     config=yaml.safe_load(config_path.read_text(encoding='utf-8'))
     epoch=st.session_state.setdefault('ui_epoch',0)
     project_output=PROJECT_ROOT/config.get('output_dir','outputs')
-    modes=['Demo','Run on my files']
+    modes=['Demo','Run on my files',RESULTS_MODE]
     if allow_existing:
         modes.append('Open existing run')
     with st.sidebar:
         st.html(render_html('<div class="eyebrow">KUKU / PROMO STUDIO</div>'))
         mode=st.radio('Mode',modes,key=f'mode_{epoch}')
         existing=allow_existing and mode=='Open existing run'
+        viewing_results = mode == RESULTS_MODE
+        read_only = existing or viewing_results
+        st.caption('Reviewers: upload raw_outputs.zip from the submission link to see the full 50-episode run.')
+        results_zip = st.file_uploader('Results ZIP', type=['zip'], max_upload_size=50,
+                                       key=f'results_zip_{epoch}') if viewing_results else None
         run_tag=None
         if existing:
             tags=existing_run_tags(project_output)
@@ -254,7 +262,7 @@ def main():
         batch=st.number_input('Batch size',min_value=1,max_value=20,value=5,key=f'batch_{epoch}')
         calls=st.number_input('Max API calls',min_value=0,max_value=1000,value=14,key=f'calls_{epoch}')
         selector=st.text_input('Episodes','all',help='Examples: all, 1-10, 1,3,5',key=f'selector_{epoch}')
-        estimate_clicked=st.button('Estimate cost',width='stretch',disabled=existing)
+        estimate_clicked=st.button('Estimate cost',width='stretch',disabled=read_only)
         st.button('Clear session',width='stretch',on_click=reset_session)
     st.html(render_html('<h1 class="royal-title">Kuku Promo Finder</h1><div class="royal-subtitle">Find the moment that makes them watch the next episode.</div>'))
     keys={}
@@ -312,7 +320,34 @@ def main():
         else:
             st.info('No saved runs found.')
             bundle={'ranked':[],'episodes':[],'validated':[],'scores':[],'bible':{},'exclusions':{},'output':DEMO_ROOT/'unloaded','tag':'unloaded'}
-    scope=f"{mode}:{bundle['tag']}"
+    results_digest = None
+    if viewing_results:
+        bundle = {'ranked':[], 'episodes':[], 'validated':[], 'scores':[], 'bible':{}, 'exclusions':{},
+                  'output':DEMO_ROOT/'unloaded', 'tag':'unloaded'}
+        results_digest = hashlib.sha256(results_zip.getbuffer()).hexdigest() if results_zip else None
+        if st.session_state.get('results_digest') != results_digest:
+            old_workspace = st.session_state.pop('results_workspace', None)
+            if old_workspace:
+                clear_workspace(old_workspace)
+            st.session_state.pop('results_bundle', None)
+            st.session_state.pop('results_error', None)
+            st.session_state['results_digest'] = results_digest
+            if results_zip:
+                workspace = new_workspace()
+                try:
+                    st.session_state['results_bundle'] = load_results_zip(results_zip.getvalue(), workspace.name)
+                    st.session_state['results_workspace'] = workspace
+                except (OSError, ValueError) as error:
+                    clear_workspace(workspace)
+                    st.session_state['results_error'] = str(error)
+        if st.session_state.get('results_bundle'):
+            bundle = dict(st.session_state['results_bundle'])
+            st.info(f"Viewing saved results for {bundle['tag']} · read-only.")
+        elif st.session_state.get('results_error'):
+            st.error(st.session_state['results_error'])
+        else:
+            st.info('Upload a results ZIP to browse a saved run.')
+    scope=f"{mode}:{bundle['tag']}:{results_digest}"
     if st.session_state.get('decision_scope') != scope:
         st.session_state['decisions']={}
         st.session_state['decision_scope']=scope
@@ -348,12 +383,12 @@ def main():
                     st.write(f'Episode {ep.number}: {ep.logline}')
                     for warning in ep.warnings:
                         st.warning(warning)
-        estimate=st.session_state.get('estimate') if not existing and st.session_state.get('plan_signature')==plan_signature else None
+        estimate=st.session_state.get('estimate') if not read_only and st.session_state.get('plan_signature')==plan_signature else None
         if estimate:
             show_estimate(estimate)
-        elif not existing:
+        elif not read_only:
             st.caption('Estimate cost in the sidebar before starting a live run. Demo results are already prepared.')
-        if st.button('Find promos',type='primary',disabled=existing or not ready or (mode!='Demo' and estimate is None),width='stretch'):
+        if st.button('Find promos',type='primary',disabled=read_only or not ready or (mode!='Demo' and estimate is None),width='stretch'):
             if mode=='Demo':
                 st.success('Demo ready: 11 precomputed promos. Open Top promos to review them.')
                 for stage in STAGES:

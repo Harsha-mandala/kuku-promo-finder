@@ -1,0 +1,20 @@
+name: Keep app awake
+
+on:
+  schedule:
+    - cron: "0 */10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git config user.name keepalive-bot
+          git config user.email actions@users.noreply.github.com
+          git commit --allow-empty -m "keep app awake"
+          git push

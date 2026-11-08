@@ -47,6 +47,24 @@ def test_public_deploy_hides_local_runs(monkeypatch):
     app=AppTest.from_file(str(PROJECT_ROOT/'app.py'),default_timeout=30).run()
     assert not app.exception
     assert 'Open existing run' not in app.radio[0].options
+    assert 'Load results bundle (.zip)' in app.radio[0].options
+    assert any('Trailer · T001' in item.proto.body for item in app.get('html'))
+
+
+def test_public_demo_loads_trailer_and_editor_on_lf_checkout(monkeypatch, tmp_path):
+    import shutil
+    from src.ui import data
+
+    demo = tmp_path / 'demo'
+    shutil.copytree(data.DEMO_ROOT / 'precomputed', demo / 'precomputed')
+    for path in (demo / 'precomputed').rglob('*.json'):
+        path.write_bytes(path.read_bytes().replace(b'\r\n', b'\n'))
+    monkeypatch.setattr(data, 'DEMO_ROOT', demo)
+    monkeypatch.setenv('PUBLIC_DEPLOY', '1')
+    app = AppTest.from_file(str(PROJECT_ROOT / 'app.py'), default_timeout=30).run()
+    assert not app.exception
+    assert any('Trailer · T001' in item.proto.body for item in app.get('html'))
+    assert data.load_demo()['editor_order']
 
 
 def test_mock_upload_runs_all_stages_on_demo_episodes(tmp_path):

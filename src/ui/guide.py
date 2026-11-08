@@ -31,6 +31,7 @@ def show_guide(config, expanded=False):
     with st.expander('2. Modes', expanded=expanded):
         st.markdown('''- **Demo** opens four fictional episodes with precomputed mock results and fictional gold labels.
 - **Run on my files** uploads a new show into a temporary session. Select mock in either provider menu to run the entire pipeline with fake scores and no key.
+- **Load results bundle (.zip)** opens a saved run in the local or deployed app. Upload the submission ZIP to browse all tabs and download results. The app reads the bundle from a temporary session folder. Clear session deletes that folder.
 - **Open existing run** appears only in the local app. Choose a saved tag to browse its results and download files. Your notes and decisions live in the current session. Saved run files stay read-only.''')
 
     with st.expander('3. Tabs and controls', expanded=expanded):
@@ -86,6 +87,8 @@ def show_guide(config, expanded=False):
 
     with st.expander('9. FAQ', expanded=expanded):
         st.markdown('''**Why four episodes in the demo?** They give a short fictional pack with singles, a cross-episode trailer and an example evaluation.
+
+**Where are the real 50-episode results?** Select **Load results bundle (.zip)** and upload `raw_outputs.zip` from the submission link. The ZIP is private and is provided separately from the public app.
 
 **Why did a clip’s start change?** The validator may move it to include a complete line or put the hook inside the opening window. Open the validator notes for the exact change.
 

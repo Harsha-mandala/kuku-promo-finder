@@ -31,23 +31,29 @@ def write_csv(path, rows):
             writer.writerow({k:json.dumps(v,ensure_ascii=False) if isinstance(v,(dict,list)) else v for k,v in row.items()})
 
 
-def single_source_key(output,tag,parsed):
+def json_digest(path, legacy=False):
+    content = path.read_bytes()
+    return hashlib.sha256(content if legacy else content.replace(b'\r\n', b'\n')).hexdigest()
+
+
+def single_source_key(output,tag,parsed,*,legacy=False):
     """Fingerprint clip provenance independently of workspace location."""
     files = [output/f'final_{tag}/promos_ranked.json']
     files += sorted((output/f'validated_{tag}').glob('episode_*.json'))
     files += sorted(Path(parsed).glob('episode_*.json'))
-    return digest([(path.parent.name,path.name,hashlib.sha256(path.read_bytes()).hexdigest()) for path in files if path.exists()])
+    return digest([(path.parent.name,path.name,json_digest(path,legacy)) for path in files if path.exists()])
 
 
-def editor_source_key(output,tag,parsed):
+def editor_source_key(output,tag,parsed,*,legacy=False):
     files = [output/f'final_{tag}/trailers_ranked.json',output/f'trailers_{tag}/validated.json']
-    return digest([single_source_key(output,tag,parsed),
-                   [(p.name,hashlib.sha256(p.read_bytes()).hexdigest()) for p in files if p.exists()]])
+    return digest([single_source_key(output,tag,parsed,legacy=legacy),
+                   [(p.name,json_digest(p,legacy)) for p in files if p.exists()]])
 
 
 def fresh_editor_rows(output,tag,parsed):
     metadata = read(output/f'final_{tag}/editor_inputs.json',{})
-    if metadata.get('source_key') and metadata['source_key'] != editor_source_key(output,tag,parsed):
+    key = metadata.get('source_key')
+    if key and key != editor_source_key(output,tag,parsed) and key != editor_source_key(output,tag,parsed,legacy=True):
         return []
     return read(output/f'final_{tag}/editor_order.json',[])
 

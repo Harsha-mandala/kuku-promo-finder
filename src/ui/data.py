@@ -49,7 +49,8 @@ def load_bundle(parsed, output, tag):
             'trailer_validated':read_json(output/f'trailers_{tag}/validated.json',[]),
             'editor_order':fresh_editor_rows(output,tag,parsed)}
     trailer_manifest=read_json(output/f'trailers_{tag}/manifest.json',{})
-    if trailer_manifest.get('source_key') and trailer_manifest['source_key'] != single_source_key(output,tag,parsed):
+    key = trailer_manifest.get('source_key')
+    if key and key != single_source_key(output,tag,parsed) and key != single_source_key(output,tag,parsed,legacy=True):
         bundle['trailers']=[]
     edits = {row['promo_id']:row for row in bundle['editor_order']}
     remaining=0
