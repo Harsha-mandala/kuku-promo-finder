@@ -14,8 +14,8 @@ from dotenv import dotenv_values
 
 from ..cliprender import render_clip
 from ..pipeline import parse_inputs, run_pipeline
-from ..llm import step_model_config
-from ..run_status import KEY_NAMES
+from ..llm import CallBudget, LLMRequestError, get_llm, step_model_config
+from ..run_status import KEY_NAMES, UNKNOWN_ERROR, describe_failure, error_details
 from ..safety_review import shortlist
 from ..timeutils import format_timestamp
 from .data import DEMO_ROOT, PROJECT_ROOT, existing_run_tags, load_bundle, load_demo, local_runs_allowed, upload_config
@@ -65,11 +65,41 @@ def model_controls(config,step,label,available,public):
 def show_run_failure(failure):
     with st.status(f"{failure['stage'].title()} stopped · {failure['kind']}", expanded=True, state='error'):
         st.text(f"{failure['provider']} / {failure['model']}")
-        st.write(failure['message'])
+        st.write(failure.get('message') or UNKNOWN_ERROR)
+        for detail in failure.get('errors', []):
+            episode = f"Episode {detail['episode']} · " if detail['episode'] is not None else ""
+            http = f" · HTTP {detail['status']}" if detail['status'] else ""
+            st.text(f"{episode}{failure['provider']} / {failure['model']} · {detail['error_class']}{http}\n"
+                    f"{detail['message'] or UNKNOWN_ERROR}")
         st.write(f"Episodes done: {', '.join(map(str, failure['done'])) or 'none'} · "
                  f"Pending: {', '.join(map(str, failure['pending'])) or 'none'}")
         st.write(f"Calls: {failure['calls']} · Includes {failure['retries']} budgeted retries")
         st.write(failure['next_step'])
+
+
+def test_selected_keys(config, keys, providers):
+    """One uncached attempt per distinct provider, using only a synthetic prompt."""
+    with new_workspace() as workspace:
+        probe = upload_config(config, Path(workspace), keys)
+        probe['_interactive_run'] = True
+        probe['llm'].update(max_retries=1, use_cache=False)
+        for provider, model in providers.items():
+            key = KEY_NAMES.get(provider)
+            if key and not keys.get(key):
+                yield provider, False, f'{key} is missing. Paste a key in API keys.'
+                continue
+            try:
+                client = get_llm(probe, provider, model)
+                client.call_budget = CallBudget(1)
+                if provider == 'gemini':
+                    client.thinking_budget = 0
+                elif provider in {'groq', 'openai'}:
+                    client.max_completion_tokens = 128
+                client.generate_text('Reply with OK.', 'Reply with OK.', 'test_api_key')
+            except (LLMRequestError, ValueError) as error:
+                yield provider, False, describe_failure(error)[2]
+            else:
+                yield provider, True, 'Key accepted · 1 call.'
 
 
 def show_estimate(plan):
@@ -316,6 +346,21 @@ def main():
         if mock_upload:
             keys,hosted={},False
             st.info('Mock upload run. All stages use test responses with fake scores.')
+        test_keys = st.sidebar.button('Test API keys', disabled=mock_upload, width='stretch')
+        st.sidebar.caption('Each test with a key makes one provider call, separate from Find promos.')
+        if test_keys:
+            selected = [(cp, cm), (jp, jm)]
+            selected.extend(step_model_config(config, stage) for stage in ('bible','trailers','editor')
+                            if stage == 'bible' or config.get(stage, {}).get('enabled'))
+            by_provider = {}
+            for provider, model in selected:
+                if provider in KEY_NAMES:
+                    by_provider.setdefault(provider, model)
+            for provider, ok, message in test_selected_keys(config, keys, by_provider):
+                if ok:
+                    st.sidebar.success(f'✓ {provider} · {message}')
+                else:
+                    st.sidebar.error(f'✗ {provider} · {message}')
         if hosted:
             calls=min(hosted_cap,calls)
             st.sidebar.caption(f'Hosted-key limits: 20 episodes and {hosted_cap} API calls per attempt.')

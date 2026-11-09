@@ -38,6 +38,30 @@ class APIError(Exception):
         super().__init__(text)
 
 
+def test_gemini_constructs_v1beta_sdk_client(settings, monkeypatch):
+    from google import genai
+    sdk = Mock()
+    monkeypatch.setattr(genai, 'Client', sdk)
+    client = GeminiProvider(model='test', api_key='fixture', timeout_seconds=45, **settings)
+    assert client.client is sdk.return_value
+    options = sdk.call_args.kwargs['http_options']
+    assert options.api_version == 'v1beta'
+    assert options.timeout == 45000
+
+
+def test_openai_compatible_caps_completion_and_rejects_overflow(settings):
+    sdk = Mock()
+    sdk.chat.completions.create.return_value = SimpleNamespace(
+        choices=[SimpleNamespace(message=SimpleNamespace(content='OK'))], usage=None)
+    client = OpenAICompatibleProvider(provider_name='groq', model='test', client=sdk, request_tpm_limit=8000,
+                                      max_completion_tokens=2048, **settings)
+    assert client.generate_text('', 'a'*23000, 'fits') == 'OK'
+    assert sdk.chat.completions.create.call_args.kwargs['max_completion_tokens'] == 1610
+    with pytest.raises(LLMRequestError, match='too long for Groq'):
+        client.generate_text('', 'a'*24000, 'overflow')
+    assert sdk.chat.completions.create.call_count == 1
+
+
 def test_gemini_transport_failures_count_and_backoff(tmp_path, monkeypatch):
     client = MockProvider(responses=[TimeoutError("timeout"), TimeoutError("timeout"), '{"value":1}'],
                           cache_dir=tmp_path/'cache', raw_log_dir=tmp_path/'raw', max_retries=3)

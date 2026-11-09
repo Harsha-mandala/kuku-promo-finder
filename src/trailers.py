@@ -333,7 +333,11 @@ def run_trailers(config,tag,*,budget=None,judge_budget=None,client=None,judge_cl
                 new_scores = judge_client.generate_json(judge_system,user,TrailerJudgeBatch,f"judge_trailers_{tag}",temperature=0,
                                                        extra_validator=check_scores,max_repairs=1).root
             except (LLMRequestError, LLMOutputError) as error:
+                if judge_client.provider_name in {'groq','openai','ollama'} and getattr(error, 'status', None) == 413 and len(batch) > 1:
+                    queue[:0] = [[item] for item in batch]
+                    continue
                 error.stage = 'trailer judge'
+                error.episodes = sorted({segment.episode for item in batch for segment in item.segments})
                 raise
             for score in new_scores:
                 trailer = next(t for t in eligible if t.id == score.promo_id)

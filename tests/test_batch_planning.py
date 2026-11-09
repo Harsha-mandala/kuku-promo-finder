@@ -60,6 +60,31 @@ def test_batch_split_respects_token_guard_and_consecutive_order(tmp_path):
     assert [[ep.number for ep in plan.episodes] for plan in gaps] == [[99], [101]]
 
 
+def test_groq_413_splits_once_into_single_episode_calls(tmp_path):
+    from test_llm import APIError
+    config, _, _ = setup_run(tmp_path)
+    client = client_for(tmp_path, [APIError(413, "TPM"), json.dumps([result(99).model_dump()]),
+                                  json.dumps([result(100).model_dump()])])
+    client.provider_name = "groq"
+    stats = run_candidates(config, "all", client, batch_size=2)
+    assert stats["episodes_ok"] == [99, 100]
+    assert len(client.calls) == 3
+    assert "EPISODE 100 | duration" in client.calls[0].user
+    assert "EPISODE 100 | duration" not in client.calls[1].user
+    assert "EPISODE 99 | duration" not in client.calls[2].user
+
+
+def test_configured_groq_tpm_reserves_completion_tokens(tmp_path):
+    from src.llm import completion_token_limit
+    config, _, _ = setup_run(tmp_path, (99, 100, 101, 102))
+    config['llm'] = {'providers': {'groq': {'tokens_per_minute': 8000}}}
+    planned = dry_run_candidates(config, "all", 4, provider='groq')
+    assert planned['batch_size'] == 1 and planned['requests'] == 4
+    assert planned['max_request_tokens'] <= 5860
+    assert all(batch['estimated_input_tokens'] + completion_token_limit(
+        batch['estimated_input_tokens'], 2048, 8000, 'groq') <= 7360 for batch in planned['batches'])
+
+
 @pytest.mark.parametrize("kind", ["unknown_id", "schema_error"])
 def test_only_bad_episode_is_reasked_once(tmp_path, kind):
     config, episodes, _ = setup_run(tmp_path)

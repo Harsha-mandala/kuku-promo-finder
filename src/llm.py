@@ -35,11 +35,13 @@ USAGE_FIELDS = [
 class LLMRequestError(RuntimeError):
     """A provider could not complete a request."""
 
-    def __init__(self, message, *, status=None, provider=None, model=None):
+    def __init__(self, message, *, status=None, provider=None, model=None, error_class=None, api_message=None):
         super().__init__(message)
         self.status = status
         self.provider = provider
         self.model = model
+        self.error_class = error_class
+        self.api_message = api_message
 
 
 class LLMBatchSplitError(LLMRequestError):
@@ -198,7 +200,7 @@ class RateLimiter:
 
 
 def _status(error: Exception) -> int | None:
-    value = getattr(error, "status_code", None) or getattr(error, "code", None)
+    value = getattr(error, "status_code", None) or getattr(error, "code", None) or getattr(error, "status", None)
     return value if isinstance(value, int) else None
 
 
@@ -294,7 +296,33 @@ def request_token_limit(config: dict, provider: str) -> int | None:
     settings = config.get("llm", config)
     limits = [settings.get("max_request_tokens"), settings.get("providers", {}).get(provider, {}).get("max_request_tokens")]
     values = [int(value) for value in limits if value is not None]
+    tpm = configured_request_tpm(config, provider)
+    if tpm:
+        values.append(max(1, int(.92 * tpm) - COMPLETION_FLOOR))
     return min(values) if values else None
+
+
+COMPLETION_FLOOR = 1500
+
+
+def configured_request_tpm(config, provider):
+    if provider in {'groq', 'openai', 'ollama'}:
+        return config.get('llm', config).get('providers', {}).get(provider, {}).get('tokens_per_minute')
+    return None
+
+
+def candidate_batch_size(config, provider, requested):
+    return 1 if configured_request_tpm(config, provider) else requested
+
+
+def completion_token_limit(input_tokens, max_tokens, tpm, provider):
+    if not tpm:
+        return max_tokens
+    limit = min(max_tokens or 2048, int(.92 * tpm) - input_tokens)
+    if limit < min(max_tokens or 2048, COMPLETION_FLOOR):
+        advice = "Episode too long for Groq free tier; use Gemini." if provider == 'groq' else "Request too long for the configured token-per-minute limit."
+        raise LLMRequestError(advice, status=413, provider=provider, api_message=advice)
+    return limit
 
 
 def step_model_config(config: dict, step: str, provider: str | None = None, model: str | None = None) -> tuple[str, str]:
@@ -391,8 +419,11 @@ class LLMClient:
 
     def _attempt(self, request: Request, validator: Callable, tag: str, key: str, *, retry_attempt=False):
         estimated_tokens = math.ceil(len(request.system + request.user) / 4)
+        if getattr(self, 'request_tpm_limit', None):
+            completion_token_limit(estimated_tokens, self.max_completion_tokens, self.request_tpm_limit, self.provider_name)
         if self.max_request_tokens and estimated_tokens > self.max_request_tokens:
-            raise LLMRequestError(f"Estimated input {estimated_tokens} exceeds max_request_tokens={self.max_request_tokens}; split the request")
+            raise LLMRequestError(f"Estimated input {estimated_tokens} exceeds max_request_tokens={self.max_request_tokens}; split the request",
+                                  status=413, provider=self.provider_name, model=self.model)
         if self.consecutive_connection_errors >= 3:
             raise LLMNetworkError(NETWORK_BLOCKED)
         if self.call_budget is not None:
@@ -535,11 +566,16 @@ class LLMClient:
                         f"{self.provider_name} daily request quota exhausted. "
                         "Wait for the provider's reset or use an authorized key/model with available quota."
                     )
-                    raise LLMQuotaError(f"[{tag}] {self.quota_error}") from None
+                    raise LLMQuotaError(f"[{tag}] {self.quota_error}", status=_status(error),
+                                        provider=self.provider_name, model=self.model, error_class=type(error).__name__,
+                                        api_message=self._safe_error(error).partition(': ')[2]) from None
                 if large_batch and attempts >= 2 and _gemini_busy(error):
                     raise LLMBatchSplitError(f"[{tag}] {self._safe_error(error)}") from None
+                if isinstance(error, LLMRequestError):
+                    raise
                 raise LLMRequestError(f"[{tag}] {self._safe_error(error)}", status=_status(error),
-                                      provider=self.provider_name, model=self.model) from None
+                                      provider=self.provider_name, model=self.model, error_class=type(error).__name__,
+                                      api_message=self._safe_error(error).partition(': ')[2]) from None
 
     def _cached(
         self, key: str, schema: type[BaseModel] | None, tag: str,
@@ -691,7 +727,9 @@ class GeminiProvider(LLMClient):
             self._client = genai.Client(
                 api_key=key,
                 http_options=types.HttpOptions(
-                    timeout=int(self.timeout_seconds * 1000), retry_options=types.HttpRetryOptions(attempts=1),
+                    api_version="v1beta",
+                    timeout=int(self.timeout_seconds * 1000),
+                    retry_options=types.HttpRetryOptions(attempts=1),
                 ),
             )
         return self._client
@@ -745,7 +783,8 @@ class OpenAICompatibleProvider(LLMClient):
         self, *, provider_name: str = "openai", base_url: str | None = None,
         api_key_env: str | None = "OPENAI_API_KEY", client=None,
         api_key: str | None = None,
-        reasoning_effort: str | None = None, max_completion_tokens: int | None = None, **kwargs,
+        reasoning_effort: str | None = None, max_completion_tokens: int | None = None,
+        request_tpm_limit: int | None = None, **kwargs,
     ):
         super().__init__(**kwargs)
         self.provider_name = provider_name
@@ -756,6 +795,7 @@ class OpenAICompatibleProvider(LLMClient):
         self._client = client
         self.reasoning_effort = reasoning_effort
         self.max_completion_tokens = max_completion_tokens
+        self.request_tpm_limit = request_tpm_limit
 
     @property
     def client(self):
@@ -773,8 +813,10 @@ class OpenAICompatibleProvider(LLMClient):
         options = {}
         if self.reasoning_effort is not None:
             options["reasoning_effort"] = self.reasoning_effort
-        if self.max_completion_tokens is not None:
-            options["max_completion_tokens"] = self.max_completion_tokens
+        limit = completion_token_limit(math.ceil(len(request.system + request.user) / 4),
+                                       self.max_completion_tokens, self.request_tpm_limit, self.provider_name)
+        if limit is not None:
+            options["max_completion_tokens"] = limit
         if request.schema is not None and request.structured and request.schema.model_json_schema().get("type") != "array":
             options["response_format"] = {"type": "json_object"}
         try:
@@ -864,7 +906,8 @@ def get_llm(config: dict, provider: str | None = None, model: str | None = None)
     key_name = options.get('api_key_env')
     if key_name and config.get('_api_keys', {}).get(key_name):
         options['api_key'] = config['_api_keys'][key_name]
-    return OpenAICompatibleProvider(provider_name=chosen_provider, **options, **shared)
+    return OpenAICompatibleProvider(provider_name=chosen_provider,
+                                    request_tpm_limit=configured_request_tpm(config, chosen_provider), **options, **shared)
 
 
 class PingResult(BaseModel):

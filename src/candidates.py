@@ -16,7 +16,7 @@ import yaml
 
 from .clips import clip_span
 from .context import PROMPTS_DIR, bible_source_fingerprint, build_story_bible, load_episodes, load_hints, render_bible_compact, validate_bible
-from .llm import LLMClient, LLMOutputError, LLMQuotaError, LLMRequestError, get_llm, estimate_json_tokens, request_token_limit, step_model_config, _json_text
+from .llm import LLMClient, LLMOutputError, LLMQuotaError, LLMRequestError, candidate_batch_size, get_llm, estimate_json_tokens, request_token_limit, step_model_config, _json_text
 from .models import Candidate, CandidateBatch, CandidateList, Episode, ScoredCandidate, StoryBible
 from .render import render_episode_compact
 from .llm import CallBudget, LLMBudgetError, LLMNetworkError, LLMBatchSplitError
@@ -295,6 +295,7 @@ def dry_run_candidates(config: dict, selector: str, batch_size: int = 1, provide
     bible_path = Path(config.get("output_dir", "outputs")) / "story_bible.json"
     bible = StoryBible.model_validate_json(bible_path.read_text(encoding="utf-8")) if bible_path.exists() else None
     chosen_provider, chosen_model = step_model_config(config, "candidates", provider, model)
+    batch_size = candidate_batch_size(config, chosen_provider, batch_size)
     limit = request_token_limit(config, chosen_provider)
     plans = plan_batches([episode for episode in episodes if episode.number in selected], episodes, bible, batch_size, config.get("promo", {}).get("candidates_per_episode", 5), limit)
     executable = [plan for plan in plans if not plan.oversized]
@@ -378,6 +379,7 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
         raise ValueError("batch_size must be positive")
     provider, model = step_model_config(config, "candidates")
     strict = config.get("_interactive_run", False)
+    batch_size = candidate_batch_size(config, provider, batch_size)
     client = client if client is not None else get_llm(config, provider, model)
     client.call_budget = budget if budget is not None else CallBudget(max_api_calls if max_api_calls is not None else config.get("llm", {}).get("max_api_calls_per_run", 14))
     if client.provider_name == "gemini":
@@ -470,9 +472,13 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
     while plans:
         plan = plans.pop(0)
         if plan.oversized:
+            message = ("Episode too long for Groq free tier; use Gemini." if client.provider_name == 'groq'
+                       else f"Request-size guard: {plan.estimated_tokens} estimated tokens exceeds {limit}; episode was not sent")
             if strict:
-                raise LLMRequestError("Episode exceeds the request-size limit.")
-            log_failure(plan.episodes[0].number, f"Request-size guard: {plan.estimated_tokens} estimated tokens exceeds {limit}; episode was not sent")
+                error = LLMRequestError(message, status=413, provider=client.provider_name, model=client.model)
+                error.episodes = [plan.episodes[0].number]
+                raise error
+            log_failure(plan.episodes[0].number, message)
             continue
         print(f"Batch {[ep.number for ep in plan.episodes]} | estimated_input_tokens={plan.estimated_tokens}", flush=True)
         try:
@@ -498,6 +504,7 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
             continue
         except (LLMBudgetError, LLMNetworkError) as error:
             if strict:
+                error.episodes = [ep.number for ep in plan.episodes if ep.number not in successes]
                 raise
             stopped_budget = isinstance(error, LLMBudgetError)
             stopped_network = isinstance(error, LLMNetworkError)
@@ -506,6 +513,7 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
             break
         except LLMQuotaError as error:
             if strict:
+                error.episodes = [ep.number for ep in plan.episodes if ep.number not in successes]
                 raise
             number = next((ep.number for ep in plan.episodes if ep.number not in successes and ep.number not in failures), plan.episodes[0].number)
             log_failure(number, error)
@@ -513,7 +521,11 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
             stopped_quota = True
             break
         except (LLMRequestError, LLMOutputError, ValueError, OSError) as error:
+            if client.provider_name in {'groq','openai','ollama'} and getattr(error, 'status', None) == 413 and len(plan.episodes) > 1:
+                plans[0:0] = plan_batches(plan.episodes, episodes, bible, 1, max_candidates, limit)
+                continue
             if strict:
+                error.episodes = [ep.number for ep in plan.episodes if ep.number not in successes]
                 raise
             for episode in plan.episodes:
                 if episode.number not in successes and episode.number not in failures:

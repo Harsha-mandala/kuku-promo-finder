@@ -244,8 +244,15 @@ def run_judge(config, tag, *, client=None, provider=None, model=None, batch_size
         inputs.update({key: fingerprints[key] for key in valid})
         (directory / "scores.json").write_text(JudgeBatch(list(merged.values())).model_dump_json(indent=2), encoding="utf-8")
         (directory / "score_inputs.json").write_text(json.dumps(inputs, indent=2), encoding="utf-8")
-    for plan in plans:
+    queue = deque(plans)
+    while queue:
+        plan = queue.popleft()
         if plan["oversized"]:
+            if config.get("_interactive_run"):
+                error = LLMRequestError("Clip too long for the request limit; use Gemini for Groq clips.", status=413,
+                                        provider=provider, model=model)
+                error.episodes = [p.episode for p in plan["promos"]]
+                raise error
             errors.append(f"Request too large: {plan['promos'][0].id}")
             continue
         expected = {p.id for p in plan["promos"]}
@@ -264,13 +271,18 @@ def run_judge(config, tag, *, client=None, provider=None, model=None, batch_size
                     progress_cb({'stage':'judge','state':'progress','episode':promo.episode,'done':len(valid),'total':len(promos)})
         except (LLMQuotaError, LLMBudgetError, LLMNetworkError) as error:
             if config.get("_interactive_run"):
+                error.episodes = sorted({p.episode for p in plan["promos"]})
                 raise
             stats["stopped"] = type(error).__name__
             errors.append(str(error))
             print(str(error), flush=True)
             break
         except (LLMRequestError, LLMOutputError) as error:
+            if provider in {'groq','openai','ollama'} and getattr(error, 'status', None) == 413 and len(plan["promos"]) > 1:
+                queue.extendleft(reversed(plan_judge(plan["promos"], episodes, config, provider, batch_size=1)))
+                continue
             if config.get("_interactive_run"):
+                error.episodes = sorted({p.episode for p in plan["promos"]})
                 raise
             errors.append(str(error))
     save()

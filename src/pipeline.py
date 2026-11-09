@@ -13,11 +13,11 @@ import yaml
 from .candidates import load_saved_candidates, parse_episode_selector, plan_batches, run_candidates
 from .context import PROMPTS_DIR, StoryOverview, IdentityBatch, bible_source_fingerprint, episode_metadata, validate_bible
 from .judge import JudgeBatch, cap_promos, judge_fingerprint, plan_judge, run_judge
-from .llm import CallBudget, LLMRequestError, LLMOutputError, LLMBudgetError, LLMQuotaError, LLMNetworkError, estimate_json_tokens, request_token_limit, step_model_config
+from .llm import CallBudget, LLMRequestError, LLMOutputError, LLMBudgetError, LLMQuotaError, LLMNetworkError, candidate_batch_size, estimate_json_tokens, request_token_limit, step_model_config
 from .models import Episode, StoryBible
 from .parser import parse_file, episode_summary
 from .rank import write_ranking
-from .run_status import KEY_NAMES, describe_failure
+from .run_status import KEY_NAMES, describe_failure, error_details
 from .validate import ValidatedPromo, run_validation, validate_candidate, dedupe_promos
 from .clips import clip_span
 from .cliprender import render_judge_clip
@@ -112,6 +112,7 @@ def plan_pipeline(config, tag, episodes, selected, batch_size, force=False, forc
     """Plan future stages without creating clients or writing files."""
     output = Path(config.get("output_dir", "outputs"))
     cp, cm = step_model_config(config, "candidates")
+    batch_size = candidate_batch_size(config, cp, batch_size)
     bp, bm = step_model_config(config, "bible")
     jp, jm = step_model_config(config, "judge")
     bible = reusable_bible(output, episodes, force)
@@ -231,12 +232,10 @@ def run_pipeline(config, input_dir, tag, overrides=None, progress_cb=None, *, se
         if len(episodes)>20:
             raise ValueError('Hosted keys allow at most 20 episodes per run.')
         cap = config.get('hosted', {}).get('max_api_calls', 30)
-        config.setdefault('llm', {})['max_api_calls_per_run'] = min(cap, config.get('llm', {}).get('max_api_calls_per_run',cap))
+        config.setdefault('llm', {})['max_api_calls_per_run'] = min(cap, max_api_calls if max_api_calls is not None else cap)
         config['llm'].pop('provider_budgets',None)
     numbers = parse_episode_selector(selector, [ep.number for ep in episodes])
     selected = [ep for ep in episodes if ep.number in numbers]
-    if strict and step_model_config(config, 'candidates')[0] == 'groq':
-        batch_size = 1
     forced = set(parse_episode_selector(force_episodes,[ep.number for ep in episodes])) if force_episodes else set()
     forced &= set(numbers)
     if dry_run:
@@ -279,6 +278,9 @@ def run_pipeline(config, input_dir, tag, overrides=None, progress_cb=None, *, se
                 source / f'episode_{ep.number:03d}.json', ep, config.get('promo', {}).get('candidates_per_episode', 5)) is None}
         failure = dict(stage=stage, provider=provider, model=model, kind=kind, message=message, next_step=next_step,
                        done=sorted(set(numbers)-pending), pending=sorted(pending), calls=budget.used, retries=budget.retries)
+        error_class, status, detail = error_details(error, config.get('_api_keys', {}).values())
+        failure['errors'] = [dict(episode=number, error_class=error_class, status=status, message=detail)
+                             for number in getattr(error, 'episodes', [None])]
         emit(stage,'stopped',reason=kind)
         return {'stopped':stage, 'failure':failure}
     if strict:
