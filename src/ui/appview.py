@@ -287,7 +287,10 @@ def main():
         existing=allow_existing and mode=='Open existing run'
         viewing_results = mode == RESULTS_MODE
         read_only = existing or viewing_results
-        st.caption('Reviewers: upload raw_outputs.zip from the submission link to see the full 50-episode run.')
+        with st.expander('Reviewer? Start here'):
+            st.markdown('''- **Load results bundle (.zip)** → upload `raw_outputs.zip` from the private submission link.
+- **Demo** → browse fictional results without API keys.
+- **Run on my files** → paste keys → **Test API keys** → **Find promos**.''')
         results_zip = st.file_uploader('Results ZIP', type=['zip'], max_upload_size=50,
                                        key=f'results_zip_{epoch}') if viewing_results else None
         run_tag=None

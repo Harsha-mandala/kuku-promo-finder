@@ -7,6 +7,13 @@ from ..rank import DEFAULT_PENALTIES, DEFAULT_WEIGHTS
 
 def show_guide(config, expanded=False):
     st.subheader('How it works')
+    st.markdown('''#### For reviewers
+
+- Choose **Demo** to browse fictional results without API keys.
+- For the full 50-episode run, download `raw_outputs.zip` from the private link in the submission form → open the app → choose **Load results bundle (.zip)** → upload the ZIP. No API keys needed.
+- To generate promos from your own scripts, choose **Run on my files** and paste your Gemini and/or Groq key in the sidebar. Keys stay in your current browser session and are never saved to disk.
+- Click **Test API keys** before **Find promos**. For fresh Gemini free-tier quota, create the key in a new Google Cloud project.
+- **Free-tier limits** — Gemini: plan for about 20 requests/day per project and check your actual limit in AI Studio. Groq: 8,000 tokens/minute for GPT-OSS 120B. [Google rate limits](https://ai.google.dev/gemini-api/docs/rate-limits) · [Groq rate limits](https://console.groq.com/docs/rate-limits)''')
     rank = config.get('rank', {})
     weights = DEFAULT_WEIGHTS | rank.get('weights', {})
     penalties = DEFAULT_PENALTIES | rank.get('penalties', {})

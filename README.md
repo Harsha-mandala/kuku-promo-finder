@@ -4,6 +4,21 @@ A screenplay-to-promo workbench for short vertical dramas. It proposes continuou
 shot ranges, checks timing and boundaries, scores the final clips independently,
 and gives an editor a ranked shortlist. Python 3.11+; pydantic v2.
 
+## For reviewers
+
+[Open the live app](https://kuku-promo-finder-27.streamlit.app)
+
+- **Demo** browses a fictional show with precomputed results. No API keys needed.
+- **Run on my files** generates promos from your own episode scripts.
+- **Load results bundle (.zip)** opens a saved run read-only. No API keys needed.
+
+**Full 50-episode results** — Download `raw_outputs.zip` from the private link in the submission form → open the app → choose **Load results bundle (.zip)** under **Mode** → upload the ZIP.
+
+For a live run, paste your own Gemini and/or Groq key in the sidebar and click **Test API keys** first. Pasted keys are kept only for your current browser session and are never saved to disk. For fresh Gemini free-tier quota, create the key in a new Google Cloud project.
+
+- **Gemini free tier** — Plan for about 20 requests per day per project. Check your project's actual limit in AI Studio. [Google rate limits](https://ai.google.dev/gemini-api/docs/rate-limits)
+- **Groq free tier** — 8,000 tokens per minute for GPT-OSS 120B. [Groq rate limits](https://console.groq.com/docs/rate-limits)
+
 ![Fictional demo timeline](demo/screenshots/timeline.png)
 
 [Fictional demo downloads](demo/screenshots/downloads.png) · [Interview commands](INTERVIEW_CHEATSHEET.md)
