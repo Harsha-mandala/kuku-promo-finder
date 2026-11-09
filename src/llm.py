@@ -9,7 +9,7 @@ import os
 import re
 import time
 from collections import deque
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -35,6 +35,12 @@ USAGE_FIELDS = [
 class LLMRequestError(RuntimeError):
     """A provider could not complete a request."""
 
+    def __init__(self, message, *, status=None, provider=None, model=None):
+        super().__init__(message)
+        self.status = status
+        self.provider = provider
+        self.model = model
+
 
 class LLMBatchSplitError(LLMRequestError):
     """A busy five-episode Gemini request should be retried in smaller groups."""
@@ -52,6 +58,10 @@ class LLMNetworkError(LLMRequestError):
     """Three consecutive attempts failed without a provider response."""
 
 
+class LLMRateLimitError(LLMRequestError):
+    """The current run exhausted its allowed wait for rate limits."""
+
+
 NETWORK_BLOCKED = "network blocked — approve network or run locally"
 
 
@@ -63,6 +73,12 @@ class CallBudget:
     used: int = 0
     connection_errors: int = 0
     consecutive_connection_errors: int = 0
+    retries: int = 0
+    exempt_minute_limits: bool = False
+    wait_limit: float | None = None
+    waited: float = 0
+    progress: Callable | None = None
+    token_history: dict = field(default_factory=dict)
 
     def __post_init__(self):
         if self.limit < 0:
@@ -77,6 +93,18 @@ class CallBudget:
     def consume(self):
         self.check()
         self.used += 1
+
+    def wait_for_rate_limit(self, provider, model, seconds):
+        if self.wait_limit is not None and self.waited + seconds > self.wait_limit:
+            raise LLMRateLimitError("Rate-limit wait allowance exhausted.", status=429, provider=provider, model=model)
+        self.waited += seconds
+        remaining = seconds
+        while remaining > 0:
+            if self.progress:
+                self.progress(provider, remaining)
+            chunk = min(5.0, remaining)
+            _retry_sleep(chunk)
+            remaining -= chunk
 
 
 class LLMOutputError(RuntimeError):
@@ -160,6 +188,9 @@ class RateLimiter:
             self.token_history.append((self.last_start, estimated_tokens))
 
     def _sleep(self, seconds: float) -> None:
+        if getattr(self, "on_wait", None):
+            self.on_wait(seconds)
+            return
         while seconds > 0:
             chunk = min(seconds, 30.0)
             self.sleep(chunk)
@@ -220,6 +251,9 @@ def _retry_wait(state) -> float:
                     return max(0.0, (parsedate_to_datetime(value) - datetime.now(timezone.utc)).total_seconds())
                 except (ValueError, TypeError):
                     pass
+        match = re.search(r"(?:try again|retry) in\s+([\d.]+)\s*(?:seconds?|s\b)", str(error), re.I)
+        if match:
+            return float(match[1])
     return wait_exponential(multiplier=1, min=1, max=8)(state)
 
 
@@ -355,7 +389,7 @@ class LLMClient:
             except FileExistsError:
                 occurrence += 1
 
-    def _attempt(self, request: Request, validator: Callable, tag: str, key: str):
+    def _attempt(self, request: Request, validator: Callable, tag: str, key: str, *, retry_attempt=False):
         estimated_tokens = math.ceil(len(request.system + request.user) / 4)
         if self.max_request_tokens and estimated_tokens > self.max_request_tokens:
             raise LLMRequestError(f"Estimated input {estimated_tokens} exceeds max_request_tokens={self.max_request_tokens}; split the request")
@@ -363,9 +397,13 @@ class LLMClient:
             raise LLMNetworkError(NETWORK_BLOCKED)
         if self.call_budget is not None:
             self.call_budget.check()
+        if self.call_budget and self.call_budget.wait_limit is not None:
+            self.limiter.on_wait = lambda seconds: self.call_budget.wait_for_rate_limit(self.provider_name, self.model, seconds)
+            self.limiter.token_history = self.call_budget.token_history.setdefault(self.provider_name, deque())
         self.limiter.wait(estimated_tokens)
         if self.call_budget is not None:
             self.call_budget.consume()
+            self.call_budget.retries += int(retry_attempt)
         started = time.perf_counter()
         timestamp = datetime.now(timezone.utc).isoformat()
         response = None
@@ -385,6 +423,9 @@ class LLMClient:
         except Exception as error:
             error_text = self._safe_error(error)
             failed_text = getattr(error, "raw_text", "")
+            if self.call_budget and self.call_budget.exempt_minute_limits and _status(error) == 429 and not _daily_quota(error):
+                self.call_budget.used -= 1
+                self.call_budget.retries -= int(retry_attempt)
             if response is None and _connection_failure(error):
                 connection_failure = True
                 self.connection_errors += 1
@@ -393,6 +434,7 @@ class LLMClient:
                 if self.call_budget:
                     if self.provider_name != "gemini":
                         self.call_budget.used -= 1
+                        self.call_budget.retries -= int(retry_attempt)
                     self.call_budget.connection_errors += 1
                     self.call_budget.consecutive_connection_errors += 1
                     consecutive = self.call_budget.consecutive_connection_errors
@@ -407,6 +449,10 @@ class LLMClient:
             latency = round(time.perf_counter() - started, 6)
             in_tokens = response.in_tokens if response else None
             out_tokens = response.out_tokens if response else None
+            if (self.call_budget and self.call_budget.wait_limit is not None and self.limiter.tokens_per_minute
+                    and self.limiter.token_history and in_tokens is not None and out_tokens is not None):
+                timestamp_start, _ = self.limiter.token_history[-1]
+                self.limiter.token_history[-1] = (timestamp_start, in_tokens + out_tokens)
             record = {
                 "provider": self.provider_name, "model": self.model,
                 "timestamp": timestamp, "latency_s": latency,
@@ -433,30 +479,39 @@ class LLMClient:
                 "out_tokens": out_tokens, "key": key, "raw_log": raw_path,
             }
 
-    def _request(self, request: Request, validator: Callable, tag: str, key: str):
+    def _request(self, request: Request, validator: Callable, tag: str, key: str, *, repair_attempt=False):
         gemini = self.provider_name == "gemini"
         large_batch = gemini and tag.startswith("candidates_batch_") and len(tag.split("_E")) == 6
         attempt_limit = min(self.max_retries, 3) if gemini else self.max_retries
         attempts = 0
+        rate_limited = False
 
         def attempt():
             nonlocal attempts
             attempts += 1
-            return self._attempt(request, validator, tag, key)
+            return self._attempt(request, validator, tag, key, retry_attempt=repair_attempt or attempts > 1)
 
         def stop(state):
             return attempts >= attempt_limit or (
                 large_batch and attempts >= 2 and _gemini_busy(state.outcome.exception()))
 
         def wait(state):
+            nonlocal rate_limited
+            rate_limited = _status(state.outcome.exception()) == 429
             if gemini and _gemini_busy(state.outcome.exception()):
                 return 30 * 2 ** (attempts - 1)
             return _retry_wait(state)
 
+        def sleep(seconds):
+            if rate_limited and self.call_budget and self.call_budget.wait_limit is not None:
+                self.call_budget.wait_for_rate_limit(self.provider_name, self.model, float(seconds))
+            else:
+                _retry_sleep(seconds)
+
         while True:
             retry = Retrying(
                 stop=stop, wait=wait,
-                sleep=_retry_sleep,
+                sleep=sleep,
                 retry=retry_if_exception(_transient), reraise=True,
             )
             try:
@@ -472,7 +527,7 @@ class LLMClient:
                 request = replace(request, structured=False)
             except (ValidationError, ValueError):
                 raise
-            except (LLMBudgetError, LLMNetworkError):
+            except (LLMBudgetError, LLMNetworkError, LLMRateLimitError):
                 raise
             except Exception as error:
                 if _daily_quota(error):
@@ -483,7 +538,8 @@ class LLMClient:
                     raise LLMQuotaError(f"[{tag}] {self.quota_error}") from None
                 if large_batch and attempts >= 2 and _gemini_busy(error):
                     raise LLMBatchSplitError(f"[{tag}] {self._safe_error(error)}") from None
-                raise LLMRequestError(f"[{tag}] {self._safe_error(error)}") from None
+                raise LLMRequestError(f"[{tag}] {self._safe_error(error)}", status=_status(error),
+                                      provider=self.provider_name, model=self.model) from None
 
     def _cached(
         self, key: str, schema: type[BaseModel] | None, tag: str,
@@ -568,7 +624,7 @@ class LLMClient:
             )
             try:
                 result = self._request(
-                    request, validate, tag, key,
+                    request, validate, tag, key, repair_attempt=bool(attempt),
                 )
                 self._store(key, result)
                 return result
@@ -772,7 +828,8 @@ class MockProvider(LLMClient):
 
 def get_llm(config: dict, provider: str | None = None, model: str | None = None) -> LLMClient:
     """Choose an adapter using the llm section and optional CLI overrides."""
-    load_dotenv(PROJECT_ROOT / ".env", override=False)
+    if not config.get("_interactive_run"):
+        load_dotenv(PROJECT_ROOT / ".env", override=False)
     settings = config.get("llm", config)
     chosen_provider = provider or settings.get("provider", "gemini")
     chosen_model = model or settings.get("model", "gemini-2.5-flash")

@@ -3,20 +3,24 @@
 import hashlib
 import json
 import os
+from datetime import datetime
 from html import escape
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 import yaml
+from dotenv import dotenv_values
 
 from ..cliprender import render_clip
 from ..pipeline import parse_inputs, run_pipeline
+from ..llm import step_model_config
+from ..run_status import KEY_NAMES
 from ..safety_review import shortlist
 from ..timeutils import format_timestamp
 from .data import DEMO_ROOT, PROJECT_ROOT, existing_run_tags, load_bundle, load_demo, local_runs_allowed, upload_config
 from .helpers import filter_promos, redact, render_html, segment_text
-from .session import clear_workspace, new_workspace, resolve_credentials, unpack_uploads, upload_fingerprint, write_uploads
+from .session import clear_workspace, new_workspace, resolve_credentials, unpack_uploads, upload_run_fingerprint, upload_run_root, write_uploads
 from .theme import CSS, card_html
 from .quality import show_quality
 from .trailers_view import show_trailers
@@ -38,18 +42,34 @@ def reset_session():
     st.session_state['ui_epoch']=epoch
 
 
-def model_controls(config,step,label):
+def model_controls(config,step,label,available,public):
     epoch=st.session_state.get('ui_epoch',0)
     current=config['models'][step]
     providers=list(dict.fromkeys([current['provider'],'gemini','groq','openai','ollama','mock']))
+    if public:
+        providers = [provider for provider in providers if provider != 'ollama']
+    def provider_label(name):
+        if name == 'mock':
+            return 'mock — test run, no API key, fake scores'
+        return f'{name} — needs your API key' if name in KEY_NAMES and name not in available else name
     provider=st.selectbox(f'{label} provider',providers,key=f'{step}_provider_{epoch}',
-                          format_func=lambda name: 'mock — test run, no API key, fake scores' if name=='mock' else name)
+                          format_func=provider_label)
     models=list(dict.fromkeys([v['model'] for v in config['models'].values() if v['provider']==provider]))
     if not models:
-        models=['mock' if provider=='mock' else 'custom-model']
+        models=[{'mock':'mock','groq':'openai/gpt-oss-120b','gemini':'gemini-2.5-flash'}.get(provider,'custom-model')]
     selected=st.selectbox(f'{label} model',models,key=f'{step}_model_choice_{provider}_{epoch}')
     model=st.text_input(f'Edit {label.lower()} model',selected,key=f'{step}_model_{provider}_{selected}_{epoch}')
     return provider,model
+
+
+def show_run_failure(failure):
+    with st.status(f"{failure['stage'].title()} stopped · {failure['kind']}", expanded=True, state='error'):
+        st.text(f"{failure['provider']} / {failure['model']}")
+        st.write(failure['message'])
+        st.write(f"Episodes done: {', '.join(map(str, failure['done'])) or 'none'} · "
+                 f"Pending: {', '.join(map(str, failure['pending'])) or 'none'}")
+        st.write(f"Calls: {failure['calls']} · Includes {failure['retries']} budgeted retries")
+        st.write(failure['next_step'])
 
 
 def show_estimate(plan):
@@ -225,6 +245,7 @@ def main():
     config_override = os.environ.get('KUKU_CONFIG') if allow_existing else None
     config_path = PROJECT_ROOT / (config_override or 'config.yaml')
     config=yaml.safe_load(config_path.read_text(encoding='utf-8'))
+    hosted_cap = config.get('hosted', {}).get('max_api_calls', 30)
     epoch=st.session_state.setdefault('ui_epoch',0)
     project_output=PROJECT_ROOT/config.get('output_dir','outputs')
     modes=['Demo','Run on my files',RESULTS_MODE]
@@ -247,20 +268,30 @@ def main():
             st.caption('Local results are opened read-only.')
         st.caption('Demo is fictional, precomputed and key-free.' if mode=='Demo' else 'Uploads and outputs stay in this session’s temporary folder.' if not existing else 'Browse saved results on this computer.')
         uploads=st.file_uploader('Input pack · TXT or ZIP',type=['txt','zip'],accept_multiple_files=True,disabled=mode!='Run on my files',key=f'uploads_{epoch}')
+        secrets, environment, pasted = {}, {}, {}
+        if mode == 'Run on my files':
+            try:
+                secrets=st.secrets.to_dict()
+            except (FileNotFoundError,st.errors.StreamlitSecretNotFoundError):
+                pass
+            environment = (dotenv_values(PROJECT_ROOT/'.env') if allow_existing else {}) | dict(os.environ)
+        with st.expander('API keys · optional'):
+            for name in KEY_NAMES.values():
+                pasted[name]=st.text_input(name,type='password',key=f'{name}_{epoch}',
+                                           disabled=mode!='Run on my files').strip()
+            st.caption('Pasted keys override app keys for this session. They are never logged or saved. Hosted caps are lifted only when every active provider that needs a key uses your own key.')
+        available_keys, _ = resolve_credentials(pasted,secrets,environment,KEY_NAMES)
+        available = {provider for provider,key in KEY_NAMES.items() if key in available_keys}
         with st.expander('Models',expanded=mode=='Run on my files'):
-            cp,cm=model_controls(config,'candidates','Candidate')
-            jp,jm=model_controls(config,'judge','Judge')
+            cp,cm=model_controls(config,'candidates','Candidate',available,not allow_existing)
+            jp,jm=model_controls(config,'judge','Judge',available,not allow_existing)
             if mode=='Run on my files':
                 for stage in ('trailers','editor'):
                     if config.get(stage,{}).get('enabled',False):
                         setting=config['models'][stage]
                         st.caption(f"Configured {stage}: {setting['provider']} / {setting['model']}")
-        with st.expander('API keys · optional'):
-            gemini=st.text_input('GEMINI_API_KEY',type='password',key=f'gemini_key_{epoch}',disabled=mode!='Run on my files')
-            groq=st.text_input('GROQ_API_KEY',type='password',key=f'groq_key_{epoch}',disabled=mode!='Run on my files')
-            st.caption('Leave blank to use app secrets or environment keys. Keys are never saved to disk.')
         batch=st.number_input('Batch size',min_value=1,max_value=20,value=5,key=f'batch_{epoch}')
-        calls=st.number_input('Max API calls',min_value=0,max_value=1000,value=14,key=f'calls_{epoch}')
+        calls=st.number_input('Max API calls',min_value=0,max_value=1000,value=hosted_cap,key=f'calls_{epoch}')
         selector=st.text_input('Episodes','all',help='Examples: all, 1-10, 1,3,5',key=f'selector_{epoch}')
         estimate_clicked=st.button('Estimate cost',width='stretch',disabled=read_only)
         st.button('Clear session',width='stretch',on_click=reset_session)
@@ -270,6 +301,8 @@ def main():
     bundle=load_demo()
     active_config=None
     input_dir=None
+    upload_key = None
+    run_info = None
     ready=mode=='Demo'
     mock_upload=mode=='Run on my files' and 'mock' in (cp,jp)
     upload_tag='session_mock' if mock_upload else 'session'
@@ -277,41 +310,45 @@ def main():
         cp=jp=cm=jm='mock'
     if mode=='Run on my files':
         bundle={'ranked':[],'episodes':[],'validated':[],'scores':[],'bible':{},'exclusions':{},'output':DEMO_ROOT/'unloaded','tag':'session'}
-        try:
-            secrets=st.secrets.to_dict()
-        except (FileNotFoundError,st.errors.StreamlitSecretNotFoundError):
-            secrets={}
         providers={cp,jp,config['models']['bible']['provider']}
         providers.update(config['models'][stage]['provider'] for stage in ('trailers','editor') if config.get(stage,{}).get('enabled',False))
-        keys,hosted=resolve_credentials({'GEMINI_API_KEY':gemini,'GROQ_API_KEY':groq},secrets,os.environ,providers)
+        keys,hosted=resolve_credentials(pasted,secrets,environment,providers,environment_is_hosted=not allow_existing)
         if mock_upload:
             keys,hosted={},False
             st.info('Mock upload run. All stages use test responses with fake scores.')
         if hosted:
-            calls=min(14,calls)
-            st.sidebar.caption('Hosted-key limits: 20 episodes and 14 API calls per run.')
+            calls=min(hosted_cap,calls)
+            st.sidebar.caption(f'Hosted-key limits: 20 episodes and {hosted_cap} API calls per attempt.')
+        if cp == 'groq':
+            batch = 1
+            st.sidebar.caption('Groq candidate batches contain one episode.')
         if uploads:
             try:
                 files=unpack_uploads([(file.name,file.getvalue()) for file in uploads])
-                signature=upload_fingerprint(files)
-                if st.session_state.get('upload_signature')!=signature:
-                    if st.session_state.get('workspace'):
-                        clear_workspace(st.session_state['workspace'])
+                models = {stage: step_model_config(config, stage) for stage in ('bible','trailers','editor')
+                          if stage == 'bible' or config.get(stage,{}).get('enabled')}
+                models.update(candidates=(cp,cm),judge=(jp,jm))
+                if mock_upload:
+                    models = {stage: ('mock','mock') for stage in models}
+                fingerprint = upload_run_fingerprint(files, models, selector, PROJECT_ROOT/'src/prompts')
+                generations = st.session_state.setdefault('run_generations',{})
+                generation = generations.get(fingerprint,0)
+                if not st.session_state.get('workspace'):
                     st.session_state['workspace']=new_workspace()
-                    st.session_state['upload_signature']=signature
-                    st.session_state['decisions']={}
-                    st.session_state.pop('estimate',None)
-                root=Path(st.session_state['workspace'].name)/('mock' if mock_upload else 'live')
+                root=upload_run_root(st.session_state['workspace'],fingerprint,generation)
+                upload_key = root.name
                 input_dir=write_uploads(root,files)
                 active_config=upload_config(config,root,keys,mock_upload)
                 preview=parse_inputs(input_dir,root/'parsed',dry_run=True)
                 if hosted and len(preview)>20:
-                    raise ValueError('Hosted runs are capped at 20 episodes / 14 calls. Paste your own API keys or use the CLI for a full show.')
+                    raise ValueError(f'Hosted runs are capped at 20 episodes / {hosted_cap} calls. Paste your own API keys or use the CLI for a full show.')
                 bundle=load_bundle(root/'parsed',root/'outputs',upload_tag)
                 bundle['episodes']=preview
+                run_info = st.session_state.setdefault('upload_runs',{}).get(upload_key)
                 ready=True
             except (OSError,ValueError) as error:
-                st.error(redact(error,keys))
+                message = redact(error,keys) if isinstance(error,ValueError) else 'Could not read the uploaded episodes.'
+                st.error(message)
         else:
             st.info('Upload your episode TXT files or a ZIP input pack to begin.')
     if existing:
@@ -347,15 +384,14 @@ def main():
             st.error(st.session_state['results_error'])
         else:
             st.info('Upload a results ZIP to browse a saved run.')
-    scope=f"{mode}:{bundle['tag']}:{results_digest}"
+    scope=f"{mode}:{bundle['tag']}:{results_digest or upload_key}"
     if st.session_state.get('decision_scope') != scope:
         st.session_state['decisions']={}
         st.session_state['decision_scope']=scope
-        st.session_state.pop('run_message', None)
     bundle['decision_scope']=scope
     overrides={'candidate_provider':cp,'candidate_model':cm,'judge_provider':jp,'judge_model':jm,
-               'batch_size':int(batch),'max_api_calls':int(calls),'episodes':selector,'hosted_keys':hosted}
-    plan_signature=hashlib.sha256(json.dumps([st.session_state.get('upload_signature'),overrides],sort_keys=True).encode()).hexdigest()
+               'batch_size':int(batch),'max_api_calls':int(calls),'episodes':selector,'hosted_keys':hosted,'interactive':True}
+    plan_signature=hashlib.sha256(json.dumps([upload_key,overrides],sort_keys=True).encode()).hexdigest()
     if estimate_clicked:
         if mode=='Demo':
             st.session_state['estimate']={'bible':{'requests':0,'tokens':0},'candidate_requests':0,'candidate_tokens':0,'judge_requests':0,'judge_tokens':0}
@@ -365,7 +401,10 @@ def main():
                 st.session_state['estimate']=run_pipeline(active_config,input_dir,upload_tag,overrides|{'dry_run':True})
                 st.session_state['plan_signature']=plan_signature
             except Exception as error:
-                st.error(redact(error,keys))
+                st.error('Could not estimate this upload. Check the episode selection and model settings.')
+    if run_info and bundle['ranked']:
+        st.info(f"Results from: candidates {cp}/{cm}, judge {jp}/{jm} · "
+                f"run started {run_info['started']} · resumed {'yes' if run_info['resumed'] else 'no'}")
     default=st.query_params.get('view','Run')
     tabs=st.tabs(TABS,default=default if default in TABS else 'Run')
     with tabs[0]:
@@ -387,43 +426,56 @@ def main():
         if estimate:
             show_estimate(estimate)
         elif not read_only:
-            st.caption('Estimate cost in the sidebar before starting a live run. Demo results are already prepared.')
-        if st.button('Find promos',type='primary',disabled=read_only or not ready or (mode!='Demo' and estimate is None),width='stretch'):
+            st.caption('Use Estimate cost in the sidebar to preview a live run. Demo results are already prepared.')
+        run_buttons = st.columns(2) if mode == 'Run on my files' else (st,)
+        find = run_buttons[0].button('Find promos',type='primary',disabled=read_only or not ready,width='stretch')
+        if mode == 'Run on my files' and run_buttons[1].button('Start fresh run', disabled=not ready, width='stretch'):
+            generations[fingerprint] = generation + 1
+            st.session_state['launch_fresh'] = True
+            st.rerun()
+        launch_requested = (mode == 'Run on my files' and ready and
+                            (st.session_state.pop('retry_with_groq', False) or st.session_state.pop('launch_fresh', False)))
+        if find or launch_requested:
             if mode=='Demo':
                 st.success('Demo ready: 11 precomputed promos. Open Top promos to review them.')
                 for stage in STAGES:
                     st.status(stage.title()+' · precomputed',state='complete')
             else:
-                statuses={}
+                progress_box = st.empty()
                 def progress(event):
-                    stage=event['stage']
-                    if stage not in statuses:
-                        statuses[stage]=st.status(stage.title(),expanded=True)
-                    status=statuses[stage]
-                    if event['state']=='complete':
-                        status.update(label=stage.title()+' complete',state='complete',expanded=False)
-                    elif event['state']=='stopped':
-                        status.update(label=stage.title()+' stopped · progress saved',state='error')
-                    elif event.get('episode'):
-                        status.write(f"Episode {event['episode']} · {event.get('done','')} / {event.get('total','')}")
+                    stage = event['stage'].title()
+                    if event['state'] == 'waiting':
+                        progress_box.info(f"Waiting for {event['provider']} rate limit… {int(event['seconds'] + .999)}s")
+                    elif event['state'] == 'running':
+                        progress_box.info(f'{stage} running…')
+                    elif event['state'] == 'progress' and event.get('episode'):
+                        progress_box.info(f"{stage} · episode {event['episode']} · {event.get('done','')} / {event.get('total','')}")
+                runs = st.session_state['upload_runs']
+                had_progress = bool(run_info and run_info.get('had_progress'))
+                info = {'started': run_info['started'] if had_progress else datetime.now().astimezone().strftime('%Y-%m-%d %H:%M %Z'),
+                        'resumed': had_progress, 'had_progress': had_progress}
                 try:
                     result=run_pipeline(active_config,input_dir,upload_tag,overrides,progress)
-                    if result.get('stopped'):
-                        stats=result.get('stats',result.get('judge_stats',{}))
-                        message='Daily quota reached — progress saved, resume later.' if stats.get('stopped_daily_quota') or stats.get('stopped')=='LLMQuotaError' else 'Run stopped — progress saved. Review the call budget or connection, then resume.'
-                        st.session_state['run_message']=message
-                    else:
-                        st.session_state['run_message']='Promo shortlist ready.'
-                    st.rerun()
-                except Exception as error:
-                    for status in statuses.values():
-                        status.update(label='Run stopped · progress saved',state='error')
-                    message=redact(error,keys)
-                    if 'daily' in message.lower() and 'quota' in message.lower():
-                        message='Daily quota reached — progress saved, resume later.'
-                    st.error(message)
-        if mode=='Run on my files' and st.session_state.get('run_message'):
-            st.info(st.session_state['run_message'])
+                    info['failure'] = result.get('failure')
+                    info['had_progress'] = had_progress or not info['failure'] or info['failure']['kind'] != 'Missing API key'
+                    info['complete'] = not result.get('stopped')
+                except (ValueError, OSError):
+                    info['failure'] = dict(stage='input',provider=cp,model=cm,kind='Input error',
+                                           message='The uploaded episodes or episode selection could not be processed.',
+                                           done=[],pending=[ep.number for ep in bundle['episodes']],calls=0,retries=0,
+                                           next_step='Check the episode selection and uploaded TXT files, then try again.')
+                runs[upload_key] = info
+                st.rerun()
+        if run_info and run_info.get('failure'):
+            failure = run_info['failure']
+            show_run_failure(failure)
+            if failure['stage'] == 'candidates' and failure['provider'] not in ('groq','mock'):
+                def retry_groq():
+                    st.session_state[f'candidates_provider_{epoch}'] = 'groq'
+                    st.session_state['retry_with_groq'] = True
+                st.button('Retry with Groq',on_click=retry_groq)
+        elif run_info and run_info.get('complete'):
+            st.success('Promo shortlist ready.')
         if bundle['ranked'] or bundle.get('trailers'):
             show_downloads(bundle,st.session_state['decisions'],'run')
         st.markdown('**The editorial flow**  ·  Parse → Context → Find → Validate → Judge → Rank')

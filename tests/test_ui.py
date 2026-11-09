@@ -111,7 +111,7 @@ def test_credential_resolution_includes_editorial_stage_providers(monkeypatch):
     from src.ui import appview
     requested=[]
     monkeypatch.setattr(appview,'model_controls',lambda *args:('groq','mock'))
-    def resolve(pasted,secrets,environ,providers):
+    def resolve(pasted,secrets,environ,providers,**kwargs):
         requested.append(providers)
         return {},False
     monkeypatch.setattr(appview,'resolve_credentials',resolve)
@@ -236,7 +236,7 @@ def test_shared_pipeline_progress_and_hosted_call_cap(tmp_path,monkeypatch):
     monkeypatch.setattr(judge,'get_llm',lambda *a:reviewer)
     events=[]
     result=run_pipeline(config,source,'test',{'hosted_keys':True,'max_api_calls':100},events.append)
-    assert result['candidate_stats']['api_budget_limit']==14
+    assert result['candidate_stats']['api_budget_limit']==30
     stages=[event['stage'] for event in events if event['state']=='running']
     assert stages==['parse','bible','candidates','validate','judge','rank']
     assert any(event.get('episode')==99 and event['stage']=='judge' for event in events)

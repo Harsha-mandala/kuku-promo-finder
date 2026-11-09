@@ -7,6 +7,9 @@ import tempfile
 import zipfile
 from pathlib import Path, PurePosixPath
 
+from ..editorial_io import digest
+from ..run_status import KEY_NAMES
+
 
 def new_workspace():
     return tempfile.TemporaryDirectory(prefix='kuku_promo_ui_')
@@ -72,12 +75,11 @@ def write_uploads(root, files):
     return target
 
 
-def resolve_credentials(pasted, secrets, environ, providers):
+def resolve_credentials(pasted, secrets, environ, providers, *, environment_is_hosted=False):
     keys={}
     hosted=False
-    names={'gemini':'GEMINI_API_KEY','groq':'GROQ_API_KEY','openai':'OPENAI_API_KEY'}
     for provider in providers:
-        name=names.get(provider)
+        name=KEY_NAMES.get(provider)
         if not name:
             continue
         if pasted.get(name):
@@ -87,4 +89,15 @@ def resolve_credentials(pasted, secrets, environ, providers):
             hosted=True
         elif environ.get(name):
             keys[name]=environ[name]
+            hosted = hosted or environment_is_hosted
     return keys,hosted
+
+
+def upload_run_fingerprint(files, models, selector, prompts):
+    versions = [(path.name, hashlib.sha256(path.read_bytes()).hexdigest())
+                for path in sorted(Path(prompts).glob('*.md'))]
+    return digest([upload_fingerprint(files), models, selector, versions])
+
+
+def upload_run_root(workspace, fingerprint, generation=0):
+    return Path(workspace.name) / f'{fingerprint}-{generation}'

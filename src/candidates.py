@@ -377,6 +377,7 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
     if batch_size < 1:
         raise ValueError("batch_size must be positive")
     provider, model = step_model_config(config, "candidates")
+    strict = config.get("_interactive_run", False)
     client = client if client is not None else get_llm(config, provider, model)
     client.call_budget = budget if budget is not None else CallBudget(max_api_calls if max_api_calls is not None else config.get("llm", {}).get("max_api_calls_per_run", 14))
     if client.provider_name == "gemini":
@@ -454,6 +455,8 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
             try:
                 bible = build_story_bible(episodes, bible_client, output, alias_hints)
             except (LLMBudgetError, LLMNetworkError) as error:
+                if strict:
+                    raise
                 stopped_budget = isinstance(error, LLMBudgetError)
                 stopped_network = isinstance(error, LLMNetworkError)
                 not_attempted = [ep.number for ep in pending]
@@ -467,6 +470,8 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
     while plans:
         plan = plans.pop(0)
         if plan.oversized:
+            if strict:
+                raise LLMRequestError("Episode exceeds the request-size limit.")
             log_failure(plan.episodes[0].number, f"Request-size guard: {plan.estimated_tokens} estimated tokens exceeds {limit}; episode was not sent")
             continue
         print(f"Batch {[ep.number for ep in plan.episodes]} | estimated_input_tokens={plan.estimated_tokens}", flush=True)
@@ -484,24 +489,32 @@ def run_candidates(config: dict, selector: str, client: LLMClient | None = None,
                 except (LLMQuotaError, LLMBudgetError, LLMNetworkError):
                     raise
                 except (LLMRequestError, LLMOutputError, ValueError, OSError) as error:
+                    if strict:
+                        raise
                     log_failure(number, error)
         except LLMBatchSplitError as error:
             print(f"Splitting failed five-episode batch into 3 + 2: {error}", flush=True)
             plans[0:0] = plan_batches(plan.episodes, episodes, bible, 3, max_candidates, limit)
             continue
         except (LLMBudgetError, LLMNetworkError) as error:
+            if strict:
+                raise
             stopped_budget = isinstance(error, LLMBudgetError)
             stopped_network = isinstance(error, LLMNetworkError)
             not_attempted = [value for value in selected if value not in successes and value not in failures]
             print(str(error), flush=True)
             break
         except LLMQuotaError as error:
+            if strict:
+                raise
             number = next((ep.number for ep in plan.episodes if ep.number not in successes and ep.number not in failures), plan.episodes[0].number)
             log_failure(number, error)
             not_attempted = [value for value in selected if value not in successes and value not in failures]
             stopped_quota = True
             break
         except (LLMRequestError, LLMOutputError, ValueError, OSError) as error:
+            if strict:
+                raise
             for episode in plan.episodes:
                 if episode.number not in successes and episode.number not in failures:
                     log_failure(episode.number, error)

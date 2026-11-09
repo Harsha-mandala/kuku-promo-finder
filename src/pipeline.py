@@ -17,6 +17,7 @@ from .llm import CallBudget, LLMRequestError, LLMOutputError, LLMBudgetError, LL
 from .models import Episode, StoryBible
 from .parser import parse_file, episode_summary
 from .rank import write_ranking
+from .run_status import KEY_NAMES, describe_failure
 from .validate import ValidatedPromo, run_validation, validate_candidate, dedupe_promos
 from .clips import clip_span
 from .cliprender import render_judge_clip
@@ -194,9 +195,15 @@ def run_pipeline(config, input_dir, tag, overrides=None, progress_cb=None, *, se
     force = overrides.get('force', force)
     no_trailers = overrides.get('no_trailers',no_trailers)
     no_editor = overrides.get('no_editor',no_editor)
+    strict = overrides.get('interactive', False)
+    config['_interactive_run'] = strict
+    active_stage = 'parse'
     caller_cb=progress_cb
     def progress_cb(event):
-        if not dry_run:
+        nonlocal active_stage
+        if event['state']=='running':
+            active_stage = event['stage']
+        if not dry_run and event['state'] != 'waiting':
             event_dir=Path(config.get('output_dir','outputs'))
             event_dir.mkdir(parents=True,exist_ok=True)
             with (event_dir/f'pipeline_{tag}_events.jsonl').open('a',encoding='utf-8') as stream:
@@ -223,10 +230,13 @@ def run_pipeline(config, input_dir, tag, overrides=None, progress_cb=None, *, se
     if overrides.get('hosted_keys'):
         if len(episodes)>20:
             raise ValueError('Hosted keys allow at most 20 episodes per run.')
-        config.setdefault('llm', {})['max_api_calls_per_run'] = min(14, config.get('llm', {}).get('max_api_calls_per_run',14))
+        cap = config.get('hosted', {}).get('max_api_calls', 30)
+        config.setdefault('llm', {})['max_api_calls_per_run'] = min(cap, config.get('llm', {}).get('max_api_calls_per_run',cap))
         config['llm'].pop('provider_budgets',None)
     numbers = parse_episode_selector(selector, [ep.number for ep in episodes])
     selected = [ep for ep in episodes if ep.number in numbers]
+    if strict and step_model_config(config, 'candidates')[0] == 'groq':
+        batch_size = 1
     forced = set(parse_episode_selector(force_episodes,[ep.number for ep in episodes])) if force_episodes else set()
     forced &= set(numbers)
     if dry_run:
@@ -239,17 +249,61 @@ def run_pipeline(config, input_dir, tag, overrides=None, progress_cb=None, *, se
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         manifest = {}
-    budget = CallBudget(config.get("llm", {}).get("max_api_calls_per_run", 14))
+    budget = CallBudget(config.get("llm", {}).get("max_api_calls_per_run", 14),
+                        exempt_minute_limits=bool(strict and overrides.get('hosted_keys')),
+                        wait_limit=config.get('hosted', {}).get('rate_wait_seconds', 180) if strict else None,
+                        progress=lambda provider, seconds: emit(active_stage, 'waiting', provider=provider, seconds=seconds))
     provider_budgets = {name:CallBudget(limit) for name,limit in config.get('llm',{}).get('provider_budgets',{}).items()}
     cp,_ = step_model_config(config,'candidates')
     jp,_ = step_model_config(config,'judge')
-    stats = run_candidates(config, selector, force=force, batch_size=batch_size, tag=tag, budget=provider_budgets.get(cp,budget), active_episodes=episodes, force_bible=force, progress_cb=progress_cb, provider_budgets=provider_budgets, force_episodes=forced)
+    source = output / f"candidates_{tag}"
+    def stop(error=None, *, stage=None, missing_key=None):
+        stage = stage or active_stage
+        provider, model = step_model_config(config, 'judge' if stage == 'trailer judge' else stage)
+        provider = getattr(error, 'provider', None) or provider
+        model = getattr(error, 'model', None) or model
+        if missing_key:
+            kind, message, next_step = ("Missing API key", f"{missing_key} is missing.",
+                                        "Paste a key for this provider in API keys, then click Find promos.")
+        else:
+            kind, message, next_step = describe_failure(error)
+        if stage == 'judge':
+            from .judge import load_promos
+            eligible, _ = cap_promos([p for p in load_promos(output / f"validated_{tag}", set(numbers))
+                                      if p.status != 'rejected'])
+            scored_path = output / f"judged_{tag}/score_inputs.json"
+            scored = json.loads(scored_path.read_text(encoding='utf-8')) if scored_path.exists() else {}
+            pending = {p.episode for p in eligible if p.id not in scored}
+        else:
+            pending = {ep.number for ep in selected if load_saved_candidates(
+                source / f'episode_{ep.number:03d}.json', ep, config.get('promo', {}).get('candidates_per_episode', 5)) is None}
+        failure = dict(stage=stage, provider=provider, model=model, kind=kind, message=message, next_step=next_step,
+                       done=sorted(set(numbers)-pending), pending=sorted(pending), calls=budget.used, retries=budget.retries)
+        emit(stage,'stopped',reason=kind)
+        return {'stopped':stage, 'failure':failure}
+    if strict:
+        for stage in ('bible','candidates','judge','trailers','editor'):
+            if stage in ('trailers','editor') and (not config.get(stage,{}).get('enabled') or
+                                                   (no_trailers if stage == 'trailers' else no_editor)):
+                continue
+            provider, _ = step_model_config(config, stage)
+            key_name = KEY_NAMES.get(provider)
+            if key_name and not config.get('_api_keys',{}).get(key_name):
+                return stop(stage=stage, missing_key=key_name)
+    active_stage = 'candidates'
+    try:
+        stats = run_candidates(config, selector, force=force, batch_size=batch_size, tag=tag, budget=provider_budgets.get(cp,budget), active_episodes=episodes, force_bible=force, progress_cb=progress_cb, provider_budgets=provider_budgets, force_episodes=forced)
+    except (LLMRequestError, LLMOutputError, ValueError, OSError) as error:
+        if not strict:
+            raise
+        return stop(error)
     candidate_budget_stop=stats['stopped_api_budget']
     if stats["stopped_daily_quota"] or stats["stopped_network"] or (candidate_budget_stop and (not provider_budgets or not stats['episodes_ok'])):
         emit('candidates','stopped',daily_quota=stats['stopped_daily_quota'],budget=stats['stopped_api_budget'],network=stats['stopped_network'])
         return {"stopped": "candidates", "stats": stats}
-    source = output / f"candidates_{tag}"
     active_sources = [source / f"episode_{ep.number:03d}.json" for ep in selected if (source / f"episode_{ep.number:03d}.json").exists()]
+    if not active_sources or (strict and len(active_sources) != len(selected)):
+        return stop(stage='candidates')
     inputs = active_sources + [parsed / f"episode_{ep.number:03d}.json" for ep in episodes]
     validation_key = fingerprint(inputs + [Path(__file__).parent / "validate.py"])
     targets = [output / f"validated_{tag}" / p.name for p in active_sources]
@@ -262,7 +316,14 @@ def run_pipeline(config, input_dir, tag, overrides=None, progress_cb=None, *, se
         print("VALIDATE: SKIP unchanged inputs")
     emit('validate','complete')
     emit('judge','running')
-    judged = run_judge(config, tag, force=force, budget=provider_budgets.get(jp,budget), episode_numbers=set(numbers), progress_cb=progress_cb)
+    try:
+        judged = run_judge(config, tag, force=force, budget=provider_budgets.get(jp,budget), episode_numbers=set(numbers), progress_cb=progress_cb)
+    except (LLMRequestError, LLMOutputError, ValueError, OSError) as error:
+        if not strict:
+            raise
+        return stop(error)
+    if strict and judged['pending']:
+        return stop(stage='judge')
     emit('judge','stopped' if judged['pending'] else 'complete',pending=len(judged['pending']),reason=judged['stopped'])
     rank_inputs = targets + list((output / f"judged_{tag}").glob("scores.json")) + [Path(__file__).parent / "rank.py"]
     rank_key = fingerprint(rank_inputs) + json.dumps([config.get("rank", {}), numbers], sort_keys=True)
@@ -291,6 +352,8 @@ def run_pipeline(config, input_dir, tag, overrides=None, progress_cb=None, *, se
                 extras[stage] = runner(config,tag,**options)
                 emit(stage,'complete')
             except (LLMBudgetError,LLMQuotaError,LLMNetworkError,LLMRequestError,LLMOutputError) as error:
+                if strict:
+                    return stop(error, stage=getattr(error, 'stage', stage))
                 emit(stage,'stopped',reason=str(error))
                 write_safety_review(config, tag)
                 return {'candidate_stats':stats,'judge_stats':judged,'editorial':extras,'stopped':stage,'error':str(error),

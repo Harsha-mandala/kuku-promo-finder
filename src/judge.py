@@ -263,11 +263,15 @@ def run_judge(config, tag, *, client=None, provider=None, model=None, batch_size
                 for promo in plan['promos']:
                     progress_cb({'stage':'judge','state':'progress','episode':promo.episode,'done':len(valid),'total':len(promos)})
         except (LLMQuotaError, LLMBudgetError, LLMNetworkError) as error:
+            if config.get("_interactive_run"):
+                raise
             stats["stopped"] = type(error).__name__
             errors.append(str(error))
             print(str(error), flush=True)
             break
         except (LLMRequestError, LLMOutputError) as error:
+            if config.get("_interactive_run"):
+                raise
             errors.append(str(error))
     save()
     if client:

@@ -1,6 +1,9 @@
 data_dir: data
 parsed_dir: parsed
 output_dir: outputs
+hosted:
+  max_api_calls: 30
+  rate_wait_seconds: 180
 models:
   candidates: {provider: gemini, model: gemini-2.5-flash, thinking_budget: 1024}
   trailers: {provider: gemini, model: gemini-2.5-flash, thinking_budget: 1024}
@@ -22,7 +25,7 @@ llm:
   providers:
     gemini: {tokens_per_minute: null, timeout_seconds: 180}
     openai: {base_url: null, api_key_env: OPENAI_API_KEY}
-    groq: {base_url: "https://api.groq.com/openai/v1", api_key_env: GROQ_API_KEY, reasoning_effort: low, max_completion_tokens: 2048, max_request_tokens: 6000}
+    groq: {base_url: "https://api.groq.com/openai/v1", api_key_env: GROQ_API_KEY, reasoning_effort: low, max_completion_tokens: 2048, max_request_tokens: 6000, tokens_per_minute: 8000}
     ollama: {base_url: "http://localhost:11434/v1", api_key_env: null}
 promo:
   min_seconds: 20

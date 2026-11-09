@@ -10,7 +10,7 @@ from .clips import clip_span
 from .context import load_episodes
 from .editorial_io import digest, read, stage_client, write, write_csv, single_source_key
 from .judge import JudgeScore
-from .llm import estimate_json_tokens, request_token_limit, step_model_config
+from .llm import LLMOutputError, LLMRequestError, estimate_json_tokens, request_token_limit, step_model_config
 from .models import Trailer, TrailerBatch, TrailerSegment
 from .rank import rank_promos
 from .timeutils import format_timestamp
@@ -329,8 +329,12 @@ def run_trailers(config,tag,*,budget=None,judge_budget=None,client=None,judge_cl
             def check_scores(answer):
                 ids = [s.promo_id for s in answer.root]
                 return [] if len(ids)==len(expected) and set(ids)==expected else ["[invalid_json] Return every trailer ID exactly once"]
-            new_scores = judge_client.generate_json(judge_system,user,TrailerJudgeBatch,f"judge_trailers_{tag}",temperature=0,
-                                                   extra_validator=check_scores,max_repairs=1).root
+            try:
+                new_scores = judge_client.generate_json(judge_system,user,TrailerJudgeBatch,f"judge_trailers_{tag}",temperature=0,
+                                                       extra_validator=check_scores,max_repairs=1).root
+            except (LLMRequestError, LLMOutputError) as error:
+                error.stage = 'trailer judge'
+                raise
             for score in new_scores:
                 trailer = next(t for t in eligible if t.id == score.promo_id)
                 line_ids = {line.id for s in trailer.segments for shot in episodes[s.episode].shots

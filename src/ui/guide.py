@@ -66,7 +66,7 @@ def show_guide(config, expanded=False):
 2. Choose providers and models. Get Gemini keys in Google AI Studio and Groq keys in the Groq Console. Paste them into the password fields. Pasted keys are held in the session and never saved to disk. Mock uses fake scores without keys.
 3. Set episode scope, batch size and maximum calls, then select **Estimate cost**. The token estimate covers inputs. Output tokens and retry costs depend on responses.
 4. Select **Find promos**. If a budget, quota or connection stops a run, keep the same upload and session, adjust the budget or wait for the quota, estimate again and resume. Saved work is reused when inputs match.
-5. Hosted runs are capped at 20 episodes / 14 calls. Paste your own API keys or use the CLI for a full show.''')
+5. Hosted runs allow up to 20 episodes and 30 budgeted calls per attempt by default. A per-minute rate-limit response does not use a hosted call. The app waits up to about three minutes, then saves progress so you can resume. Use your own keys for all active stages or run the CLI for a full show.''')
         st.code("$env:PYTHONIOENCODING = 'utf-8'\n.\\.venv\\Scripts\\python.exe run.py --input data --tag my_show --episodes all --batch-size 5 --max-calls-gemini 16 --max-calls-groq 60", language='powershell')
         st.caption('Add --dry-run to preview the CLI plan. Reuse the same tag to resume, or scope a deliberate refresh with --force-episodes.')
 
@@ -95,5 +95,11 @@ def show_guide(config, expanded=False):
 **Why is a clip marked caution?** Read the judge’s reason and citation, then check the footage before approving.
 
 **Do I need a key?** Demo, mock and saved-run browsing work without keys. Live upload generation needs keys for its configured providers.
+
+**Why do I see the same results after switching model?** Results resume only when the files, selected stages and models, and prompt versions match a saved run. A different model opens a separate run. Use **Start fresh run** for a clean copy with the same settings.
+
+**Which providers work on the hosted app?** Gemini, Groq and OpenAI work with valid keys. The provider list marks missing keys. Ollama is local-only. Groq candidates run one episode at a time.
+
+**Are my API keys stored?** Pasted keys stay in this browser session’s app state. They override hosted keys and are never written to run files or logs. **Clear session** removes them. Hosted limits lift only when every active provider that needs a key uses your own key.
 
 **How do I get timestamps into my editor?** Copy an individual timecode range from its card or download the editor-ready CSV for the whole posting queue.''')

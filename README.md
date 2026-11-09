@@ -47,7 +47,7 @@ Uploads, parsed data, raw logs, cache and results live in a private per-session
 temporary directory. Clear session deletes it and clears editor decisions/keys.
 Do not treat browser sessions as durable storage; download results before clearing.
 When an active key comes from Streamlit secrets, the shared pipeline enforces
-20 input episodes and 14 provider calls per run. Supplying all necessary keys
+20 input episodes and 30 budgeted provider calls per attempt by default. Supplying all necessary keys
 allows configured limits. No upload is sent to an API until Find promos is clicked.
 
 ## Deploy on Streamlit Community Cloud
